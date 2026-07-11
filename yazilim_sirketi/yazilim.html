@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tuna Web Tasarım | İş Akışının Geleceği</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Load Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-error-container": "#ffdad6",
+                "tertiary-container": "#d87802",
+                "primary-container": "#528dff",
+                "on-tertiary": "#4d2700",
+                "surface": "#11131a",
+                "tertiary-fixed-dim": "#ffb77b",
+                "inverse-on-surface": "#2e3038",
+                "surface-container-low": "#191b22",
+                "surface-tint": "#afc6ff",
+                "on-secondary-fixed-variant": "#45464e",
+                "surface-container-high": "#272a31",
+                "inverse-primary": "#0059c6",
+                "surface-bright": "#373941",
+                "glass-border": "rgba(255, 255, 255, 0.1)",
+                "outline-variant": "#424753",
+                "surface-container-lowest": "#0b0e15",
+                "on-background": "#e1e2ec",
+                "secondary-fixed": "#e2e2eb",
+                "primary-fixed-dim": "#afc6ff",
+                "secondary-container": "#45464e",
+                "glass-bg": "rgba(255, 255, 255, 0.03)",
+                "on-secondary-container": "#b4b4bd",
+                "outline": "#8c909f",
+                "on-secondary": "#2e3037",
+                "on-error": "#690005",
+                "tertiary": "#ffb77b",
+                "inverse-surface": "#e1e2ec",
+                "on-primary-container": "#00275f",
+                "surface-dim": "#11131a",
+                "background": "#0b0b0f",
+                "secondary-fixed-dim": "#c6c6cf",
+                "surface-container-highest": "#32353c",
+                "on-tertiary-fixed": "#2e1500",
+                "on-surface-variant": "#c2c6d6",
+                "surface-variant": "#32353c",
+                "on-tertiary-container": "#432100",
+                "on-primary": "#002d6c",
+                "tertiary-fixed": "#ffdcc2",
+                "surface-container": "#1d1f27",
+                "error-container": "#93000a",
+                "on-surface": "#e1e2ec",
+                "on-primary-fixed": "#001a43",
+                "secondary": "#c6c6cf",
+                "primary-fixed": "#d9e2ff",
+                "primary": "#afc6ff",
+                "on-tertiary-fixed-variant": "#6d3a00",
+                "on-secondary-fixed": "#1a1b22",
+                "accent-glow": "rgba(79, 140, 255, 0.3)",
+                "on-primary-fixed-variant": "#004398",
+                "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "container-max": "1200px",
+                "gutter": "24px",
+                "base": "8px",
+                "section-gap": "120px",
+                "margin-desktop": "64px",
+                "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                "display-lg": ["Inter"],
+                "display-lg-mobile": ["Inter"],
+                "headline-xl": ["Inter"],
+                "body-md": ["Inter"],
+                "label-sm": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-md": ["Inter"],
+                "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      body {
+        background-color: #0b0b0f;
+        color: #e1e2ec;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .glass-card:hover {
+        background: rgba(255, 255, 255, 0.07);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(79, 140, 255, 0.1);
+        border-color: rgba(79, 140, 255, 0.4);
+      }
+      .glow-accent {
+        filter: blur(120px);
+        position: absolute;
+        z-index: -1;
+        opacity: 0.2;
+      }
+      .kinetic-text {
+        background: linear-gradient(to bottom right, #ffffff 30%, #afc6ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      .animate-float { animation: float 6s ease-in-out infinite; }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
+  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+
+    <!-- Sol taraf -->
+    <div class="flex items-center gap-6">
+
+
+      <a class="font-display-lg text-headline-md font-bold tracking-tighter text-primary" href="../index.html">
+        Tuna Web Tasarım
+      </a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1 lang-content" data-en="Home" data-tr="Ana Sayfa" href="index.html">Ana Sayfa</a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors lang-content" data-en="About" data-tr="Hakkımızda" href="#About">Hakkımızda</a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors lang-content" data-en="Services" data-tr="Hizmetler" href="#Services">Hizmetler</a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors lang-content" data-en="Gallery" data-tr="Galeri" href="#Gallery">Galeri</a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors lang-content" data-en="FAQ" data-tr="SSS" href="#FAQ">SSS</a>
+    </div>
+
+    <!-- Sağ taraf -->
+    <div class="flex items-center gap-2 shrink-0">
+      <button class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-all" id="lang-switcher">
+        TR / EN
+      </button>
+
+      <button class="bg-primary-container text-on-primary-container px-3 py-2 rounded-full font-label-md font-bold hover:scale-105 active:scale-95 transition-all lang-content" data-en="Contact" data-tr="İletişim">
+        İletişim
+      </button>
+    </div>
+
+  </div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="Home">
+<div class="glow-accent bg-primary-container w-[600px] h-[600px] -top-48 -left-48 rounded-full"></div>
+<div class="glow-accent bg-tertiary-container w-[400px] h-[400px] bottom-0 right-0 rounded-full"></div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full grid md:grid-cols-2 gap-gutter items-center relative z-10">
+<div class="space-y-base">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest lang-content" data-en="Next-Gen SaaS Enterprise" data-tr="Yeni Nesil Yazılım Şirketi">Yeni Nesil Yazılım Şirketi</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg kinetic-text leading-tight mb-8 lang-content" data-en="The Future of &lt;br/&gt;Workflow" data-tr="İş Akışının &lt;br/&gt;Geleceği">İş Akışının <br/>Geleceği</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10 lang-content" data-en="Tuna Web Tasarım empowers high-tech startups and luxury brands with high-performance software solutions, blending infinite scalability with digital craftsmanship." data-tr="Tuna Web Tasarım, yüksek performanslı yazılım çözümleri ile teknoloji girişimlerini ve lüks markaları güçlendirir; sonsuz ölçeklenebilirliği dijital işçilikle harmanlar.">Tuna Web Tasarım, yüksek performanslı yazılım çözümleri ile teknoloji girişimlerini ve lüks markaları güçlendirir; sonsuz ölçeklenebilirliği dijital işçilikle harmanlar.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-on-surface text-background px-8 py-4 rounded-full font-label-md font-bold hover:bg-primary hover:text-on-primary transition-all flex items-center gap-2">
+<span class="lang-content" data-en="Explore Solutions" data-tr="Çözümleri Keşfedin">Çözümleri Keşfedin</span> <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<a class="glass-card px-8 py-4 rounded-full font-label-md font-bold hover:border-primary transition-all inline-block lang-content" data-en="Back to Portfolio" data-tr="Portfolyoya Dön" href="index.html">Portfolyoya Dön</a>
+</div>
+</div>
+<div class="hidden md:block relative">
+<div class="animate-float">
+<div class="glass-card p-4 rounded-xl relative z-20">
+<img class="rounded-lg shadow-2xl w-full aspect-video object-cover" data-alt="A futuristic web dashboard showing complex data visualizations with glowing indigo and cyan charts, high-end glassmorphism elements, set against a deep obsidian dark mode background, cinematic lighting, 8k resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKXa6wpgA4yLojGd7soypvn0DtbKMjGkzNxssCEe6quVxLQKkVeS1i3OvV-_PV6dNUMyImsNvXBIq7FaS0ZvohEGwS8t5j0jM9K2U_0Ji25FE5I6p7tbskDHS0p61GrVZi_1GV7d10hPQssOhcJCWef9ZOjpWTZkwNFRaxeMmlf9H8TmdOb7Vu73E6tg-83Gs5ZAmrhylsKWI0SOksKDeCM012K6HgXD0M04Cx7Y9ltkAc5xIAGVgMb-n1dP4aOqGFHKg8iOnZkaE"/>
+</div>
+</div>
+<!-- Decor elements -->
+<div class="absolute -top-10 -right-10 w-32 h-32 glass-card rounded-2xl flex items-center justify-center animate-pulse delay-700">
+<span class="material-symbols-outlined text-primary text-4xl">cloud_done</span>
+</div>
+<div class="absolute -bottom-10 -left-10 w-40 h-24 glass-card rounded-2xl p-4 flex flex-col justify-center animate-pulse">
+<span class="text-label-sm uppercase text-primary mb-1 lang-content" data-en="Server Health" data-tr="Sunucu Durumu">Sunucu Durumu</span>
+<span class="text-headline-md font-bold">99.9%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section (Social Proof) -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<div class="glass-card rounded-lg grid grid-cols-2 md:grid-cols-4 gap-8 p-10 text-center">
+<div>
+<div class="font-headline-xl text-primary">500+</div>
+<div class="font-label-sm uppercase text-on-surface-variant lang-content" data-en="Global Clients" data-tr="Küresel Müşteri">Küresel Müşteri</div>
+</div>
+<div>
+<div class="font-headline-xl text-primary">12M+</div>
+<div class="font-label-sm uppercase text-on-surface-variant lang-content" data-en="Active Users" data-tr="Aktif Kullanıcı">Aktif Kullanıcı</div>
+</div>
+<div>
+<div class="font-headline-xl text-primary">24/7</div>
+<div class="font-label-sm uppercase text-on-surface-variant lang-content" data-en="Tech Support" data-tr="Teknik Destek">Teknik Destek</div>
+</div>
+<div>
+<div class="font-headline-xl text-primary">0ms</div>
+<div class="font-label-sm uppercase text-on-surface-variant lang-content" data-en="Latency Goal" data-tr="Gecikme Hedefi">Gecikme Hedefi</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-gap relative" id="Services">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-20">
+<h2 class="font-headline-xl text-headline-xl mb-4 lang-content" data-en="Core Ecosystem" data-tr="Temel Ekosistem">Temel Ekosistem</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto lang-content" data-en="Precision engineering for every layer of your digital stack, from cloud infrastructure to user experience." data-tr="Bulut altyapısından kullanıcı deneyimine kadar dijital katmanınızın her parçası için hassas mühendislik.">Bulut altyapısından kullanıcı deneyimine kadar dijital katmanınızın her parçası için hassas mühendislik.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter">
+<!-- Service 1 -->
+<div class="glass-card p-10 rounded-xl group">
+<div class="w-16 h-16 rounded-lg bg-primary-container/10 flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-on-primary-container">cloud</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 lang-content" data-en="Cloud Native" data-tr="Bulut Yerli">Bulut Yerli</h3>
+<p class="font-body-md text-on-surface-variant mb-6 lang-content" data-en="Scalable infrastructure that breathes with your traffic. Built on enterprise-grade cloud architecture." data-tr="Trafiğinizle birlikte nefes alan ölçeklenebilir altyapı. Kurumsal düzeyde bulut mimarisi üzerine inşa edilmiştir.">Trafiğinizle birlikte nefes alan ölçeklenebilir altyapı. Kurumsal düzeyde bulut mimarisi üzerine inşa edilmiştir.</p>
+<ul class="space-y-3 font-label-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary scale-75">check_circle</span> <span class="lang-content" data-en="Serverless Deployment" data-tr="Sunucusuz Dağıtım">Sunucusuz Dağıtım</span></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary scale-75">check_circle</span> <span class="lang-content" data-en="Global CDN Network" data-tr="Küresel CDN Ağı">Küresel CDN Ağı</span></li>
+</ul>
+</div>
+<!-- Service 2 -->
+<div class="glass-card p-10 rounded-xl group border-primary/40 shadow-[0_0_30px_rgba(79,140,255,0.1)]">
+<div class="w-16 h-16 rounded-lg bg-tertiary-container/10 flex items-center justify-center mb-8 border border-tertiary/20 group-hover:bg-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-tertiary text-3xl group-hover:text-on-tertiary-container">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 lang-content" data-en="AI Intelligence" data-tr="Yapay Zeka">Yapay Zeka</h3>
+<p class="font-body-md text-on-surface-variant mb-6 lang-content" data-en="Predictive models and neural workflows designed to automate complexity and reveal hidden insights." data-tr="Karmaşıklığı otomatikleştirmek ve gizli içgörüleri ortaya çıkarmak için tasarlanmış tahmine dayalı modeller.">Karmaşıklığı otomatikleştirmek ve gizli içgörüleri ortaya çıkarmak için tasarlanmış tahmine dayalı modeller.</p>
+<ul class="space-y-3 font-label-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary scale-75">check_circle</span> <span class="lang-content" data-en="Natural Language Proc." data-tr="Doğal Dil İşleme">Doğal Dil İşleme</span></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary scale-75">check_circle</span> <span class="lang-content" data-en="Custom ML Models" data-tr="Özel ML Modelleri">Özel ML Modelleri</span></li>
+</ul>
+</div>
+<!-- Service 3 -->
+<div class="glass-card p-10 rounded-xl group">
+<div class="w-16 h-16 rounded-lg bg-error-container/10 flex items-center justify-center mb-8 border border-error/20 group-hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined text-error text-3xl group-hover:text-on-error-container">security</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 lang-content" data-en="Zero Trust Security" data-tr="Sıfır Güven Güvenliği">Sıfır Güven Güvenliği</h3>
+<p class="font-body-md text-on-surface-variant mb-6 lang-content" data-en="Fortress-level protection for your data. Encryption at rest, in transit, and during computation." data-tr="Verileriniz için kale düzeyinde koruma. Beklemede, aktarımda ve işlem sırasında şifreleme.">Verileriniz için kale düzeyinde koruma. Beklemede, aktarımda ve işlem sırasında şifreleme.</p>
+<ul class="space-y-3 font-label-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-error scale-75">check_circle</span> <span class="lang-content" data-en="Biometric Auth Flow" data-tr="Biyometrik Kimlik Doğrulama">Biyometrik Kimlik Doğrulama</span></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-error scale-75">check_circle</span> <span class="lang-content" data-en="Blockchain Ledgers" data-tr="Blokzincir Kayıtları">Blokzincir Kayıtları</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Feature Section -->
+<section class="py-section-gap bg-surface-container-lowest" id="About">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-2 md:row-span-2 glass-card p-10 rounded-xl flex flex-col justify-end overflow-hidden relative group">
+<div class="absolute top-0 left-0 w-full h-full opacity-20 group-hover:scale-110 transition-transform duration-700">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close-up artistic shot of advanced silicon microchip circuitry with pulsing blue energy lines, shot with macro lens, high-tech engineering aesthetic, dark obsidian background, 8k professional tech photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9-3V94uW1a2K0nqbepR3TQK4xyLvbJqFtjkp8Y-v7rULzGrfVKL1F6ruOvutrpJrOCQPy0ix5fz9WWPFaCmyVXzJP0uuYx9B-5A6gKkJbBGUwqYolir_7pFbNZPL9936nAJk9BzJk-p_tt7kpUiXd8sMs0tsxQ2yYjQidGZAks1RO1-jcWKx0QV9w5TMLKzyJpbGOUAU-Mw3_ZUg3gxASbyHZGLUPau1wQOPb0erHeZmxWbRQTFeAapMn2ZqIBiyNTwPbGfXHDPU')"></div>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-xl text-headline-xl mb-4 lang-content" data-en="Precision in Every Pixel" data-tr="Her Pikselde Hassasiyet">Her Pikselde Hassasiyet</h3>
+<p class="font-body-md text-on-surface-variant lang-content" data-en="Our design philosophy merges mathematical accuracy with artistic flair. Every interaction is calculated for maximum engagement." data-tr="Tasarım felsefemiz matematiksel doğruluk ile sanatsal yeteneği birleştirir. Her etkileşim maksimum bağlılık için hesaplanır.">Tasarım felsefemiz matematiksel doğruluk ile sanatsal yeteneği birleştirir. Her etkileşim maksimum bağlılık için hesaplanır.</p>
+</div>
+</div>
+<div class="md:col-span-2 glass-card p-10 rounded-xl flex items-center gap-8">
+<div class="flex-1">
+<h4 class="font-headline-md mb-2 lang-content" data-en="TypeScript Mastery" data-tr="TypeScript Uzmanlığı">TypeScript Uzmanlığı</h4>
+<p class="font-label-md text-on-surface-variant lang-content" data-en="Robust, type-safe development ensuring zero-downtime deployments and long-term maintainability." data-tr="Sıfır duruş süreli dağıtımlar ve uzun vadeli sürdürülebilirlik sağlayan sağlam, tip güvenli geliştirme.">Sıfır duruş süreli dağıtımlar ve uzun vadeli sürdürülebilirlik sağlayan sağlam, tip güvenli geliştirme.</p>
+</div>
+<div class="w-24 h-24 flex-shrink-0 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+<span class="text-primary font-bold text-4xl">TS</span>
+</div>
+</div>
+<div class="glass-card p-10 rounded-xl flex flex-col justify-center text-center">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-4">deployed_code</span>
+<h4 class="font-label-md uppercase tracking-widest text-on-surface lang-content" data-en="Three.js Engine" data-tr="Three.js Motoru">Three.js Motoru</h4>
+</div>
+<div class="glass-card p-10 rounded-xl flex flex-col justify-center text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">speed</span>
+<h4 class="font-label-md uppercase tracking-widest text-on-surface lang-content" data-en="99.9 Lighthouse" data-tr="99.9 Lighthouse">99.9 Lighthouse</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack / Design Process -->
+<section class="py-section-gap relative overflow-hidden">
+<div class="glow-accent bg-accent-glow w-[800px] h-[800px] -top-96 left-1/2 -translate-x-1/2 rounded-full"></div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<span class="font-label-sm text-primary uppercase tracking-widest mb-4 block lang-content" data-en="Engineered for Performance" data-tr="Performans İçin Tasarlandı">Performans İçin Tasarlandı</span>
+<h2 class="font-headline-xl text-headline-xl mb-16 lang-content" data-en="The Tech Behind the Magic" data-tr="Büyünün Arkasındaki Teknoloji">Büyünün Arkasındaki Teknoloji</h2>
+<div class="flex flex-wrap justify-center gap-12 opacity-60">
+<div class="flex flex-col items-center gap-4">
+<img alt="TypeScript" class="w-16 h-16 filter grayscale hover:grayscale-0 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYykoGthVGTapOUUyAeRCwc4HcPyFU_890Jjf_Y6ftxJsUXoPlXDdai7mIYpgr_xrfqo_WhmCj5tZnGuX82OpUUa_GXmxik8diaP7UogILlyEiPjGVHNYaAZ2b3LRhMSJ4Pmdflw7BQ9Ti_AOGOGJCf1erIpgPzu9evL_zdy7Kl2CjCRE3rIu2CuLCibbcTNWzzbqylJF8xRouug9MCccnue_o4yftqQL0SNq-p9U8Sw6CJb5ACb-xjoy_nVGSWS9fmHG6j-J_wPk"/>
+<span class="font-label-md">TypeScript</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<img alt="React" class="w-16 h-16 filter grayscale hover:grayscale-0 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF9khJaE6BthLl4K0eH79KbJV4ajpvBiriYgWqS-G7yYl0nYSZVOM4uDeSzUxDofjfdtTWFtgrDdlWgShjRv7t6vHx0iiPqnGZu9GEaceoLUVc80t56StK15Yy7G4vUnPfysJg_gM8XPu9v68c-i8n1vhCn5OclvxMF7GRxgQUfd3Ao2MbgulcxBrMn2kmdnbHJVwzxfwDzP-YqIlgUrmnWWOtoXeGLekBoa9tylnBANilXPl9rXlsnw7DWTENWAUP1xrdqA7o2Xs"/>
+<span class="font-label-md">React.js</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<img alt="Threejs" class="w-16 h-16 filter invert grayscale hover:grayscale-0 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc_BrKjzYwV_3YILCyUM-8eRzvffv-s47AbRrDYuDlj-ehWe5l3WzUIz6pWwF1_7MB7AYeAFnA3hZJbPZ3ovuEloISs-NgTdpxbTpbCZkEUeQ_oUglfQbHItc_ayire477PuC6bEecRgvkDY1LR7h5jjTH14eVSigtZmRntcugCnctvQvzm4pkwb4DepDDB0LAizyiTdKm4VasZ_Aknvy8Rz_TRT_9TKrub0pFY2lS84lQyyd0FeNiBAvmWJ3IGi8wB7ExlZGaGz4"/>
+<span class="font-label-md">Three.js</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<img alt="Tailwind" class="w-16 h-16 filter grayscale hover:grayscale-0 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCJ4sEUw71uSR5qP1hI2miBo0SdBuyNQwg26Lt3a3bH7prkYLml59MmKbsP6-zV5VRQukVoOrNGSK-dBZBbCZ6bJgdKv1wsncXFU2-5DmOxHFVH4Vd50yAaUzqbiwZ7QCEqNMUS7q3cuG34gxVYkaIOv587XIit6HaAi9qgJ7DBZj4MQq8ZMkgcUkwzMb1i7XmZATM15AR574Ck3Rb6JbJwui65KxZaGKsIMKzSiJcvnmEn_NbC1XY-s2x34YV0R8y39iacCf3olE"/>
+<span class="font-label-md">Tailwind CSS</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<img alt="AWS" class="w-16 h-16 filter invert grayscale hover:grayscale-0 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoYZ_fVjMls9vOx8JJLAcfjcwbQb_HtZLXx4jq-O7w6gkWUi7OkUv1chTpHfYc7SXnHmtBwTgd_VzP_0yQSZHvklWXhwKwtl8GcpXPjyOMqTEmW8e8ri6t07c1I7eBO-RklXbQcXXzJ_EOb9iNHmwmipiC4NS4lpHTgZFe90BqfOKc88WS8Rne5TBkJWy6OwyUO4IrwU0v2GVmsHHSC5htaozBpcPBMOEvLMjiDNBeDdAvEiBwoq-0G01h2mC2S3C2ZpAQmJu69Yc"/>
+<span class="font-label-md">AWS Stack</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-section-gap" id="Gallery">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end gap-gutter mb-20">
+<div class="max-w-xl">
+<h2 class="font-headline-xl text-headline-xl mb-4 lang-content" data-en="Built with Precision" data-tr="Hassasiyetle İnşa Edildi">Hassasiyetle İnşa Edildi</h2>
+<p class="font-body-lg text-on-surface-variant lang-content" data-en="Take a glimpse into the interfaces we've crafted for world-class enterprises." data-tr="Dünya çapındaki işletmeler için hazırladığımız arayüzlere kısa bir göz atın.">Dünya çapındaki işletmeler için hazırladığımız arayüzlere kısa bir göz atın.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-full font-label-md font-bold lang-content" data-en="View Full Portfolio" data-tr="Tüm Portfolyoyu Görüntüle">Tüm Portfolyoyu Görüntüle</button>
+</div>
+<div class="grid md:grid-cols-2 gap-gutter">
+<div class="glass-card overflow-hidden rounded-xl group">
+<div class="aspect-video relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A sophisticated dark-themed fintech dashboard featuring glowing interactive charts, asset distribution maps, and minimal UI elements in a sleek glassmorphism style, accented with neon blue and cyan, high-quality architectural composition." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDodIx8KHDlu5jP8Cb2rnL0J5V3uDreRUBiPPZKRbx8BQdd5BctjPYtOuTAYJTwqoxMwgCPWYy_mjqFXd4l_zJILH_Cff212JG8qE70-rVZsZJCgzLGkedHVxgc2Wi-UbLLsKw06QK2ZeR7kMWLZE12E8CKzgPW_NTMbPFkSr5Vfcpd1J5z4XAF_jH-gF7sFxSHLCLFgKFgOTIjPF23UBrZwlu-jNe5XoPJHBwr9oPtxmjDEDs4CTUNvlbH3VsHwsvZfvz_MJz5dm8')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+<div class="translate-y-4 group-hover:translate-y-0 transition-transform">
+<h4 class="font-headline-md text-white lang-content" data-en="Nova Fintech Platform" data-tr="Nova Fintech Platformu">Nova Fintech Platformu</h4>
+<p class="font-label-md text-white/70 lang-content" data-en="SaaS / Web App / 2024" data-tr="SaaS / Web Uygulaması / 2024">SaaS / Web Uygulaması / 2024</p>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-card overflow-hidden rounded-xl group">
+<div class="aspect-video relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="An advanced AI-powered health monitoring application UI displaying 3D biometric scans, real-time vital signs, and minimalist dark mode controls, high-end medical technology aesthetic with soft amber and blue glowing highlights." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCU3NFuXKsBPPfh0lGys-BP338IIHJZ7-A5RT4TQ5lBqPJ_3LK4GBCiWN3dADzpMiAvlJBP7egttRqjG-jCMnEpqmwx1I3RW6G1lgS6GHtAeVh26SczX7BJs4YsHKyDmv9l9Fr8sjOuVBDwuBhF22G5GTpSybOPacnHL6PsRgx2fHlpjRPfuQPGvmHd5kfVPH7Mj7gPU-w2vaOpnl902u20OYhBGOmYRdEo0_9swVmAAIpipEddaaQMCBdgJRVI0LW_U4RNWD_ybic')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+<div class="translate-y-4 group-hover:translate-y-0 transition-transform">
+<h4 class="font-headline-md text-white lang-content" data-en="Aura Health Core" data-tr="Aura Sağlık Çekirdeği">Aura Sağlık Çekirdeği</h4>
+<p class="font-label-md text-white/70 lang-content" data-en="AI / HealthTech / 2024" data-tr="AI / Sağlık Teknolojisi / 2024">AI / Sağlık Teknolojisi / 2024</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Reviews / Testimonials -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-xl text-headline-xl text-center mb-16 lang-content" data-en="Trusted by Innovators" data-tr="İnovasyon Önderleri Tarafından Güveniliyor">İnovasyon Önderleri Tarafından Güveniliyor</h2>
+<div class="grid md:grid-cols-3 gap-gutter">
+<div class="glass-card p-8 rounded-xl">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant italic mb-6 lang-content" data-en='"Tuna Web Tasarım transformed our legacy systems into a modern SaaS powerhouse in record time. Their attention to technical detail is unmatched."' data-tr='"Tuna Web Tasarım, eski sistemlerimizi rekor sürede modern bir SaaS gücüne dönüştürdü. Teknik ayrıntılara gösterdikleri özen eşsiz."'>"Tuna Web Tasarım, eski sistemlerimizi rekor sürede modern bir SaaS gücüne dönüştürdü. Teknik ayrıntılara gösterdikleri özen eşsiz."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-bold">MK</div>
+<div>
+<div class="font-label-md font-bold">Marcus Kane</div>
+<div class="font-label-sm text-on-surface-variant">CTO, Vertex Dynamics</div>
+</div>
+</div>
+</div>
+<div class="glass-card p-8 rounded-xl border-primary/20">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant italic mb-6 lang-content" data-en="&quot;The glassmorphism aesthetic combined with their rapid deployment cycle gave us a competitive edge we didn't think was possible.&quot;" data-tr='"Cam morfolojisi estetiği ve hızlı dağıtım döngüleri, bize mümkün olmadığını düşündüğümüz rekabet avantajını sağladı."'>"Cam morfolojisi estetiği ve hızlı dağıtım döngüleri, bize mümkün olmadığını düşündüğümüz rekabet avantajını sağladı."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary/20 flex items-center justify-center font-bold">SL</div>
+<div>
+<div class="font-label-md font-bold">Sarah Lansing</div>
+<div class="font-label-sm text-on-surface-variant">Head of Design, Neosys</div>
+</div>
+</div>
+</div>
+<div class="glass-card p-8 rounded-xl">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary scale-75" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant italic mb-6 lang-content" data-en='"Their cloud-native approach saved us 40% in operational costs within the first six months. Simply the best software partner."' data-tr='"Bulut tabanlı yaklaşımları ilk altı ayda operasyonel maliyetlerimizde %40 tasarruf sağladı. Tek kelimeyle en iyi yazılım ortağı."'>"Bulut tabanlı yaklaşımları ilk altı ayda operasyonel maliyetlerimizde %40 tasarruf sağladı. Tek kelimeyle en iyi yazılım ortağı."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center font-bold">DJ</div>
+<div>
+<div class="font-label-md font-bold">David Jenkins</div>
+<div class="font-label-sm text-on-surface-variant">VP Engineering, Flux Capital</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-section-gap" id="FAQ">
+<div class="max-w-[800px] mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-xl text-headline-xl text-center mb-16 lang-content" data-en="Frequently Asked Questions" data-tr="Sıkça Sorulan Sorular">Sıkça Sorulan Sorular</h2>
+<div class="space-y-4">
+<details class="glass-card rounded-xl overflow-hidden group">
+<summary class="p-6 cursor-pointer flex justify-between items-center list-none">
+<span class="font-headline-md lang-content" data-en="What industries do you specialize in?" data-tr="Hangi sektörlerde uzmanlaşıyorsunuz?">Hangi sektörlerde uzmanlaşıyorsunuz?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="p-6 pt-0 font-body-md text-on-surface-variant border-t border-glass-border lang-content" data-en="We specialize in high-growth tech startups, fintech institutions, and luxury lifestyle brands that require a blend of extreme performance and sophisticated digital aesthetics." data-tr="Yüksek performans ve sofistike dijital estetiğin birleşimini gerektiren hızlı büyüyen teknoloji girişimleri, fintech kurumları ve lüks yaşam tarzı markalarında uzmanlaşıyoruz.">
+    Yüksek performans ve sofistike dijital estetiğin birleşimini gerektiren hızlı büyüyen teknoloji girişimleri, fintech kurumları ve lüks yaşam tarzı markalarında uzmanlaşıyoruz.
+</div>
+</details>
+<details class="glass-card rounded-xl overflow-hidden group">
+<summary class="p-6 cursor-pointer flex justify-between items-center list-none">
+<span class="font-headline-md lang-content" data-en="How do you handle project security?" data-tr="Proje güvenliğini nasıl sağlıyorsunuz?">Proje güvenliğini nasıl sağlıyorsunuz?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="p-6 pt-0 font-body-md text-on-surface-variant border-t border-glass-border lang-content" data-en="Security is baked into our foundation. We use a Zero Trust architecture, end-to-end encryption for all sensitive data, and conduct regular penetration testing on every deployment." data-tr="Güvenlik temellerimize işlenmiştir. Sıfır Güven mimarisi, tüm hassas veriler için uçtan uca şifreleme kullanıyor ve her dağıtımda düzenli sızma testleri gerçekleştiriyoruz.">
+    Güvenlik temellerimize işlenmiştir. Sıfır Güven mimarisi, tüm hassas veriler için uçtan uca şifreleme kullanıyor ve her dağıtımda düzenli sızma testleri gerçekleştiriyoruz.
+</div>
+</details>
+<details class="glass-card rounded-xl overflow-hidden group">
+<summary class="p-6 cursor-pointer flex justify-between items-center list-none">
+<span class="font-headline-md lang-content" data-en="Do you provide ongoing support?" data-tr="Sürekli destek sağlıyor musunuz?">Sürekli destek sağlıyor musunuz?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="p-6 pt-0 font-body-md text-on-surface-variant border-t border-glass-border lang-content" data-en="Yes, we offer flexible maintenance packages including 24/7 monitoring, security updates, and performance tuning to ensure your software stays cutting-edge." data-tr="Evet, yazılımınızın güncel kalmasını sağlamak için 7/24 izleme, güvenlik güncellemeleri ve performans iyileştirmelerini içeren esnek bakım paketleri sunuyoruz.">
+    Evet, yazılımınızın güncel kalmasını sağlamak için 7/24 izleme, güvenlik güncellemeleri ve performans iyileştirmelerini içeren esnek bakım paketleri sunuyoruz.
+</div>
+</details>
+</div>
+</div>
+</section>
+<!-- CTA / Contact Section -->
+<section class="py-section-gap relative" id="Contact">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="glass-card rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-display-lg text-headline-xl md:text-display-lg mb-8 lang-content" data-en="Ready to Build the Future?" data-tr="Geleceği İnşa Etmeye Hazır mısınız?">Geleceği İnşa Etmeye Hazır mısınız?</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12 lang-content" data-en="Join the ranks of global leaders who choose Tuna Web Tasarım for their most ambitious software projects." data-tr="En iddialı yazılım projeleri için Tuna Web Tasarım'ı seçen küresel liderlerin arasına katılın.">En iddialı yazılım projeleri için Tuna Web Tasarım'ı seçen küresel liderlerin arasına katılın.</p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<a class="bg-primary text-on-primary px-10 py-5 rounded-full font-headline-md hover:scale-105 transition-transform flex items-center justify-center gap-2" href="mailto:hello@tunawebtasarim.com">
+<span class="lang-content" data-en="Start a Conversation" data-tr="Bir Görüşme Başlatın">Bir Görüşme Başlatın</span> <span class="material-symbols-outlined">mail</span>
+</a>
+<a class="glass-card px-10 py-5 rounded-full font-headline-md hover:border-primary transition-all flex items-center justify-center gap-2" href="#">
+<span class="lang-content" data-en="Schedule a Demo" data-tr="Demo Randevusu Alın">Demo Randevusu Alın</span> <span class="material-symbols-outlined">event</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-glass-border">
+<div class="max-w-container-max mx-auto px-margin-desktop py-section-gap flex flex-col md:flex-row justify-between items-start gap-gutter">
+<div class="space-y-6">
+<a class="font-display-lg text-headline-md font-bold text-primary" href="index.html">Tuna Web Tasarım</a>
+<p class="font-body-md text-on-surface-variant max-w-sm lang-content" data-en="Crafting digital masterpieces through code and design since 2024. Precision in every pixel." data-tr="2024'ten beri kod ve tasarım yoluyla dijital şaheserler üretiyoruz. Her pikselde hassasiyet.">2024'ten beri kod ve tasarım yoluyla dijital şaheserler üretiyoruz. Her pikselde hassasiyet.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">link</span>
+</a>
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</a>
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-16">
+<div class="space-y-4">
+<h5 class="font-label-md font-bold text-primary uppercase lang-content" data-en="Links" data-tr="Bağlantılar">Bağlantılar</h5>
+<nav class="flex flex-col gap-2">
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Behance</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Dribbble</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-md font-bold text-primary uppercase lang-content" data-en="Legal" data-tr="Yasal">Yasal</h5>
+<nav class="flex flex-col gap-2">
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors lang-content" data-en="Privacy Policy" data-tr="Gizlilik Politikası" href="#">Gizlilik Politikası</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors lang-content" data-en="Terms of Service" data-tr="Kullanım Şartları" href="#">Kullanım Şartları</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors lang-content" data-en="Cookie Policy" data-tr="Çerez Politikası" href="#">Çerez Politikası</a>
+</nav>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-glass-border flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest lang-content" data-en="© 2024 TUNA WEB TASARIM. ALL RIGHTS RESERVED." data-tr="© 2024 TUNA WEB TASARIM. TÜM HAKLARI SAKLIDIR.">© 2024 TUNA WEB TASARIM. TÜM HAKLARI SAKLIDIR.</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="font-label-sm text-on-surface-variant lang-content" data-en="All Systems Operational" data-tr="Tüm Sistemler Çalışıyor">Tüm Sistemler Çalışıyor</span>
+</div>
+</div>
+</footer>
+<script>
+        // Language Switcher Logic
+        const langSwitcher = document.getElementById('lang-switcher');
+        const langElements = document.querySelectorAll('.lang-content');
+        let currentLang = localStorage.getItem('precizion_lang') || 'tr';
+
+        function updateLanguage(lang) {
+            langElements.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+            document.documentElement.lang = lang;
+            localStorage.setItem('precizion_lang', lang);
+            currentLang = lang;
+        }
+
+        // Initialize language
+        updateLanguage(currentLang);
+
+        langSwitcher.addEventListener('click', () => {
+            const newLang = currentLang === 'tr' ? 'en' : 'tr';
+            updateLanguage(newLang);
+        });
+
+        // Micro-interactions and atmospheric effects
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.glow-accent');
+            if (glow) {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.05;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.05;
+                glow.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Sticky Header Glass Transition
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-0');
+            } else {
+                nav.classList.add('py-0');
+                nav.classList.remove('py-2');
+            }
+        });
+    </script>
+</body></html>
