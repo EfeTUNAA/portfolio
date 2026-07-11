@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tuna Web Tasarım | Hukuk Bürosu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#d87802",
+                    "primary-container": "#528dff",
+                    "on-tertiary": "#4d2700",
+                    "surface": "#11131a",
+                    "tertiary-fixed-dim": "#ffb77b",
+                    "inverse-on-surface": "#2e3038",
+                    "surface-container-low": "#191b22",
+                    "surface-tint": "#afc6ff",
+                    "on-secondary-fixed-variant": "#45464e",
+                    "surface-container-high": "#272a31",
+                    "inverse-primary": "#0059c6",
+                    "surface-bright": "#373941",
+                    "glass-border": "rgba(255, 255, 255, 0.1)",
+                    "outline-variant": "#424753",
+                    "surface-container-lowest": "#0b0e15",
+                    "on-background": "#e1e2ec",
+                    "secondary-fixed": "#e2e2eb",
+                    "primary-fixed-dim": "#afc6ff",
+                    "secondary-container": "#45464e",
+                    "glass-bg": "rgba(255, 255, 255, 0.03)",
+                    "on-secondary-container": "#b4b4bd",
+                    "outline": "#8c909f",
+                    "on-secondary": "#2e3037",
+                    "on-error": "#690005",
+                    "tertiary": "#ffb77b",
+                    "inverse-surface": "#e1e2ec",
+                    "on-primary-container": "#00275f",
+                    "surface-dim": "#11131a",
+                    "background": "#0b0b0f",
+                    "secondary-fixed-dim": "#c6c6cf",
+                    "surface-container-highest": "#32353c",
+                    "on-tertiary-fixed": "#2e1500",
+                    "on-surface-variant": "#c2c6d6",
+                    "surface-variant": "#32353c",
+                    "on-tertiary-container": "#432100",
+                    "on-primary": "#002d6c",
+                    "tertiary-fixed": "#ffdcc2",
+                    "surface-container": "#1d1f27",
+                    "error-container": "#93000a",
+                    "on-surface": "#e1e2ec",
+                    "on-primary-fixed": "#001a43",
+                    "secondary": "#c6c6cf",
+                    "primary-fixed": "#d9e2ff",
+                    "primary": "#afc6ff",
+                    "on-tertiary-fixed-variant": "#6d3a00",
+                    "on-secondary-fixed": "#1a1b22",
+                    "accent-glow": "rgba(79, 140, 255, 0.3)",
+                    "on-primary-fixed-variant": "#004398",
+                    "error": "#ffb4ab",
+                    "burgundy": "#4a0e0e",
+                    "gold-border": "rgba(184, 134, 11, 0.4)"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "section-gap": "120px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0b0b0f;
+            color: #e1e2ec;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-8px);
+            border-color: rgba(184, 134, 11, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(79, 140, 255, 0.1);
+        }
+        .burgundy-gradient {
+            background: radial-gradient(circle at center, rgba(74, 14, 14, 0.2) 0%, transparent 70%);
+        }
+        .linear-border {
+            position: relative;
+        }
+        .linear-border::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.5), transparent);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(175, 198, 255, 0.3);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        [data-lang]:not([data-lang="tr"]) {
+            display: none;
+        }
+        html[lang="en"] [data-lang="en"] { display: block; }
+        html[lang="en"] [data-lang="tr"] { display: none; }
+        html[lang="tr"] [data-lang="tr"] { display: block; }
+        html[lang="tr"] [data-lang="en"] { display: none; }
+        
+        /* Flex and inline fixes for multi-lang visibility */
+        html[lang="en"] span[data-lang="en"], html[lang="en"] a[data-lang="en"], html[lang="en"] button[data-lang="en"] { display: inline; }
+        html[lang="tr"] span[data-lang="tr"], html[lang="tr"] a[data-lang="tr"], html[lang="tr"] button[data-lang="tr"] { display: inline; }
+        html[lang="en"] div[data-lang="en"] { display: block; }
+        html[lang="tr"] div[data-lang="tr"] { display: block; }
+    </style>
+</head>
+<body class="selection:bg-primary/30 selection:text-white">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<a class="font-display-lg text-headline-md font-bold tracking-tighter text-primary" href="index.html">Tuna Web Tasarım</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="index.html">
+<span class="" data-lang="tr">Anasayfa</span><span class="" data-lang="en">Home</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#about">
+<span class="" data-lang="tr">Hakkımızda</span><span class="" data-lang="en">About</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#services">
+<span class="" data-lang="tr">Hizmetler</span><span class="" data-lang="en">Services</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#gallery">
+<span class="" data-lang="tr">Galeri</span><span class="" data-lang="en">Gallery</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#faq">
+<span class="" data-lang="tr">SSS</span><span class="" data-lang="en">FAQ</span>
+</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" onclick="toggleLanguage()">
+<span class="" data-lang="tr">TR / EN</span><span class="" data-lang="en">EN / TR</span>
+</button>
+<a class="hidden md:block bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-lg" href="#contact">
+<span class="" data-lang="tr">İletişim</span><span class="" data-lang="en">Contact</span>
+</a>
+<button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 burgundy-gradient"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-border bg-glass-bg mb-8">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-tertiary">
+<span class="" data-lang="tr">Adalet &amp; Hassasiyet</span><span class="" data-lang="en">Justice &amp; Precision</span>
+</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-8 text-glow">
+<span class="" data-lang="tr">Teknik Mükemmeliyetle Savunuyoruz.</span><span class="" data-lang="en">Advocating with Technical Excellence.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl">
+<span class="" data-lang="tr">Modern işletmeler için üst düzey hukuk stratejileri. En değerli varlıklarınızı korumak için derin hukuk bilgisini dijital çağın hassasiyetiyle harmanlıyoruz.</span>
+<span class="" data-lang="en">High-end legal strategies for modern enterprises. We blend deep jurisdictional knowledge with digital-age precision to protect your most valuable assets.</span>
+</p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-on-surface text-background px-10 py-5 rounded-lg font-label-md uppercase tracking-[0.15em] font-bold hover:bg-primary transition-all">
+<span class="" data-lang="tr">Danışmanlık Al</span><span class="" data-lang="en">Start Consult</span>
+</button>
+<button class="glass-card px-10 py-5 rounded-lg font-label-md uppercase tracking-[0.15em] font-bold border border-glass-border">
+<span class="" data-lang="tr">Felsefemiz</span><span class="" data-lang="en">Our Philosophy</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Back to Portfolio Ribbon -->
+<div class="w-full bg-surface-container-low py-4 border-y border-glass-border">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-wrap justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
+<span class="" data-lang="tr">Vaka Analizi:</span><span class="" data-lang="en">Case Study Info:</span>
+</span>
+<span class="px-3 py-1 rounded bg-surface-container-high font-label-sm text-primary">Next.js + Strapi</span>
+<span class="px-3 py-1 rounded bg-surface-container-high font-label-sm text-primary">
+<span class="" data-lang="tr">Duyarlı Önizleme</span><span class="" data-lang="en">Responsive Preview</span>
+</span>
+</div>
+<a class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors uppercase tracking-widest" href="index.html">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="" data-lang="tr">Portfolyoya Dön</span><span class="" data-lang="en">Back to Portfolio</span>
+</a>
+</div>
+</div>
+<!-- About Section (Bento Grid) -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop" id="about">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8 glass-card p-12 rounded-lg flex flex-col justify-center">
+<h2 class="font-headline-xl text-headline-xl mb-6">
+<span class="" data-lang="tr">Bizim DNA'mız</span><span class="" data-lang="en">Our DNA</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+<span class="" data-lang="tr">Teknik ustalık ve sarsılmaz dürüstlük ilkeleri üzerine kurulan Tuna Web Tasarım, bir hukuk bürosundan daha fazlasıdır. Küresel ticaretin karmaşıklığına dayanan yasal çerçevelerin mimarıyız.</span>
+<span class="" data-lang="en">Founded on the principles of technical mastery and unwavering integrity, Tuna Web Tasarım is more than a law firm. We are architects of legal frameworks that withstand the complexities of global commerce.</span>
+</p>
+<div class="grid grid-cols-2 gap-8 border-t border-glass-border pt-8">
+<div>
+<div class="font-display-lg text-headline-xl text-primary">15+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span class="" data-lang="tr">Yıllık Deneyim</span><span class="" data-lang="en">Years Experience</span>
+</div>
+</div>
+<div>
+<div class="font-display-lg text-headline-xl text-primary">500+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span class="" data-lang="tr">Başarılı Dosya</span><span class="" data-lang="en">Successful Closures</span>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 glass-card rounded-lg overflow-hidden h-[400px] md:h-auto">
+<div class="w-full h-full" data-alt="A cinematic, low-angle shot of a minimalist, luxury corporate office with dark wood panels, gold accents, and floor-to-ceiling windows overlooking a futuristic city skyline at dusk. The atmosphere is prestigious, silent, and authoritative." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAoHtDUzaTIdc4N6PkUocmyTv9L41EQDFGPuFUJpP8UT5_Oafyqu-vAacwQxxdrbbcdRT_7DB5N3B_1DQv_jaO3i2IhZeh31P1Xy-zLIj09ZjYNhtfx_cNTYJkeg7xnytA4VGRmqb_m7jvK_L2LJ4aCDLavgA8NaCXBe1uV5Uz_Fk083dHRO5GljzfWJR8Ao2m47KdOhTDtUBzcZYecfLkp9nIvre2Ubv38GTiVG9o9WE7-oQUrvLxxOXkA0_tjlroaBDAf5EKO5Ao')"></div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-gap bg-surface-container-lowest" id="services">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-20">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-[0.3em]">
+<span class="" data-lang="tr">Uzmanlık Alanları</span><span class="" data-lang="en">Specializations</span>
+</span>
+<h2 class="font-headline-xl text-headline-xl mt-4">
+<span class="" data-lang="tr">Hassas Hizmetler</span><span class="" data-lang="en">Precision Services</span>
+</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Corporate -->
+<div class="glass-card p-10 rounded-lg group">
+<span class="material-symbols-outlined text-[48px] text-primary mb-8 transition-transform group-hover:scale-110">business</span>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="" data-lang="tr">Kurumsal</span><span class="" data-lang="en">Corporate</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+<span class="" data-lang="tr">Karmaşık birleşme, devralma ve sınır ötesi ticari yapıları mutlak netlikle yönetiyoruz.</span>
+<span class="" data-lang="en">Navigating complex mergers, acquisitions, and cross-border commercial structures with absolute clarity.</span>
+</p>
+<ul class="space-y-3 font-label-md text-label-md text-on-surface">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span> <span class="" data-lang="tr">M&amp;A Danışmanlığı</span><span class="" data-lang="en">M&amp;A Advisory</span></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span> <span class="" data-lang="tr">Yönetişim</span><span class="" data-lang="en">Governance</span></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span> <span class="" data-lang="tr">Uyum</span><span class="" data-lang="en">Compliance</span></li>
+</ul>
+</div>
+<!-- IP -->
+<div class="glass-card p-10 rounded-lg group border-t-2 border-t-tertiary/20">
+<span class="material-symbols-outlined text-[48px] text-tertiary mb-8 transition-transform group-hover:scale-110" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="" data-lang="tr">Fikri Mülkiyet</span><span class="" data-lang="en">IP Law</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+<span class="" data-lang="tr">İnovasyonunuzun merkezini koruyoruz. Patentlerden marka portföylerine küresel ölçekte.</span>
+<span class="" data-lang="en">Protecting the core of your innovation. From patents to trademark portfolios on a global scale.</span>
+</p>
+<ul class="space-y-3 font-label-md text-label-md text-on-surface">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span> <span class="" data-lang="tr">Teknoloji Patentleri</span><span class="" data-lang="en">Tech Patents</span></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span> <span class="" data-lang="tr">Lisanslama</span><span class="" data-lang="en">Licensing</span></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span> <span class="" data-lang="tr">Marka Koruması</span><span class="" data-lang="en">Brand Protection</span></li>
+</ul>
+</div>
+<!-- Litigation -->
+<div class="glass-card p-10 rounded-lg group">
+<span class="material-symbols-outlined text-[48px] text-primary mb-8 transition-transform group-hover:scale-110">gavel</span>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="" data-lang="tr">Dava &amp; Uyuşmazlık</span><span class="" data-lang="en">Litigation</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+<span class="" data-lang="tr">Tahkim ve mahkemelerde veri odaklı ve keskin hitabetle güçlü temsil sağlıyoruz.</span>
+<span class="" data-lang="en">Formidable representation in arbitration and courtrooms, driven by data and sharp rhetoric.</span>
+</p>
+<ul class="space-y-3 font-label-md text-label-md text-on-surface">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span> <span class="" data-lang="tr">Uyuşmazlık Çözümü</span><span class="" data-lang="en">Dispute Resolution</span></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span> <span class="" data-lang="tr">Risk Yönetimi</span><span class="" data-lang="en">Risk Management</span></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span> <span class="" data-lang="tr">Beyaz Yaka Suçları</span><span class="" data-lang="en">White Collar</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us / Tech Stack -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<div class="w-full md:w-1/2">
+<h2 class="font-headline-xl text-headline-xl mb-8">
+<span class="" data-lang="tr">Dijital Tasarım Süreci</span><span class="" data-lang="en">Digital Design Process</span>
+</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-glass-border flex items-center justify-center font-bold text-primary shrink-0">01</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">
+<span class="" data-lang="tr">Teknik Keşif</span><span class="" data-lang="en">Technical Discovery</span>
+</h4>
+<p class="font-body-md text-on-surface-variant">
+<span class="" data-lang="tr">Organizasyon içindeki mevcut yasal varlıkların ve güvenlik açıklarının derinlemesine denetimi.</span>
+<span class="" data-lang="en">Deep audit of existing legal assets and vulnerability points within the organization.</span>
+</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-glass-border flex items-center justify-center font-bold text-primary shrink-0">02</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">
+<span class="" data-lang="tr">Çevik Strateji</span><span class="" data-lang="en">Agile Strategy</span>
+</h4>
+<p class="font-body-md text-on-surface-variant">
+<span class="" data-lang="tr">Pazar değişimlerine göre uyarlanmış savunma veya saldırı odaklı yasal çerçevelerin hızlı dağıtımı.</span>
+<span class="" data-lang="en">Rapid deployment of defensive or offensive legal frameworks tailored to market shifts.</span>
+</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-glass-border flex items-center justify-center font-bold text-primary shrink-0">03</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">
+<span class="" data-lang="tr">Veri Odaklı Uygulama</span><span class="" data-lang="en">Data-Driven Execution</span>
+</h4>
+<p class="font-body-md text-on-surface-variant">
+<span class="" data-lang="tr">Yasal uyumun ve dava sürecinin sürekli izlenmesi ve optimize edilmesi.</span>
+<span class="" data-lang="en">Continuous monitoring and optimization of legal compliance and litigation progress.</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 glass-card p-8 rounded-lg aspect-square relative group">
+<div class="relative z-10 h-full flex flex-col justify-end">
+<div class="p-6 bg-background/60 backdrop-blur-md rounded-lg border border-glass-border">
+<p class="font-label-sm text-tertiary uppercase tracking-widest mb-2">
+<span class="" data-lang="tr">Teknoloji Yığını</span><span class="" data-lang="en">Technology Stack</span>
+</p>
+<p class="font-body-md">
+<span class="" data-lang="tr">Next.js 14, Strapi CMS, Tailwind CSS, interaktif yasal arayüzler için Motion Framer.</span>
+<span class="" data-lang="en">Next.js 14, Strapi CMS, Tailwind CSS, Motion Framer for interactive legal interfaces.</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery -->
+<section class="py-section-gap bg-surface-container-lowest overflow-hidden" id="gallery">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-12 flex justify-between items-end">
+<div>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-[0.3em]">
+<span class="" data-lang="tr">Ofisimiz</span><span class="" data-lang="en">The Office</span>
+</span>
+<h2 class="font-headline-xl text-headline-xl mt-4">
+<span class="" data-lang="tr">Komuta Merkezi</span><span class="" data-lang="en">Command Center</span>
+</h2>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="p-4 rounded-full glass-card hover:bg-primary/20"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-4 rounded-full glass-card hover:bg-primary/20"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="flex gap-gutter px-margin-mobile md:px-margin-desktop overflow-x-auto no-scrollbar pb-8">
+<div class="min-w-[400px] h-[500px] rounded-lg overflow-hidden glass-card group cursor-pointer">
+<div class="w-full h-full transition-transform duration-700 group-hover:scale-110" data-alt="A dark-themed legal office lobby with a backlit gold-etched company logo. Smooth polished marble floors reflect ambient blue lighting, while modern sculptural seating arrangements create a sophisticated, quiet waiting area." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAG2Pw6Laorrl1jvsZxe88RkEsFYqI70zDEIbc6umMU1DTL68ytcmBX_twrLA6b5pv-BSpX1zSB8Pqjf9VZAWO-n-tfIXU8up0-mHyOvvc004Q8bOUxtYgIe_uKFBkx7EZwce2SZp89qxibXXtbXp4WaiD9-T8vj8AFhu1FoskX7PXuxbxg_tSp2X6KLkL8VmafOLP0UuIHqgw4CmuBn2nh3yeHGASL4uO1C5-h2JqqBiWvB_DRcNfLFBJEIZHbrFT3TwRaaTvZw0w')"></div>
+</div>
+<div class="min-w-[400px] h-[500px] rounded-lg overflow-hidden glass-card group cursor-pointer">
+<div class="w-full h-full transition-transform duration-700 group-hover:scale-110" data-alt="An expansive, high-tech glass-walled meeting room filled with ambient light from a large window. A long dark obsidian table is surrounded by ergonomic black chairs, with integrated holographic displays presenting complex legal charts." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCb0Et7oNxuOQdaLML_VnWGW_rnIPPAvGO_ZkCoZ0mafb_HkjqvKC7wCkzWIHHXtpJM2UZH42XDMg4ZOW8FIVxaZs7kkaOPaT0tbbM0S2sJ5W2n64zl7L3p5CPQmvn9Sct79Pi2LyDY525Aq80oMiRhSpsTwSis5OI01ijQYoi9tqNqMVU5gOzNegCBlKuyxLbCVXngkKlUFfhaiT89H-9PkhgC2b_x7TguE3iM5ZQN5G-EveM-aZoQhGvtv1veJD0bm6VzewH25Wo')"></div>
+</div>
+<div class="min-w-[600px] h-[500px] rounded-lg overflow-hidden glass-card group cursor-pointer">
+<div class="w-full h-full transition-transform duration-700 group-hover:scale-110" data-alt="A private library and study room within a prestige law firm, featuring rows of leather-bound books on dark oak shelves. A single modern desk with a high-end computer setup contrasts with the traditional library feel, illuminated by soft golden task lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkSzNwDbwu8d5HwnqBSHWb2wDp0Lf6Ezv9HQNLmUYWJe-w9tWeZO3cKN6sVBsP7JKXDe5QXkIu280Uwu-KtYcRoafg4SLV8jOyDTlMIzAxVd0o3X7472nR0wHnK8Ufv-JVY81W6rsoQMi9EG3FA6afC3CczvkBrKoQk0L1lxTqY_NdKnJk-mtKCEgQSL81zSnvXz0WsRFX-eAUuBa_hs2wDjnWkFzfa8scbTOKhgLLPewvUqGfYiPqly5kh37A2wE6jJGQ1xxel9s')"></div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 blur-[80px]"></div>
+<span class="material-symbols-outlined text-[100px] text-primary/20 mb-8">format_quote</span>
+<p class="font-display-lg text-headline-xl mb-12 italic leading-tight">
+<span class="" data-lang="tr">"Tuna Web Tasarım'daki hassasiyet ve teknolojik entegrasyon düzeyi hukuk alanında benzersizdir."</span>
+<span class="" data-lang="en">"The level of precision and technological integration at Tuna Web Tasarım is unparalleled in the legal field."</span>
+</p>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-cover" data-alt="Close-up professional portrait of a confident tech CEO in his late 40s, wearing a tailored navy suit and modern glasses. The lighting is dramatic and cinematic, emphasizing his visionary leadership qualities." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhC7MtjiC80CoC7XrtSq61SpSYSG_vKSghhMcAIV5V12yIAdg5JGUDynE-kzSDDy3rUgK2CQLXt6OILrGke9W_b7iR6OfGEu3h-Ec8Px_GTvTI5mZ2yxMPq3Q1YCRQczwwouM6rpmA-QIbI2Ya7pg5NxyVSLn-3SKCF7LzlYabkPjD4gsaT8bfpoLAYPI4DdfCRJb-KvbffJYwsoEz8_blibX7vAN9vCdk02UBLNDk3DCAxB4WIKW5EqZjFgFGJDdOjdPDyZtDKUY')"></div>
+<div>
+<div class="font-headline-md text-headline-md">Marcus Thorne</div>
+<div class="font-label-md text-primary uppercase">CEO, Nexus Dynamics</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="glass-card p-8 rounded-lg">
+<p class="font-body-md text-on-surface-variant mb-6">
+<span class="" data-lang="tr">"IP stratejileri Avrupa genişlememizi kurtardı. Sadece hukuku bilmiyorlar; korudukları teknolojiyi de anlıyorlar."</span>
+<span class="" data-lang="en">"Their IP strategy saved our European expansion. They don't just know law; they understand the technology they protect."</span>
+</p>
+<div class="font-label-md text-on-surface">Director of Ops, AI-Core</div>
+</div>
+<div class="glass-card p-8 rounded-lg border-l-4 border-l-tertiary">
+<p class="font-body-md text-on-surface-variant mb-6">
+<span class="" data-lang="tr">"Profesyonel, hızlı ve kesinlikle hassas. Tüm sınır ötesi işlem meselelerimiz için tek tercihimiz."</span>
+<span class="" data-lang="en">"Professional, rapid, and absolutely precise. They are our go-to for all cross-border transactional matters."</span>
+</p>
+<div class="font-label-md text-on-surface">Partner, Global Equity Group</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-section-gap bg-surface-container-lowest" id="faq">
+<div class="max-w-3xl mx-auto px-margin-mobile">
+<div class="text-center mb-16">
+<h2 class="font-headline-xl text-headline-xl">
+<span class="" data-lang="tr">Sıkça Sorulan Sorular</span><span class="" data-lang="en">Common Inquiries</span>
+</h2>
+</div>
+<div class="space-y-4">
+<details class="group glass-card rounded-lg overflow-hidden" open="">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md text-on-surface hover:bg-white/5">
+<span class="" data-lang="tr">Sınır ötesi IP'yi nasıl yönetiyorsunuz?</span><span class="" data-lang="en">How do you handle cross-border IP?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md">
+<span class="" data-lang="tr">İstanbul ve Londra'daki merkezi yönetimimizi korurken dünya çapında 50'den fazla ortak firma ağımızdan yararlanarak koruma ve dava stratejisinde tutarlılık sağlıyoruz.</span>
+<span class="" data-lang="en">We leverage a network of over 50 associated firms globally while maintaining centralized management in Istanbul and London, ensuring consistency in protection and litigation strategy.</span>
+</div>
+</details>
+<details class="group glass-card rounded-lg overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md text-on-surface hover:bg-white/5">
+<span class="" data-lang="tr">Ücret yapınız nedir?</span><span class="" data-lang="en">What is your fee structure?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md">
+<span class="" data-lang="tr">İşlem bazlı işler için değer odaklı fiyatlandırma ve karmaşık davalar için şeffaf saatlik ücretler sunuyoruz; tam görünürlük için dijital raporlama kullanıyoruz.</span>
+<span class="" data-lang="en">We offer value-based pricing for transactional work and transparent hourly rates for complex litigation, utilizing digital reporting for full visibility.</span>
+</div>
+</details>
+<details class="group glass-card rounded-lg overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md text-on-surface hover:bg-white/5">
+<span class="" data-lang="tr">Startup'ları kabul ediyor musunuz?</span><span class="" data-lang="en">Do you accept startups?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md">
+<span class="" data-lang="tr">Hızlı büyüyen teknoloji startup'ları için özel bir 'İnovasyon Laboratuvarı' programımız var ve büyüdükçe ölçeklenebilir yasal altyapı sağlıyoruz.</span>
+<span class="" data-lang="en">We have a dedicated 'Innovation Lab' program for high-growth tech startups, providing scalable legal infrastructure as they grow.</span>
+</div>
+</details>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap relative" id="contact">
+<div class="absolute inset-0 opacity-10">
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="glass-card p-12 md:p-20 rounded-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<div>
+<h2 class="font-display-lg text-headline-xl mb-6"><span class="" data-lang="tr">Danışmanlık Başlatın</span><span class="" data-lang="en">Initiate Consultation</span></h2>
+<p class="font-body-lg text-on-surface-variant mb-12">
+<span class="" data-lang="tr">Uzman yasal hassasiyet sadece bir iletişim uzağınızda. Ofisimizi ziyaret edin veya dijital olarak ulaşın.</span>
+<span class="" data-lang="en">Expert legal precision is just one communication away. Visit our office or reach out digitally.</span>
+</p>
+<div class="space-y-8">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase">
+<span class="" data-lang="tr">Merkez İstanbul</span><span class="" data-lang="en">HQ Istanbul</span>
+</p>
+<p class="font-body-md">Zorlu Center, Levazım, 34340 İstanbul/Türkiye</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">alternate_email</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase">
+<span class="" data-lang="tr">Dijital Yazışma</span><span class="" data-lang="en">Digital Correspondence</span>
+</p>
+<p class="font-body-md">legal@tunawebtasarim.com</p>
+</div>
+</div>
+</div>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-widest px-1">
+<span class="" data-lang="tr">Ad Soyad</span><span class="" data-lang="en">Full Name</span>
+</label>
+<input class="w-full bg-white/5 border-glass-border rounded-lg p-4 focus:ring-primary focus:border-primary transition-all text-on-surface" data-placeholder-en="Your Name" data-placeholder-tr="Adınız" placeholder="Adınız" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-widest px-1">Email</label>
+<input class="w-full bg-white/5 border-glass-border rounded-lg p-4 focus:ring-primary focus:border-primary transition-all text-on-surface" placeholder="email@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-widest px-1">
+<span class="" data-lang="tr">Hukuki Alan</span><span class="" data-lang="en">Legal Area</span>
+</label>
+<select class="w-full bg-white/5 border-glass-border rounded-lg p-4 focus:ring-primary focus:border-primary transition-all appearance-none text-on-surface-variant">
+<option data-lang="tr">Kurumsal Hukuk</option><option data-lang="en">Corporate Law</option>
+<option data-lang="tr">Fikri Mülkiyet</option><option data-lang="en">Intellectual Property</option>
+<option data-lang="tr">Dava &amp; Uyuşmazlık</option><option data-lang="en">Litigation &amp; Dispute</option>
+<option data-lang="tr">Gayrimenkul</option><option data-lang="en">Real Estate</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-widest px-1">
+<span class="" data-lang="tr">Özet</span><span class="" data-lang="en">Summary</span>
+</label>
+<textarea class="w-full bg-white/5 border-glass-border rounded-lg p-4 focus:ring-primary focus:border-primary transition-all text-on-surface" data-placeholder-en="Tell us about your legal needs..." data-placeholder-tr="Yasal ihtiyaçlarınızdan bahsedin..." placeholder="Yasal ihtiyaçlarınızdan bahsedin..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container py-5 rounded-lg font-label-md uppercase tracking-[0.2em] font-bold hover:brightness-110 transition-all shadow-[0_10px_30px_rgba(79,140,255,0.3)]">
+<span class="" data-lang="tr">Analiz Talep Et</span><span class="" data-lang="en">Request Analysis</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-glass-border py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-20">
+<a class="font-display-lg text-headline-xl font-bold text-primary tracking-tighter" href="index.html">Tuna Web Tasarım</a>
+<div class="flex flex-wrap gap-12">
+<div class="space-y-4">
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">
+<span class="" data-lang="tr">Bağlantı</span><span class="" data-lang="en">Connect</span>
+</p>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="text-on-surface hover:text-primary transition-colors" href="#">Behance</a>
+</div>
+</div>
+<div class="space-y-4">
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">
+<span class="" data-lang="tr">Ofisler</span><span class="" data-lang="en">Offices</span>
+</p>
+<div class="flex flex-col gap-2">
+<span class="text-on-surface-variant">İstanbul, TR</span>
+<span class="text-on-surface-variant">London, UK</span>
+<span class="text-on-surface-variant">Dubai, UAE</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-glass-border gap-6">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">© 2024 Tuna Web Tasarım. <span class="" data-lang="tr">TÜM HAKLARI SAKLIDIR.</span><span class="" data-lang="en">ALL RIGHTS RESERVED.</span></p>
+<div class="flex gap-8">
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="" data-lang="tr">Gizlilik Politikası</span><span class="" data-lang="en">Privacy Policy</span>
+</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="" data-lang="tr">Kullanım Şartları</span><span class="" data-lang="en">Terms of Service</span>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Language Logic
+        const toggleLanguage = () => {
+            const currentLang = document.documentElement.lang;
+            const nextLang = currentLang === 'tr' ? 'en' : 'tr';
+            setLanguage(nextLang);
+        };
+
+        const setLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            localStorage.setItem('precizion-lang', lang);
+            updatePlaceholders(lang);
+        };
+
+        const updatePlaceholders = (lang) => {
+            const inputs = document.querySelectorAll('input[data-placeholder-tr], textarea[data-placeholder-tr]');
+            inputs.forEach(input => {
+                input.placeholder = input.getAttribute(`data-placeholder-${lang}`);
+            });
+        };
+
+        // Initialize Language
+        const savedLang = localStorage.getItem('precizion-lang') || 'tr';
+        setLanguage(savedLang);
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Simple parallax for glass cards on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.glass-card');
+            const x = e.clientX / window.innerWidth - 0.5;
+            const y = e.clientY / window.innerHeight - 0.5;
+            
+            cards.forEach(card => {
+                const speed = 10;
+                card.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body></html>

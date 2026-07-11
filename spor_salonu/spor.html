@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PRECIZION | Premium Fitness Arena</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @keyframes subtle-glow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+        .animate-glow { animation: subtle-glow 8s ease-in-out infinite; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-8px);
+            border-color: #afc6ff;
+            box-shadow: 0 0 30px rgba(79, 140, 255, 0.1);
+        }
+        .text-glow-lime { text-shadow: 0 0 15px rgba(163, 230, 53, 0.5); }
+        .text-glow-blue { text-shadow: 0 0 15px rgba(79, 140, 255, 0.5); }
+        body { background-color: #0b0b0f; color: #e1e2ec; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b0b0f; }
+        ::-webkit-scrollbar-thumb { background: #1d1f27; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #afc6ff; }
+        [data-lang]:not(.active-lang-content) { display: none !important; }
+        .active-lang-content { display: block !important; }
+        span.active-lang-content { display: inline !important; }
+        button.active-lang-content { display: block !important; }
+        div.active-lang-content { display: block !important; }
+        .lang-link.active { color: #afc6ff; font-weight: bold; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#ffdad6",
+                      "tertiary-container": "#d87802",
+                      "primary-container": "#528dff",
+                      "on-tertiary": "#4d2700",
+                      "surface": "#11131a",
+                      "tertiary-fixed-dim": "#ffb77b",
+                      "inverse-on-surface": "#2e3038",
+                      "surface-container-low": "#191b22",
+                      "surface-tint": "#afc6ff",
+                      "on-secondary-fixed-variant": "#45464e",
+                      "surface-container-high": "#272a31",
+                      "inverse-primary": "#0059c6",
+                      "surface-bright": "#373941",
+                      "glass-border": "rgba(255, 255, 255, 0.1)",
+                      "outline-variant": "#424753",
+                      "surface-container-lowest": "#0b0e15",
+                      "on-background": "#e1e2ec",
+                      "secondary-fixed": "#e2e2eb",
+                      "primary-fixed-dim": "#afc6ff",
+                      "secondary-container": "#45464e",
+                      "glass-bg": "rgba(255, 255, 255, 0.03)",
+                      "on-secondary-container": "#b4b4bd",
+                      "outline": "#8c909f",
+                      "on-secondary": "#2e3037",
+                      "on-error": "#690005",
+                      "tertiary": "#ffb77b",
+                      "inverse-surface": "#e1e2ec",
+                      "on-primary-container": "#00275f",
+                      "surface-dim": "#11131a",
+                      "background": "#0b0b0f",
+                      "secondary-fixed-dim": "#c6c6cf",
+                      "surface-container-highest": "#32353c",
+                      "on-tertiary-fixed": "#2e1500",
+                      "on-surface-variant": "#c2c6d6",
+                      "surface-variant": "#32353c",
+                      "on-tertiary-container": "#432100",
+                      "on-primary": "#002d6c",
+                      "tertiary-fixed": "#ffdcc2",
+                      "surface-container": "#1d1f27",
+                      "error-container": "#93000a",
+                      "on-surface": "#e1e2ec",
+                      "on-primary-fixed": "#001a43",
+                      "secondary": "#c6c6cf",
+                      "primary-fixed": "#d9e2ff",
+                      "primary": "#afc6ff",
+                      "on-tertiary-fixed-variant": "#6d3a00",
+                      "on-secondary-fixed": "#1a1b22",
+                      "accent-glow": "rgba(79, 140, 255, 0.3)",
+                      "on-primary-fixed-variant": "#004398",
+                      "error": "#ffb4ab"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1200px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "section-gap": "120px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-md": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- Project Info Bar (Pre-Header) -->
+<div class="w-full bg-surface-container-lowest border-b border-glass-border py-3 px-margin-desktop">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 font-label-md text-label-md hover:text-primary transition-colors" href="index.html">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span data-lang="tr">Portfolyoya Dön</span>
+<span data-lang="en">Back to Portfolio</span>
+</a>
+<div class="h-4 w-px bg-glass-border hidden md:block"></div>
+<div class="hidden md:flex gap-4 font-label-sm text-label-sm uppercase tracking-widest">
+<span data-lang="tr">Teknoloji: Vite + Tailwind</span>
+<span data-lang="en">Stack: Vite + Tailwind</span>
+<span data-lang="tr">Durum: Üretime Hazır</span>
+<span data-lang="en">Status: Production Ready</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary border border-primary/20 text-xs font-bold">V1.2.0</span>
+<div class="flex gap-2 font-label-sm text-label-sm">
+<button class="lang-link" id="lang-tr" onclick="setLanguage('tr')">TR</button>
+<span>/</span>
+<button class="lang-link" id="lang-en" onclick="setLanguage('en')">EN</button>
+</div>
+</div>
+</div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
+<div class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<a class="font-display-lg text-headline-md font-bold tracking-tighter text-primary" href="index.html">Tuna Web Tasarım</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="index.html">
+<span data-lang="tr">Anasayfa</span>
+<span data-lang="en">Home</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#about">
+<span data-lang="tr">Hakkımızda</span>
+<span data-lang="en">About</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#services">
+<span data-lang="tr">Hizmetler</span>
+<span data-lang="en">Services</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#gallery">
+<span data-lang="tr">Galeri</span>
+<span data-lang="en">Gallery</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">
+<span data-lang="tr">İletişim</span>
+<span data-lang="en">Contact</span>
+</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-widest font-bold hover:scale-105 transition-transform active:scale-95">
+<span data-lang="tr">Seçkinlere Katıl</span>
+<span data-lang="en">Join The Elite</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full grid md:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary" data-lang="tr">Şu An Açık: Özel Seanslar</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary" data-lang="en">Now Open: Private Sessions</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-none">
+<span data-lang="tr">MAKSİMUM <br/><span class="text-primary italic">İNSAN</span> PERFORMANSI <br/> MÜHENDİSLİĞİ</span>
+<span data-lang="en">ENGINEERING <br/><span class="text-primary italic">PEAK</span> HUMAN <br/> PERFORMANCE</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+<span data-lang="tr">Sadece bir spor salonu değil. Biyomekanik hassasiyetin tapınağı. Seçkin spor bilimini yüksek oktanlı lüksle birleştiriyoruz.</span>
+<span data-lang="en">Not just a gym. A sanctuary of biomechanical precision. We combine elite sport science with high-octane luxury.</span>
+</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-on-surface text-background px-8 py-4 rounded-full font-label-md text-label-md font-bold uppercase tracking-widest hover:bg-primary transition-colors">
+<span data-lang="tr">Eğitime Başla</span>
+<span data-lang="en">Start Training</span>
+</button>
+<button class="glass-card px-8 py-4 rounded-full font-label-md text-label-md font-bold uppercase tracking-widest border border-glass-border">
+<span data-lang="tr">Arenayı Gez</span>
+<span data-lang="en">Tour The Arena</span>
+</button>
+</div>
+</div>
+<div class="relative hidden md:block">
+<div class="absolute -inset-10 bg-primary/20 blur-[120px] animate-glow"></div>
+<div class="relative rounded-xl overflow-hidden glass-card border-2 border-primary/20 aspect-[4/5] transform rotate-3">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXvv8TkL91MtvLrernNpSo3fQPI65Bxh4S4ygemGF1DUQLbHy4IKYW7OY0icAcnR3QfYM9Z8vOyumOMmk_LJrZ_AVIqLq6HN7UNJ18eyX8L6Xar5ueCIFtbmI5_3h2JDjUraFeTHoxEhva-6cJEWJxmiBJaJYqtEpVO3Z7HE6D1CKMVGVsMvo7VDzzESUbkRYI09_JGzgsExraK0U5umsRj6Oc4M6t59KRZtZhARoRqDdDhaltxe3Axa_f0n0dIhaETGoaC6b-3Yw"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Context -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto" id="about">
+<div class="grid md:grid-cols-3 gap-8">
+<div class="glass-card p-8 rounded-lg col-span-2">
+<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">architecture</span>
+<span data-lang="tr">Proje Mimarisi</span>
+<span data-lang="en">Project Architecture</span>
+</h3>
+<div class="grid md:grid-cols-2 gap-8 text-on-surface-variant font-body-md">
+<p data-lang="tr">Yeni nesil dijital odaklı fitness markaları için tasarlandı. Kullanıcı arayüzü, ultra geniş monitörlerden mobil cihazlara kadar sorunsuz bir şekilde ölçeklenen lineer bir tasarım sistemi kullanarak hıza ve ham enerjiye öncelik verir.</p>
+<p data-lang="en">Designed for the next generation of digital-first fitness brands. The UI prioritizes speed and raw energy, using a linear design system that scales seamlessly from ultra-wide monitors to mobile devices.</p>
+<p data-lang="tr">Fiziksel spor salonunun premium doğasını yansıtan derin ve sürükleyici bir deneyim oluşturmak için Tailwind'in 'utility-first' yaklaşımından ve özel cam morfizması katmanlarından yararlanır.</p>
+<p data-lang="en">Leveraging Tailwind's utility-first approach and custom glassmorphism layers to create a deep, immersive experience that mirrors the premium nature of the physical gym.</p>
+</div>
+</div>
+<div class="glass-card p-8 rounded-lg flex flex-col justify-center">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-4" data-lang="tr">Temel Teknolojiler</h4>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-4" data-lang="en">Core Technologies</h4>
+<div class="space-y-3">
+<div class="flex justify-between items-center border-b border-glass-border pb-2">
+<span class="font-body-md">Frontend</span>
+<span class="font-label-md font-bold">Vite + React</span>
+</div>
+<div class="flex justify-between items-center border-b border-glass-border pb-2">
+<span class="font-body-md" data-lang="tr">Stil</span>
+<span class="font-body-md" data-lang="en">Styling</span>
+<span class="font-label-md font-bold">Tailwind CSS</span>
+</div>
+<div class="flex justify-between items-center border-b border-glass-border pb-2">
+<span class="font-body-md" data-lang="tr">Hareket</span>
+<span class="font-body-md" data-lang="en">Motion</span>
+<span class="font-label-md font-bold">Framer Motion</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-section-gap px-margin-desktop bg-surface-container-lowest" id="services">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-glow-blue" data-lang="tr">TUNA WEB TASARIM PROTOKOLLERİ</h2>
+<h2 class="font-headline-xl text-headline-xl text-glow-blue" data-lang="en">TUNA WEB DESIGN PROTOCOLS</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4" data-lang="tr">Modern sporcu için gelişmiş antrenman modaliteleri.</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4" data-lang="en">Advanced training modalities for the modern athlete.</p>
+</div>
+<div class="h-px bg-primary flex-grow mx-12 hidden lg:block opacity-30"></div>
+<button class="font-label-md text-label-md uppercase font-bold text-primary flex items-center gap-2 group">
+<span data-lang="tr">Tüm Hizmetleri Gör</span>
+<span data-lang="en">View All Services</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+<div class="md:col-span-8 md:row-span-2 relative group overflow-hidden rounded-lg">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClPDDsLdL4y4fFhfMINnxDUOMFb4eKqc1OjTqLmNxlUB-mtKQ0aduzhu9mV1e2SgcIBQmK2aYEk5SqUsYV2t_j0tRm44J5pX1yUMz-zuadniLaj_i75zNcmUlWO8rM2trB0u6vH4r9l8Z-jmRTWrukyi7_Ffq2ZLeC0BAXMBmb6iyJroW0-tQA9ENKajyJ4uBAj4P_bFof8u4cA4PgaxLkTqC2ID9CblVqsSDdGH0MGlYgNRJ0L_7Jq-mSlTblWnkwrg-nlbnQQpA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+<div class="absolute bottom-0 p-10 space-y-4">
+<span class="material-symbols-outlined text-primary text-4xl">fitness_center</span>
+<h3 class="font-headline-xl text-headline-xl" data-lang="tr">Kişisel Antrenman</h3>
+<h3 class="font-headline-xl text-headline-xl" data-lang="en">Personal Training</h3>
+<p class="font-body-md text-on-surface-variant max-w-md" data-lang="tr">Seçkin antrenörler tarafından tasarlanmış bire bir biyomekanik değerlendirmeler ve hiper-kişiselleştirilmiş kuvvet döngüleri.</p>
+<p class="font-body-md text-on-surface-variant max-w-md" data-lang="en">One-on-one biomechanical assessments and hyper-personalized strength cycles designed by elite coaches.</p>
+</div>
+</div>
+<div class="md:col-span-4 md:row-span-1 glass-card p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">rebase_edit</span>
+<h3 class="font-headline-md text-headline-md" data-lang="tr">Biyo-Tooparlanma</h3>
+<h3 class="font-headline-md text-headline-md" data-lang="en">Bio-Recovery</h3>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="tr">Kriyoterapi, kızılötesi terapi ve hedeflenmiş miyofasiyal gevşetme.</p>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="en">Cryotherapy, infra-red therapy, and targeted myofascial release.</p>
+</div>
+<div class="md:col-span-4 md:row-span-1 glass-card p-8 flex flex-col justify-end border-t-4 border-t-primary">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">groups</span>
+<h3 class="font-headline-md text-headline-md" data-lang="tr">Grup Arenası</h3>
+<h3 class="font-headline-md text-headline-md" data-lang="en">Group Arena</h3>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="tr">Rekabetçi bir atmosferde yüksek yoğunluklu taktik kondisyon.</p>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="en">High-intensity tactical conditioning in a competitive atmosphere.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us -->
+<section class="py-section-gap relative">
+<div class="max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-2 gap-24 items-center">
+<div class="relative order-2 md:order-1">
+<div class="absolute -inset-4 border border-primary/20 rounded-lg"></div>
+<img class="rounded-lg shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa6VcP63FR7_7hfjeOfTwYs-BUeCY9r_kKwDY93gVBFxonvtD8LEpZzKQrE-CPtSKZvNjzF-v0F-9N9R7ZnmZ9NhA5cmMx_2mWq7elqCrAcBqFd30xNqOWcfQLzIdOrMFbUEzG0wnerui0H27VhbPxP6QXGe8w_b4wE6WMFaNojm8C6XFgFzZoXf8w0CsgyanyMkW_dZ3QlkuDMT4j9d3FD1SKiGjR1K3lrbpLWCViRAONXBGfHIKSN49H_3OddznHkzlsRM9xIfk"/>
+</div>
+<div class="space-y-12 order-1 md:order-2">
+<h2 class="font-headline-xl text-headline-xl" data-lang="tr">PERFORMANSIN <span class="text-primary italic">SINIRI</span></h2>
+<h2 class="font-headline-xl text-headline-xl" data-lang="en">THE <span class="text-primary italic">EDGE</span> OF PERFORMANCE</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary">biotech</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md" data-lang="tr">Metrik Odaklı Sonuçlar</h4>
+<h4 class="font-headline-md text-headline-md" data-lang="en">Metric-Driven Results</h4>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="tr">Tahmin etmiyoruz. Güç çıkışını, kalp atış hızı değişkenliğini ve hareket kalitesini gerçek zamanlı takip ediyoruz.</p>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="en">We don't guess. We track power output, heart rate variability, and movement quality in real-time.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md" data-lang="tr">Elit Topluluk</h4>
+<h4 class="font-headline-md text-headline-md" data-lang="en">Elite Community</h4>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="tr">Kendinizi yüksek başarılı insanlarla çevreleyin. Kültürümüz sadece motivasyon değil, disiplin üzerine kuruludur.</p>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="en">Surround yourself with high-achievers. Our culture is built on discipline, not just motivation.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary">diamond</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md" data-lang="tr">Premium Olanaklar</h4>
+<h4 class="font-headline-md text-headline-md" data-lang="en">Premium Amenities</h4>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="tr">Lüks soyunma odaları, beslenme barı ve ücretsiz vale park hizmeti.</p>
+<p class="font-body-md text-on-surface-variant mt-2" data-lang="en">Luxury locker rooms, nutritional bar, and complimentary valet parking.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery -->
+<section class="py-section-gap px-margin-desktop overflow-hidden" id="gallery">
+<div class="max-w-container-max mx-auto mb-16 text-center">
+<h2 class="font-headline-xl text-headline-xl" data-lang="tr">ARENA</h2>
+<h2 class="font-headline-xl text-headline-xl" data-lang="en">THE ARENA</h2>
+<p class="text-on-surface-variant mt-4 font-body-lg" data-lang="tr">Son teknoloji tesislerimizde görsel bir yolculuk.</p>
+<p class="text-on-surface-variant mt-4 font-body-lg" data-lang="en">A visual journey through our state-of-the-art facilities.</p>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-12 snap-x no-scrollbar">
+<!-- Gallery items remain with same images -->
+<div class="min-w-[400px] h-[500px] rounded-lg overflow-hidden snap-center relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALlZP3TUq7_c5SGMHknqj084VKUs_S-w7q-a7gfPbq24Ap3D0crc7TG7_F2TLh6pXcDtxPRcETgvSoW9SIaHXX57eUdX9GiNiJNEd_f5Fx2wtd6JyGm6eU1FoA0bXMoXEhZ0VfkMb2d4OXXbHaX1k4W9DjRCKZcDeT-4U1WZsNdH2f1hlbHS3kGJcq-wKzJsKpc286Kq_H61cCwzh-DwQutcKJJ790w6Wz3_rIezMO5LmEbvPaIDfX2AaUyZkYDeVIchnn6LArSFs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent p-8 flex items-end">
+<span class="font-label-md uppercase tracking-widest text-primary" data-lang="tr">Fonksiyonel Bölge</span>
+<span class="font-label-md uppercase tracking-widest text-primary" data-lang="en">Functional Zone</span>
+</div>
+</div>
+<div class="min-w-[400px] h-[500px] rounded-lg overflow-hidden snap-center relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiYe4ksUVsXv83aObG_nV8hR1fAw8pnI5ifjPF06tVhvuvmMavgTB9bDrCuCZqguUrinzbJnWgk_MzdNDdhi44dsJ8z08yr36ms20Q0K3qXchvHc4GFho1gVlF6e9H3VdGSuuEN3TqyHuNRkDIlcqORljc46fdXpJypLN9Fb_NMTvpPho2Pw-SNfGBY8mAmuvYizypqPIUam14lqXi5963xvUaE9irdTwrs0z6ZrmZHCud1wff7TRCzduKE-hC4GbihiwAjv_KMnQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent p-8 flex items-end">
+<span class="font-label-md uppercase tracking-widest text-primary" data-lang="tr">Güç Laboratuvarı</span>
+<span class="font-label-md uppercase tracking-widest text-primary" data-lang="en">Power Lifting Lab</span>
+</div>
+</div>
+<div class="min-w-[400px] h-[500px] rounded-lg overflow-hidden snap-center relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3LKOUpufnPzyUGe1jIR1RnAYb9MLbqSx3Y3GlNm4Wvz-_enxEKGBJL6er7-h6bVKRnW_XXaT8pQnYa--T4Hv4Okenhm8chzYud1_enGJwoCRME3AJNP_vpg7Li8q0jr34PKox8qvDUDRq63Dcl_AhiMBJAoXj1_wZOiWPJhG099WpmfZm2A9qHiMT5b7HC7oarsHugCbJyrECzQlVayv0d1F71ag9t6AIIS9GkzTK7zVnl1QxgkwfXBvwbOtepj4HkiFP7PamXvk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent p-8 flex items-end">
+<span class="font-label-md uppercase tracking-widest text-primary" data-lang="tr">Seans Sonrası Toparlanma</span>
+<span class="font-label-md uppercase tracking-widest text-primary" data-lang="en">Post-Session Recovery</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<h2 class="font-headline-xl text-headline-xl mb-16 text-center" data-lang="tr">SPORCU SESLERİ</h2>
+<h2 class="font-headline-xl text-headline-xl mb-16 text-center" data-lang="en">ATHLETE VOICES</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Review 1 -->
+<div class="glass-card p-10 rounded-lg relative">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute top-6 right-6">format_quote</span>
+<div class="flex gap-1 text-primary mb-6">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg italic" data-lang="tr">"Buradaki detaylara gösterilen özen eşsiz. Ekipman bakımından programlamaya kadar, dünya çapında antrenman yaptığım en iyi salon burası."</p>
+<p class="font-body-lg italic" data-lang="en">"The attention to detail here is unmatched. From the equipment maintenance to the programming, it's easily the best gym I've trained at worldwide."</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container"></div>
+<div>
+<p class="font-label-md font-bold">James R.</p>
+<p class="text-xs text-on-surface-variant uppercase" data-lang="tr">Triatlon Sporcusu</p>
+<p class="text-xs text-on-surface-variant uppercase" data-lang="en">Competitive Triathlete</p>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="glass-card p-10 rounded-lg relative border-t-4 border-t-primary">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute top-6 right-6">format_quote</span>
+<div class="flex gap-1 text-primary mb-6">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg italic" data-lang="tr">"Biyo-toparlanma süiti antrenman oyunumu değiştirdi. 25 yaşındayken dokunamadığım rekorları 40 yaşında kırıyorum."</p>
+<p class="font-body-lg italic" data-lang="en">"The Bio-recovery suite changed my training game. I'm hitting PRs at 40 that I couldn't touch at 25."</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container"></div>
+<div>
+<p class="font-label-md font-bold">Sarah M.</p>
+<p class="text-xs text-on-surface-variant uppercase" data-lang="tr">CEO &amp; Sporcu</p>
+<p class="text-xs text-on-surface-variant uppercase" data-lang="en">CEO &amp; Athlete</p>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="glass-card p-10 rounded-lg relative">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute top-6 right-6">format_quote</span>
+<div class="flex gap-1 text-primary mb-6">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg italic" data-lang="tr">"Sadece bir salon değil, bir deneyim. Buradaki topluluk sizi sıradan salonların yapamayacağı şekillerde zorluyor."</p>
+<p class="font-body-lg italic" data-lang="en">"Not just a gym, it's an experience. The community here pushes you in ways that average gyms simply can't."</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container"></div>
+<div>
+<p class="font-label-md font-bold">Can T.</p>
+<p class="text-xs text-on-surface-variant uppercase" data-lang="tr">Fitness Tutkunu</p>
+<p class="text-xs text-on-surface-variant uppercase" data-lang="en">Fitness Enthusiast</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ & Contact -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto" id="contact">
+<div class="grid md:grid-cols-2 gap-24">
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-12" data-lang="tr">SIKÇA SORULANLAR</h2>
+<h2 class="font-headline-xl text-headline-xl mb-12" data-lang="en">COMMON INQUIRIES</h2>
+<div class="space-y-6">
+<details class="group glass-card rounded-lg overflow-hidden" open="">
+<summary class="p-6 cursor-pointer flex justify-between items-center list-none">
+<span class="font-headline-md text-headline-md" data-lang="tr">Üyelik ayrıcalığı?</span>
+<span class="font-headline-md text-headline-md" data-lang="en">Membership exclusivity?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md border-t border-glass-border pt-4">
+<span data-lang="tr">Her sporcu için sıfır bekleme süresi ve kişiselleştirilmiş ilgi sağlamak amacıyla sınırlı üyelik modeliyle çalışıyoruz.</span>
+<span data-lang="en">We operate on a capped membership model to ensure zero wait times and personalized attention for every athlete.</span>
+</div>
+</details>
+<details class="group glass-card rounded-lg overflow-hidden">
+<summary class="p-6 cursor-pointer flex justify-between items-center list-none">
+<span class="font-headline-md text-headline-md" data-lang="tr">Günlük giriş var mı?</span>
+<span class="font-headline-md text-headline-md" data-lang="en">Do you offer guest passes?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md border-t border-glass-border pt-4">
+<span data-lang="tr">Arenayı deneyimlemek isteyen ciddi adaylar için randevu ile deneme seansları mevcuttur.</span>
+<span data-lang="en">Trial sessions are available via appointment for serious applicants who want to experience the arena.</span>
+</div>
+</details>
+</div>
+</div>
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-12" data-lang="tr">YERİNİZİ AYIRTIN</h2>
+<h2 class="font-headline-xl text-headline-xl mb-12" data-lang="en">SECURE YOUR SPOT</h2>
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+<span data-lang="tr">AD SOYAD</span>
+<span data-lang="en">FULL NAME</span>
+</label>
+<input class="w-full bg-glass-bg border-glass-border rounded-lg p-4 focus:ring-primary focus:border-primary transition-all outline-none" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+<span data-lang="tr">E-POSTA ADRESİ</span>
+<span data-lang="en">EMAIL ADDRESS</span>
+</label>
+<input class="w-full bg-glass-bg border-glass-border rounded-lg p-4 focus:ring-primary focus:border-primary transition-all outline-none" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+<span data-lang="tr">ANTRENMAN HEDEFİ</span>
+<span data-lang="en">TRAINING GOAL</span>
+</label>
+<select class="w-full bg-glass-bg border-glass-border rounded-lg p-4 focus:ring-primary focus:border-primary transition-all outline-none">
+<option data-lang="tr">Performans Optimizasyonu</option>
+<option data-lang="en">Performance Optimization</option>
+<option data-lang="tr">Hipertrofi ve Kuvvet</option>
+<option data-lang="en">Hypertrophy &amp; Strength</option>
+<option data-lang="tr">Uzun Ömür ve Biyo-Toparlanma</option>
+<option data-lang="en">Longevity &amp; Bio-Recovery</option>
+<option data-lang="tr">Taktiksel Kondisyon</option>
+<option data-lang="en">Tactical Conditioning</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+<span data-lang="tr">MESAJ</span>
+<span data-lang="en">MESSAGE</span>
+</label>
+<textarea class="w-full bg-glass-bg border-glass-border rounded-lg p-4 focus:ring-primary focus:border-primary transition-all outline-none" rows="4"></textarea>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary-container font-label-md text-label-md font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all">
+<span data-lang="tr">Başvuruyu Gönder</span>
+<span data-lang="en">Submit Application</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-glass-border">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-base py-section-gap">
+<div class="space-y-4">
+<a class="font-display-lg text-headline-md font-bold text-primary" href="index.html">Tuna Web Tasarım</a>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+<span data-lang="tr">HER PİKSELDE TUNA WEB TASARIM HASSASİYETİ.</span>
+<span data-lang="en">TUNA WEB DESIGN PRECISION IN EVERY PIXEL.</span>
+</p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-6">
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">LinkedIn</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">GitHub</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Behance</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dribbble</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">
+<span data-lang="tr">© 2024 TUNA WEB TASARIM. TÜM HAKLARI SAKLIDIR.</span>
+<span data-lang="en">© 2024 TUNA WEB DESIGN. ALL RIGHTS RESERVED.</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Language Switcher Logic
+    function setLanguage(lang) {
+        localStorage.setItem('preferred-lang', lang);
+        document.documentElement.lang = lang;
+        
+        document.querySelectorAll('[data-lang]').forEach(el => {
+            if (el.getAttribute('data-lang') === lang) {
+                el.classList.add('active-lang-content');
+            } else {
+                el.classList.remove('active-lang-content');
+            }
+        });
+
+        // Update active class on buttons
+        document.querySelectorAll('.lang-link').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`lang-${lang}`).classList.add('active');
+    }
+
+    // Initialize Language
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('preferred-lang') || 'tr';
+        setLanguage(savedLang);
+    });
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Sticky Header Effect
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('py-2');
+            nav.classList.remove('h-20');
+            nav.classList.add('h-16');
+        } else {
+            nav.classList.remove('py-2');
+            nav.classList.add('h-20');
+            nav.classList.remove('h-16');
+        }
+    });
+
+    // Intersection Observer
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100');
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.glass-card').forEach(card => {
+        card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        observer.observe(card);
+    });
+</script>
+</body></html>

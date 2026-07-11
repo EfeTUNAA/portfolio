@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tuna Web Tasarım | Modern Emlak Portalı</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#ffdad6",
+                      "tertiary-container": "#d87802",
+                      "primary-container": "#528dff",
+                      "on-tertiary": "#4d2700",
+                      "surface": "#11131a",
+                      "tertiary-fixed-dim": "#ffb77b",
+                      "inverse-on-surface": "#2e3038",
+                      "surface-container-low": "#191b22",
+                      "surface-tint": "#afc6ff",
+                      "on-secondary-fixed-variant": "#45464e",
+                      "surface-container-high": "#272a31",
+                      "inverse-primary": "#0059c6",
+                      "surface-bright": "#373941",
+                      "glass-border": "rgba(255, 255, 255, 0.1)",
+                      "outline-variant": "#424753",
+                      "surface-container-lowest": "#0b0e15",
+                      "on-background": "#e1e2ec",
+                      "secondary-fixed": "#e2e2eb",
+                      "primary-fixed-dim": "#afc6ff",
+                      "secondary-container": "#45464e",
+                      "glass-bg": "rgba(255, 255, 255, 0.03)",
+                      "on-secondary-container": "#b4b4bd",
+                      "outline": "#8c909f",
+                      "on-secondary": "#2e3037",
+                      "on-error": "#690005",
+                      "tertiary": "#ffb77b",
+                      "inverse-surface": "#e1e2ec",
+                      "on-primary-container": "#00275f",
+                      "surface-dim": "#11131a",
+                      "background": "#0b0b0f",
+                      "secondary-fixed-dim": "#c6c6cf",
+                      "surface-container-highest": "#32353c",
+                      "on-tertiary-fixed": "#2e1500",
+                      "on-surface-variant": "#c2c6d6",
+                      "surface-variant": "#32353c",
+                      "on-tertiary-container": "#432100",
+                      "on-primary": "#002d6c",
+                      "tertiary-fixed": "#ffdcc2",
+                      "surface-container": "#1d1f27",
+                      "error-container": "#93000a",
+                      "on-surface": "#e1e2ec",
+                      "on-primary-fixed": "#001a43",
+                      "secondary": "#c6c6cf",
+                      "primary-fixed": "#d9e2ff",
+                      "primary": "#afc6ff",
+                      "on-tertiary-fixed-variant": "#6d3a00",
+                      "on-secondary-fixed": "#1a1b22",
+                      "accent-glow": "rgba(79, 140, 255, 0.3)",
+                      "on-primary-fixed-variant": "#004398",
+                      "error": "#ffb4ab"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1200px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "section-gap": "120px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Inter"],
+                      "display-lg-mobile": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0b0b0f;
+            color: #e1e2ec;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(79, 140, 255, 0.1);
+            border-color: rgba(175, 198, 255, 0.3);
+        }
+        .kinetic-text {
+            background: linear-gradient(to right, #afc6ff, #ffffff, #afc6ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+        .blur-sphere {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(79, 140, 255, 0.15) 0%, rgba(79, 140, 255, 0) 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(175, 198, 255, 0.2); border-radius: 10px; }
+        
+        /* Language display utility */
+        [lang="tr"] .lang-en, [lang="en"] .lang-tr { display: none; }
+    </style>
+</head>
+<body class="custom-scrollbar">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<a class="font-display-lg text-xl font-bold tracking-tighter text-primary whitespace-nowrap" href="../index.html">Tuna Web Tasarım</a>
+<div class="hidden md:flex gap-5 items-center">
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="index.html">
+<span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#services">
+<span class="lang-tr">Hizmetler</span><span class="lang-en">Services</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#gallery">
+<span class="lang-tr">Galeri</span><span class="lang-en">Gallery</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#about">
+<span class="lang-tr">Hakkımızda</span><span class="lang-en">About</span>
+</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#faq">
+<span class="lang-tr">SSS</span><span class="lang-en">FAQ</span>
+</a>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" onclick="toggleLanguage()">
+<span class="" id="lang-toggle-text">TR / EN</span>
+</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md text-label-md uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
+<span class="lang-tr">İletişim</span><span class="lang-en">Contact</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
+<div class="blur-sphere top-1/4 -left-20"></div>
+<div class="blur-sphere bottom-1/4 -right-20"></div>
+<div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7">
+<div class="inline-block px-4 py-1 rounded-full border border-primary/30 text-primary font-label-sm text-label-sm uppercase tracking-widest mb-6">
+<span class="lang-tr">Lüks Gayrimenkul Yeniden Tanımlandı</span><span class="lang-en">Luxury Real Estate Redefined</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8 kinetic-text">
+<span class="lang-tr">HER PİKSELDE<br/>HASSASİYET.</span>
+<span class="lang-en">PRECISION IN <br/>EVERY PIXEL.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10">
+<span class="lang-tr">Üst düzey gayrimenkulün geleceğini deneyimleyin. Mimari ustalığı dijital hassasiyetle birleştirerek size dünyanın en seçkin mülklerini sunuyoruz.</span>
+<span class="lang-en">Experience the future of high-end real estate. We combine architectural mastery with digital precision to bring you the world's most exclusive properties.</span>
+</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-on-surface text-surface px-10 py-4 rounded-full font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-all">
+<span class="lang-tr">Mülkleri Keşfedin</span><span class="lang-en">Explore Properties</span>
+</button>
+<button class="glass-card px-10 py-4 rounded-full font-label-md text-label-md uppercase tracking-widest text-on-surface hover:border-primary transition-all flex items-center gap-2">
+<span class="lang-tr">Portfolyoyu Görüntüle</span><span class="lang-en">View Portfolio</span> <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-5 relative mt-12 lg:mt-0">
+<div class="aspect-[4/5] glass-card rounded-2xl overflow-hidden p-3 group">
+<div class="w-full h-full rounded-xl overflow-hidden relative">
+<img alt="Lüks villa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvW9c8Rg1YnKq-3jTAVGN2YRjDOf4pxTgX-2HSZeDeqVLmAQXdfoBN0yNRrsC_LvSffSPhMToZ_qJU8BXbPZEhDG5jIqZO5un1uiIp2hiSJbJ_58ElG_WFV-14WGZCdxoZ0G6-kWlEr6X9dF4iwRrhMkeKW77E9_nGcFOK-BJ8A6KDg-zQZHSrND3OoTr5aMgnX7Bf6TEt5WbGjcOGuI7LEpS4rwEqKmD2_USd33KARhOUjcJQNJUnYwBnAQ5C7wi9iUTkbdlG2XY"/>
+<div class="absolute bottom-6 left-6 right-6 p-6 glass-card rounded-xl">
+<div class="text-primary font-label-sm text-label-sm uppercase tracking-widest mb-2">
+<span class="lang-tr">Öne Çıkan İlan</span><span class="lang-en">Featured Listing</span>
+</div>
+<div class="font-headline-md text-headline-md">
+<span class="lang-tr">Cam Köşk, Azure Kıyısı</span><span class="lang-en">The Glass Pavilion, Azure Coast</span>
+</div>
+<div class="flex justify-between items-center mt-4 pt-4 border-t border-glass-border">
+<span class="font-body-md text-body-md text-on-surface-variant">$12,500,000</span>
+<span class="material-symbols-outlined text-primary">open_in_new</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-gap bg-surface-container-lowest relative overflow-hidden" id="services">
+<div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-20">
+<h2 class="font-headline-xl text-headline-xl mb-4">
+<span class="lang-tr">Uzmanlığımız</span><span class="lang-en">Our Expertise</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+<span class="lang-tr">Lüks gayrimenkul işlemleri için cerrahi hassasiyetle kesintisiz bir ekosistem sağlıyoruz.</span>
+<span class="lang-en">Providing a seamless ecosystem for luxury property transactions with surgical precision.</span>
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-card p-10 rounded-2xl">
+<div class="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-8 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-4xl">real_estate_agent</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="lang-tr">Stratejik Satış</span><span class="lang-en">Strategic Sales</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<span class="lang-tr">Veri odaklı içgörüler kullanarak varlığınızı küresel bir yüksek net değerli bireyler ağına pazarlıyoruz.</span>
+<span class="lang-en">Marketing your asset to a global network of high-net-worth individuals using data-driven insights.</span>
+</p>
+</div>
+<div class="glass-card p-10 rounded-2xl">
+<div class="w-16 h-16 rounded-xl bg-tertiary/10 flex items-center justify-center mb-8 border border-tertiary/20">
+<span class="material-symbols-outlined text-tertiary text-4xl">analytics</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="lang-tr">Hassas Değerleme</span><span class="lang-en">Precise Valuation</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<span class="lang-tr">Gerçek zamanlı pazar dinamiklerini ve gelecek potansiyelini yansıtan tarafsız, teknik mülk değerlendirmeleri.</span>
+<span class="lang-en">Unbiased, technical property appraisals that reflect real-time market dynamics and future potential.</span>
+</p>
+</div>
+<div class="glass-card p-10 rounded-2xl">
+<div class="w-16 h-16 rounded-xl bg-on-surface-variant/10 flex items-center justify-center mb-8 border border-on-surface-variant/20">
+<span class="material-symbols-outlined text-on-surface text-4xl">architecture</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="lang-tr">Danışmanlık</span><span class="lang-en">Consulting</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<span class="lang-tr">Geliştiriciler ve kurumsal yatırımcılar için özel portföy danışmanlık hizmetleri.</span>
+<span class="lang-en">Bespoke portfolio advisory services for developers and institutional investors looking for alpha.</span>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us -->
+<section class="py-section-gap relative">
+<div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+<div class="lg:col-span-2 lg:row-span-2 glass-card p-12 rounded-3xl flex flex-col justify-end min-h-[500px] relative overflow-hidden group">
+<div class="absolute inset-0 z-0">
+<img alt="Geleceğin şehri" class="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDyC1xwOHjrST2jzVbClMZlyRD45SkeoKTBcl1a0WMCw8iedD9COK32XyrpxJqSO0HzcCtkKJI_tgtSfnMseXjhhcGgwVPa5bHW4dTH8cw5_CgofwxlYNi21UQ3WCNi4rm-yWszBjrBPHrrjKbXeD0DKgfekqJJe6QcafFo8MlKbs-8ZAxH0muJI81wJ42iJhr_wHGFCsMnqevtePPeU78I-vA5LT7V6tPZywkVNo47dk30d5p49etteWldOY4-PvBqG8PQbU_Keo"/>
+</div>
+<div class="relative z-10">
+<h2 class="font-headline-xl text-headline-xl mb-6"><span class="lang-tr">Neden Tuna Web Tasarım?</span><span class="lang-en">Why Tuna Web Tasarım?</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+<span class="lang-tr">Sadece mülk satmıyoruz; her detayda mükemmellik talep edenler için yaşam tarzları kurguluyoruz.</span>
+<span class="lang-en">We don't just sell property; we curate lifestyles for those who demand excellence in every detail.</span>
+</p>
+<div class="flex gap-4">
+<div class="flex flex-col">
+<span class="font-display-lg text-headline-xl text-primary">$4.2B</span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter">
+<span class="lang-tr">Yönetilen Varlıklar</span><span class="lang-en">Assets Under Management</span>
+</span>
+</div>
+<div class="w-px h-16 bg-glass-border"></div>
+<div class="flex flex-col">
+<span class="font-display-lg text-headline-xl text-primary">120+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter">
+<span class="lang-tr">Küresel Konum</span><span class="lang-en">Global Locations</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2 glass-card p-8 rounded-3xl flex items-center gap-8">
+<div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0">
+<img alt="Hassasiyet" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB4KXJ1loDyb9hGBQaNIp-xYPN-yh3HpsER1Gezq2NmmhvhjzltFkT78TvRPB-pdtkiABNUty3uge_S7r_4odATLFGLEBSD1zqKzSp2W7yvaSUxCLNyxP5hTLpTKkcKxnBCPYwEz_FdqnWq2Lk0e6vpTwL1g72SdadKN95CNT9fqLXJYZ9v8oqHvxcrZB3MLbZnmajoNR5um2qxmNKIG9xCcn7VCD5y9cuknqYbZQmCLTbelr6pGe1b1tpoCJhbjzm2Wp3dLFhkCw"/>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">
+<span class="lang-tr">Teknik Mükemmellik</span><span class="lang-en">Technical Perfection</span>
+</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<span class="lang-tr">Sistemimiz ışık hızında bir deneyim için React &amp; Tailwind kullanmaktadır.</span>
+<span class="lang-en">Our stack utilizes React &amp; Tailwind for a lightning-fast experience.</span>
+</p>
+</div>
+</div>
+<div class="lg:col-span-1 glass-card p-8 rounded-3xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-4xl text-primary">verified</span>
+<h4 class="font-headline-md text-headline-md mt-6">
+<span class="lang-tr">Doğrulanmış Varlıklar</span><span class="lang-en">Verified Assets</span>
+</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 uppercase tracking-widest">
+<span class="lang-tr">%100 Şeffaflık</span><span class="lang-en">100% Transparency</span>
+</p>
+</div>
+<div class="lg:col-span-1 glass-card p-8 rounded-3xl flex flex-col justify-between bg-primary-container text-on-primary-container border-none">
+<span class="material-symbols-outlined text-4xl">language</span>
+<h4 class="font-headline-md text-headline-md mt-6">
+<span class="lang-tr">Küresel Erişim</span><span class="lang-en">Global reach</span>
+</h4>
+<p class="font-label-sm text-label-sm text-on-primary-container/80 mt-2 uppercase tracking-widest">
+<span class="lang-tr">Sınır Ötesi Akış</span><span class="lang-en">Cross-border flow</span>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Property Gallery -->
+<section class="py-section-gap overflow-hidden" id="gallery">
+<div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-12 flex justify-between items-end">
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-2">
+<span class="lang-tr">Koleksiyon</span><span class="lang-en">The Collection</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+<span class="lang-tr">Beş kıtadan küratörlü lüks ilanlar.</span><span class="lang-en">Curated luxury listings across five continents.</span>
+</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center hover:bg-glass-bg transition-all">
+<span class="material-symbols-outlined">west</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center hover:bg-glass-bg transition-all text-primary">
+<span class="material-symbols-outlined">east</span>
+</button>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto px-margin-mobile md:px-64 pb-12 no-scrollbar scroll-smooth">
+<!-- Property 1 -->
+<div class="min-w-[320px] md:min-w-[450px] group">
+<div class="aspect-[16/10] rounded-3xl overflow-hidden glass-card mb-6">
+<img alt="Penthouse" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFr-730Cbbo1A-xWGyPpxKTwBFbsUTCGOSB_1j8vP-lpUyTDISQ9zMUtaxZoVGNLfi7LKkwXTGDhPNWj6C_LbrV47MksIBOCdBAtKMiti1lUlvltxF76jqANTR6Sz192XLwDxZngxhUK0ysM4QSCNMzWAHDRWnoYpSASklOIsgll2QRGoD1HayfD161Y-aRUqsl4Vd_eofO0CjJrWYAFOU_5uGPFaL0ijyznRcBaT-menYB48c5iTGSjcJEG6cR7WHJn77MExp90k"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-headline-md text-headline-md">Skyline Loft</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">New York, USA</p>
+</div>
+<div class="font-headline-md text-primary">$8,200,000</div>
+</div>
+</div>
+<!-- Property 2 -->
+<div class="min-w-[320px] md:min-w-[450px] group">
+<div class="aspect-[16/10] rounded-3xl overflow-hidden glass-card mb-6">
+<img alt="Alpine Retreat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh7ZDuqUA2wO5MIZ_1Iil2AXfhx83Yn7Nc0wBr2Pgm-CScqWiaIZcTuwyjBTpcujoQBiFLgrWSePydCO3RLXwzagSxJFmfvMV_FR3ysPAqYjs795KSbZjyE3XtlJqg-iqdaVlpkSG2C8S5YvgWPjssxeEUsidvH4zMVgWFsA8h17plkgIcTThP5UYBuIQM7J0M44vLx-mMYZsVXbgY7ZTr569X4sOHjMUismLfG06xKwJx0V3z-7pH2hjVqneREYKxw94L4OvUEjI"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-headline-md text-headline-md">Alpine Peak Retreat</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">St. Moritz, Switzerland</p>
+</div>
+<div class="font-headline-md text-primary">$15,400,000</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Info -->
+<section class="py-section-gap bg-surface-container">
+<div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-section-gap">
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-8">
+<span class="lang-tr">Teknik Temel</span><span class="lang-en">Technical Foundation</span>
+</h2>
+<div class="space-y-6">
+<div class="glass-card p-6 rounded-2xl flex items-center gap-6">
+<div class="w-12 h-12 bg-[#61dafb]/10 flex items-center justify-center rounded-lg">
+<img alt="React Logo" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGoUxDJ4PKEB65nA0x97Fhj-jqTtIpm7J1wLMgDbg_KbqA57eX_JjGQEPPgNLuIGy3CdXvT1KTL3779sbNwUnp_yxnpDQMF822iq7Br-zR2KpWAK6rI6nV1VX75puXW_P3JGHfy3x1j_AV8xtcvIABH8Tmg8boEW7TjoGlSceGAd33M4xAYo0U-plB5KUs6E_PTqBx59jbEMNY8AUTQOg9Kz2pEcsf7MIAeIRY_S43dlTAzIbMh84NYz615wodE0UcKmdkSJ3aYpw"/>
+</div>
+<div>
+<h6 class="font-headline-md text-body-lg font-bold">React.js</h6>
+<p class="font-body-md text-label-md text-on-surface-variant">
+<span class="lang-tr">En modern bileşen mimarisi.</span><span class="lang-en">State-of-the-art component architecture.</span>
+</p>
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex items-center gap-6">
+<div class="w-12 h-12 bg-[#38bdf8]/10 flex items-center justify-center rounded-lg">
+<img alt="Tailwind Logo" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlj-sLtB9bVI7yv1Dx25bvIchHjcBqhVelmII7xnsOURg_fm6GK8rCszAQlDufIUGh0eRlvV6WImcXMFzVc4H7_U8_AQrDWcagPlPNJ1Ivjwp2bBJxvklwMTlGo_LPg7EzBfrZN1ewy2t-swInq2YiNr1hHbSTzMqfzx3v1HM2vX7osKXbTc67HUS3VPYQSVIKlhaeK--XTjcC2roJ8qtdkmtVPQOBcCoxmc_UrIbGulAdds5HdiWsYDxPf9so0LSdCa0mzGMufsk"/>
+</div>
+<div>
+<h6 class="font-headline-md text-body-lg font-bold">Tailwind CSS</h6>
+<p class="font-body-md text-label-md text-on-surface-variant">
+<span class="lang-tr">Maksimum performans için "utility-first" tasarım.</span><span class="lang-en">Utility-first design for maximum performance.</span>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-12 p-8 border border-glass-border rounded-3xl">
+<h5 class="font-headline-md text-headline-md mb-4">
+<span class="lang-tr">Tasarım Süreci</span><span class="lang-en">Design Process</span>
+</h5>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<span class="lang-tr">Sürecimiz derin kullanıcı yolculuğu analizi ile başlar, ardından yüksek kaliteli tel kafesleme ve tescilli "Kinetic Glass" tasarım sistemimizin uygulanmasıyla devam eder. Her bileşen, 40'tan fazla cihaz varyantında erişilebilirlik ve performans için test edilir.</span>
+<span class="lang-en">Our process begins with deep user-journey analysis, followed by high-fidelity wireframing and the implementation of our proprietary "Kinetic Glass" design system. Each component is stress-tested for accessibility and performance across 40+ device variants.</span>
+</p>
+</div>
+</div>
+<div class="relative">
+<div class="glass-card rounded-3xl p-4 overflow-hidden border-primary/20 bg-primary/5">
+<div class="bg-surface rounded-2xl overflow-hidden shadow-2xl">
+<div class="h-8 bg-surface-container px-4 flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<img alt="Mobil Uygulama" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFHtfSrcSvV-FRI35HstWohy60wOJgzL5PcjMIHPjd1eU8hVFO_wWEF6TShV3HGOzlTlX8-OyqejUw4DJX1yEVHIAZvvFcP_Ef4oyAawiSUOQudx08QxTjvG4sksK5pSMojB2pzVpMay6I9heKkJm606psNYQN1rTNvrgS86-ilxfTKyZyGUju2ZaNLMoC0mXhXbs9dy1pxQsCuYg7OhBn5UAOBbZhxuAL9lwNoJklomuCNO9hKHRiq7NgaPaYUGtZMDibaNhiG6Q"/>
+</div>
+</div>
+<div class="absolute -bottom-8 -left-8 glass-card p-6 rounded-2xl shadow-xl max-w-[200px]">
+<span class="font-label-sm text-label-sm text-primary uppercase block mb-1">
+<span class="lang-tr">Performans</span><span class="lang-en">Performance</span>
+</span>
+<div class="text-headline-md font-bold">99/100</div>
+<div class="w-full bg-glass-border h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary h-full w-[99%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-section-gap" id="faq">
+<div class="w-full max-w-3xl mx-auto px-margin-mobile">
+<h2 class="font-headline-xl text-headline-xl text-center mb-16">
+<span class="lang-tr">Sıkça Sorulan Sorular</span><span class="lang-en">Frequently Asked Questions</span>
+</h2>
+<div class="space-y-4">
+<details class="group glass-card rounded-2xl p-6 cursor-pointer" open="">
+<summary class="flex justify-between items-center font-headline-md text-body-lg list-none">
+<span class="lang-tr">Değerleme süreci nasıl işler?</span><span class="lang-en">How does the valuation process work?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="mt-4 font-body-md text-on-surface-variant">
+<span class="lang-tr">Teknik değerleme ekibimiz, mülkünüzün değerine ilişkin 48 saat içinde hassas ve gerçek zamanlı bir tahmin sunmak için yerel pazar uzmanlığı ve gelişmiş algoritmik analiz kombinasyonunu kullanır.</span>
+<span class="lang-en">Our technical valuation team uses a combination of local market expertise and advanced algorithmic analysis to provide a precise, real-time estimate of your property's value within 48 hours.</span>
+</div>
+</details>
+<details class="group glass-card rounded-2xl p-6 cursor-pointer">
+<summary class="flex justify-between items-center font-headline-md text-body-lg list-none">
+<span class="lang-tr">İlanlarınız Tuna Web Tasarım'a mı özel?</span><span class="lang-en">Are your listings exclusive to Tuna Web Tasarım?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="mt-4 font-body-md text-on-surface-variant">
+<span class="lang-tr">Evet, portföyümüzün %85'i hem alıcılar hem de satıcılar için gizlilik sağlayan, kıdemli ortaklarımız tarafından özel olarak yönetilen "pazar dışı" mülklerden oluşmaktadır.</span>
+<span class="lang-en">Yes, 85% of our portfolio consists of "off-market" properties exclusively managed by our senior partners, ensuring privacy for both buyers and sellers.</span>
+</div>
+</details>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap bg-surface-container-lowest">
+<div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-20">
+<div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 kinetic-text">
+<span class="lang-tr">BİRLİKTE <br/>ÇALIŞALIM.</span><span class="lang-en">LETS WORK <br/>TOGETHER.</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-md">
+<span class="lang-tr">Bir sonraki mimari şaheserinizi bulmaya hazır mısınız? Ortaklarımız sizi bekliyor.</span>
+<span class="lang-en">Ready to find your next architectural masterpiece? Our partners are standing by.</span>
+</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<span class="font-headline-md text-body-lg">hello@tunawebtasarim.com</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">call</span>
+</div>
+<span class="font-headline-md text-body-lg">+90 (212) 555 0000</span>
+</div>
+</div>
+</div>
+<div class="glass-card p-10 rounded-3xl">
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+<span class="lang-tr">Ad Soyad</span><span class="lang-en">Full Name</span>
+</label>
+<input class="w-full bg-white/5 border border-glass-border rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none transition-all" id="input-name" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Email</label>
+<input class="w-full bg-white/5 border border-glass-border rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none transition-all" id="input-email" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+<span class="lang-tr">Mesajınız</span><span class="lang-en">Message</span>
+</label>
+<textarea class="w-full bg-white/5 border border-glass-border rounded-xl px-4 py-3 h-32 focus:border-primary focus:ring-0 outline-none transition-all" id="input-message" placeholder="Size nasıl yardımcı olabiliriz?"></textarea>
+</div>
+<button class="w-full bg-on-surface text-surface py-4 rounded-xl font-label-md text-label-md uppercase tracking-widest hover:bg-primary transition-all font-bold">
+<span class="lang-tr">Mesaj Gönder</span><span class="lang-en">Send Message</span>
+</button>
+</form>
+</div>
+</div>
+<footer class="border-t border-glass-border pt-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-base">
+<a class="font-display-lg text-headline-md font-bold text-primary" href="index.html">Tuna Web Tasarım</a>
+<div class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">© 2024 Tuna Web Tasarım. ALL RIGHTS RESERVED. / TÜM HAKLARI SAKLIDIR.</div>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">LinkedIn</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">GitHub</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Behance</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dribbble</a>
+</div>
+</div>
+</footer>
+</section>
+<!-- Floating Action Button -->
+<button class="fixed bottom-10 right-10 w-16 h-16 rounded-full bg-primary-container text-on-primary-container shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40 group">
+<span class="material-symbols-outlined text-3xl">chat_bubble</span>
+<span class="absolute right-20 bg-on-surface text-surface px-4 py-2 rounded-lg text-label-md font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+<span class="lang-tr">Danışmanla Konuş</span><span class="lang-en">Speak to Advisor</span>
+</span>
+</button>
+<script>
+    // Language logic
+    function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        localStorage.setItem('preferred-language', lang);
+        
+        // Update placeholders based on language
+        const nameInput = document.getElementById('input-name');
+        const emailInput = document.getElementById('input-email');
+        const messageInput = document.getElementById('input-message');
+        
+        if (lang === 'tr') {
+            if (nameInput) nameInput.placeholder = 'Ad Soyad';
+            if (emailInput) emailInput.placeholder = 'E-posta';
+            if (messageInput) messageInput.placeholder = 'Size nasıl yardımcı olabiliriz?';
+        } else {
+            if (nameInput) nameInput.placeholder = 'John Doe';
+            if (emailInput) emailInput.placeholder = 'john@example.com';
+            if (messageInput) messageInput.placeholder = 'How can we help you?';
+        }
+    }
+
+    function toggleLanguage() {
+        const currentLang = document.documentElement.lang;
+        const newLang = currentLang === 'tr' ? 'en' : 'tr';
+        setLanguage(newLang);
+    }
+
+    // Initialize Language
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('preferred-language') || 'tr';
+        setLanguage(savedLang);
+
+        // Cards animation
+        const cards = document.querySelectorAll('.glass-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+
+        // Horizontal scroll
+        const scrollContainer = document.querySelector('.no-scrollbar');
+        const btns = document.querySelectorAll('#gallery button');
+        const prevBtn = btns[0];
+        const nextBtn = btns[1];
+
+        if (nextBtn && prevBtn && scrollContainer) {
+            nextBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+            prevBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+        }
+    });
+</script>
+</body></html>

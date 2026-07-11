@@ -1,0 +1,717 @@
+<!DOCTYPE html><html class="dark scroll-smooth" lang="tr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DESIGNER.PORTFOLIO | Modern Web Tasarım Çözümleri</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#32353c",
+                    "on-tertiary-container": "#432100",
+                    "surface-container": "#1d1f27",
+                    "on-surface": "#e1e2ec",
+                    "surface-container-highest": "#32353c",
+                    "secondary": "#c6c6cf",
+                    "error-container": "#93000a",
+                    "background": "#0b0b0f",
+                    "primary-fixed": "#d9e2ff",
+                    "tertiary": "#ffb77b",
+                    "on-secondary": "#2f3037",
+                    "outline": "#8c909f",
+                    "outline-variant": "#424753",
+                    "secondary-fixed": "#e2e1eb",
+                    "on-tertiary-fixed": "#2e1500",
+                    "surface": "#11131a",
+                    "on-background": "#e1e2ec",
+                    "surface-container-high": "#272a31",
+                    "tertiary-fixed": "#ffdcc2",
+                    "primary-fixed-dim": "#afc6ff",
+                    "on-primary": "#002d6c",
+                    "surface-bright": "#373941",
+                    "surface-container-low": "#191b22",
+                    "on-surface-variant": "#c2c6d6",
+                    "on-secondary-fixed": "#1a1b22",
+                    "on-primary-fixed": "#001a43",
+                    "on-secondary-fixed-variant": "#45464e",
+                    "inverse-surface": "#e1e2ec",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#004398",
+                    "secondary-container": "#45464e",
+                    "surface-container-lowest": "#0b0e15",
+                    "inverse-on-surface": "#2e3038",
+                    "on-tertiary": "#4d2700",
+                    "inverse-primary": "#0059c6",
+                    "surface-tint": "#afc6ff",
+                    "primary": "#afc6ff",
+                    "tertiary-fixed-dim": "#ffb77b",
+                    "error": "#ffb4ab",
+                    "on-primary-container": "#00275f",
+                    "tertiary-container": "#d87802",
+                    "primary-container": "#4F8CFF",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#6d3a00",
+                    "on-secondary-container": "#b4b4bd",
+                    "secondary-fixed-dim": "#c6c6cf",
+                    "surface-dim": "#11131a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter", "sans-serif"],
+                    "headline-xl-mobile": ["Inter", "sans-serif"],
+                    "label-md": ["Inter", "sans-serif"],
+                    "label-sm": ["Inter", "sans-serif"],
+                    "display-lg": ["Inter", "sans-serif"],
+                    "display-lg-mobile": ["Inter", "sans-serif"],
+                    "headline-xl": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"],
+                    "body-md": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            },
+            "animation": {
+                "fade-in": "fadeIn 1s ease-out forwards",
+                "glow": "glow 2s infinite alternate"
+            },
+            "keyframes": {
+                "fadeIn": {
+                    "0%": { opacity: "0" },
+                    "100%": { opacity: "1" }
+                },
+                "glow": {
+                    "0%": { boxShadow: "0 0 5px rgba(79, 140, 255, 0.2)" },
+                    "100%": { boxShadow: "0 0 20px rgba(79, 140, 255, 0.5)" }
+                }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0b0b0f;
+            color: #e1e2ec;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .kinetic-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .kinetic-glass:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(79, 140, 255, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 140, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #ffffff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .kinetic-glass, .btn-primary {
+                transition: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-glass:hover {
+            background: rgba(79, 140, 255, 0.1);
+            border-color: #4F8CFF;
+            box-shadow: 0 0 20px rgba(79, 140, 255, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4F8CFF; }
+    </style>
+</head>
+<body class="selection:bg-primary selection:text-on-primary animate-fade-in" data-mode="connect">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background/40 backdrop-blur-xl border-b border-white/5 h-20 flex items-center">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full flex justify-between items-center">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">Tuna Web Tasarım</span>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md" data-i18n="nav-work" href="#work">İşler</a>
+<a class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md" data-i18n="nav-services" href="#services">Hizmetler</a>
+<a class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md" data-i18n="nav-about" href="#about">Hakkımda</a>
+<a class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md" data-i18n="nav-contact" href="#contact">İletişim</a>
+<!-- Language Switcher -->
+<div class="flex items-center bg-white/5 rounded-full p-1 border border-white/10">
+<button class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-primary-container text-white" id="lang-tr" onclick="switchLang('tr')">TR</button>
+<button class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 text-on-surface-variant hover:text-white" id="lang-en" onclick="switchLang('en')">EN</button>
+</div>
+</div>
+<button class="bg-primary-container text-white px-8 py-2.5 rounded-full font-label-md text-label-md hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(79,140,255,0.3)]" data-i18n="nav-cta">
+            Hadi Konuşalım
+        </button>
+</div>
+</nav>
+<main class="pt-32 space-y-32 mb-32">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[70vh]">
+<div class="reveal active">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-tight gradient-text" data-i18n="hero-title">
+                Modern Web Siteleri ile <span class="text-primary-container">Markanızı Güçlendirin.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl" data-i18n="hero-desc">
+                Hızlı, modern ve dönüşüm odaklı dijital deneyimler tasarlıyorum. Markanızın hikayesini en son teknolojilerle web'e taşıyın.
+            </p>
+<div class="flex flex-wrap gap-6">
+<a class="bg-white text-black px-10 py-4 rounded-full font-label-md text-label-md flex items-center gap-2 hover:scale-105 transition-all duration-300 shadow-xl" href="#work">
+<span class="" data-i18n="hero-cta-work">Portföyümü İncele</span> <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<a class="btn-glass px-10 py-4 rounded-full font-label-md text-label-md flex items-center gap-2" data-i18n="hero-cta-contact" href="#contact">
+                    İletişime Geç
+                </a>
+</div>
+</div>
+<div class="relative reveal delay-200 active">
+<div class="absolute -inset-20 bg-primary-container/5 blur-[120px] rounded-full"></div>
+<div class="kinetic-glass p-4 rounded-2xl relative overflow-hidden group">
+<img alt="High-end laptop mockup" class="rounded-lg w-full shadow-2xl transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwpYba2fsuX_7DMgd0vsbg8LqeiOSNsL8GTbqjNdeG_wbpupoqvta4qX7LNVuQVZ3Tcxgp1JwRdhmGk4kWBOs5GX3JFAcYoi4UQd2jK6JdA4mg2MJzzADU1iB97HKO7LdXoslz41nSLvLecKoE2TsPm0CexeT8b9oqmMbuyoamTiwr_QJujNLBSxlbWS1gBGiYs1PRL1U008Tj0o4kNLFrxL68OZN6e3Wu1vXyMGjs0XS5FeFeS2CYX4YrjhQVJ3aq-Fl-UPXyb3s">
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16" id="about">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
+<div class="lg:col-span-2 reveal active">
+<span class="text-primary-container font-label-sm text-label-sm uppercase tracking-widest mb-4 block" data-i18n="about-badge">HAKKIMDA</span>
+<h2 class="font-headline-xl text-headline-xl mb-6 gradient-text" data-i18n="about-title">Piksellerle Hikayeler İnşa Ediyorum.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mb-12 leading-relaxed" data-i18n="about-desc">
+                    8 yılı aşkın süredir dijital dünyada estetik ve fonksiyonu bir araya getiriyorum. Minimalist tasarımı, kusursuz performans ile birleştirerek markanız için çalışan dijital merkezler kuruyorum.
+                </p>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+<div class="flex flex-col items-center gap-3 group">
+<div class="w-16 h-16 kinetic-glass rounded-xl flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">brush</span>
+</div>
+<span class="font-label-sm text-label-sm">UI/UX</span>
+</div>
+<div class="flex flex-col items-center gap-3 group">
+<div class="w-16 h-16 kinetic-glass rounded-xl flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">devices</span>
+</div>
+<span class="font-label-sm text-label-sm" data-i18n="skill-resp">Duyarlı</span>
+</div>
+<div class="flex flex-col items-center gap-3 group">
+<div class="w-16 h-16 kinetic-glass rounded-xl flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<span class="font-label-sm text-label-sm" data-i18n="skill-speed">Hız</span>
+</div>
+<div class="flex flex-col items-center gap-3 group">
+<div class="w-16 h-16 kinetic-glass rounded-xl flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+</div>
+<span class="font-label-sm text-label-sm">SEO</span>
+</div>
+<div class="flex flex-col items-center gap-3 group">
+<div class="w-16 h-16 kinetic-glass rounded-xl flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">domain</span>
+</div>
+<span class="font-label-sm text-label-sm" data-i18n="skill-corp">Kurumsal</span>
+</div>
+</div>
+</div>
+<div class="reveal delay-300 active">
+<div class="aspect-[4/5] kinetic-glass rounded-3xl overflow-hidden relative group">
+<img alt="Designer Portrait" class="object-cover w-full h-full opacity-60 transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRwT3ppjNBaCAOumKayLE8UcNQ_3t-OkWRMA4-pH5SgsWB6i9u7J_Vm5a_QO9fiVvnp-DbILlJIFG1PFuDRLPQ0fMbSJP8_Pe6IQLezxqv4toXdAT-eSoOdAHoVGUchBucfqogfYjE5KUBU-USsxxLDqNniX8pWMLWkRtNQ1tgH5odFkfJ0qoWQRXGiaA9VFgq9tLBpa7TYZWrFw7ejjhdB2ArB3rurNvSM_lM18YBVg1FOjNljEvsOCRvKTKDS3ow5Ni2smsd7SU">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-16" id="services">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-20 reveal active">
+<h2 class="font-headline-xl text-headline-xl mb-4 gradient-text" data-i18n="services-title">Size Nasıl Yardımcı Olabilirim?</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto" data-i18n="services-desc">Sadece bir arayüz değil, kullanıcı deneyimi ve iş hedeflerinize odaklanan stratejik çözümler sunuyorum.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="kinetic-glass p-12 rounded-3xl reveal flex flex-col group border-white/5 bg-white/5 backdrop-blur-xl active">
+<div class="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(79,140,255,0.15)]">
+<span class="material-symbols-outlined text-4xl text-primary-container group-hover:scale-110 transition-transform">corporate_fare</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4" data-i18n="s1-title">Kurumsal Web Sitesi</h3>
+<p class="text-on-surface-variant mb-8 flex-grow" data-i18n="s1-desc">Şirketinizin profesyonelliğini yansıtan, güven veren ve global standartlarda web çözümleri.</p>
+<div class="h-1 w-12 bg-primary-container rounded-full group-hover:w-full transition-all duration-700"></div>
+</div>
+<!-- Service 2 -->
+<div class="kinetic-glass p-12 rounded-3xl reveal delay-100 flex flex-col group border-white/5 bg-white/5 backdrop-blur-xl active">
+<div class="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(79,140,255,0.15)]">
+<span class="material-symbols-outlined text-4xl text-primary-container group-hover:scale-110 transition-transform">ads_click</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4" data-i18n="s2-title">Landing Page</h3>
+<p class="text-on-surface-variant mb-8 flex-grow" data-i18n="s2-desc">Ürün veya kampanyalarınız için yüksek dönüşüm oranlarına sahip, ikna edici tek sayfa tasarımlar.</p>
+<div class="h-1 w-12 bg-primary-container rounded-full group-hover:w-full transition-all duration-700"></div>
+</div>
+<!-- Service 3 -->
+<div class="kinetic-glass p-12 rounded-3xl reveal delay-200 flex flex-col group border-white/5 bg-white/5 backdrop-blur-xl active">
+<div class="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(79,140,255,0.15)]">
+<span class="material-symbols-outlined text-4xl text-primary-container group-hover:scale-110 transition-transform">palette</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4" data-i18n="s3-title">UI/UX Tasarım</h3>
+<p class="text-on-surface-variant mb-8 flex-grow" data-i18n="s3-desc">Modern kullanıcı alışkanlıklarına uygun, estetik olduğu kadar işlevsel arayüz tasarımları.</p>
+<div class="h-1 w-12 bg-primary-container rounded-full group-hover:w-full transition-all duration-700"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16" id="work">
+<div class="flex justify-between items-end mb-16 reveal active">
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-4 gradient-text" data-i18n="work-title">Seçkin Projeler</h2>
+<p class="text-on-surface-variant" data-i18n="work-desc">Detaylara verilen önemin yansıması olan son çalışmalarım.</p>
+</div>
+<button class="hidden md:flex btn-glass px-8 py-3 rounded-full font-label-md text-label-md items-center gap-2">
+<span class="" data-i18n="work-all">Tümünü Gör</span> <span class="material-symbols-outlined">grid_view</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Project 1 -->
+<a class="reveal group block active" href="/emlak/emlak.html">
+<div class="kinetic-glass rounded-3xl overflow-hidden mb-8 aspect-[4/3] relative group-hover:shadow-[0_0_30px_rgba(79,140,255,0.3)] transition-all">
+<img alt="Modern Real Estate Demo" class="w-full h-full object-cover grayscale-[0.2] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT456KeBL-wlIYTknDWsVEDTphOAqGKqLaW_GTdKydSrMUFbIle6eDskmmTAURAiJCZtJNt1SXMrLJVP66JN0ZRR6FBeMM4NBOAv5uOwzQC_1a6Uv5tJkXZ0C8KagiJ2SoLwvJyIiN4p8MndrShQ-uIsgyu2uCEMdEmDItJZj6ZPmip75uxwM4TytNQZA7INEAhqHJtBkqxO1x-9rWmMwIbSg29FzknE4ybqcS3-gPAMtuO2PB-hGK_P_O6kpKVS6CSmW1h5M32Uc">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
+<span class="bg-white text-black px-8 py-3 rounded-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500 font-bold" data-i18n="work-inspect">Projeyi İncele</span>
+</div>
+</div>
+<span class="text-primary-container text-label-sm font-label-sm tracking-widest uppercase mb-2 block" data-i18n="p1-badge">EMLAK / LUXURY</span>
+<h4 class="font-headline-md text-headline-md mb-2" data-i18n="p1-title">Modern Emlak Sitesi</h4>
+<p class="text-on-surface-variant text-body-md line-clamp-2" data-i18n="p1-desc">Lüks gayrimenkul sektörü için özel olarak kurgulanmış, estetik ve prestij odaklı web çözümü.</p>
+</a>
+<!-- Project 2 -->
+<a class="reveal delay-100 group block active" href="/yazılım_şirketi/yazilim.html">
+<div class="kinetic-glass rounded-3xl overflow-hidden mb-8 aspect-[4/3] relative group-hover:shadow-[0_0_30px_rgba(79,140,255,0.3)] transition-all">
+<img alt="SaaS Landing Page Demo" class="w-full h-full object-cover grayscale-[0.2] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc7RGxFmwXUsRzpLppCIv0YptFSh4EalvGn89vPewG9bq14d_QMAYo7gwrW4VJG-I79DJmaO_MhZUslOWJxe8QOshqhiamZ7sunh-VPz9ph1ZABmZqTM5EWC-mBU2YWzGyNgw_wye-OEaIAlP_qydBqR9mHIS9YOb8q_SIfJtPjCbTjRo-hW_Vl4b9Dt0V_Nqdxpoyu4pnWoNrytZJeeb2ySiztyLcjbthUoQg3N0eR4s5k9bqKefjLQ9DlQwvB-t-xOUUmywrw-c">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
+<span class="bg-white text-black px-8 py-3 rounded-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500 font-bold" data-i18n="work-inspect">Projeyi İncele</span>
+</div>
+</div>
+<span class="text-primary-container text-label-sm font-label-sm tracking-widest uppercase mb-2 block" data-i18n="p2-badge">YAZILIM / SaaS</span>
+<h4 class="font-headline-md text-headline-md mb-2" data-i18n="p2-title">Yazılım Tanıtım Sayfası</h4>
+<p class="text-on-surface-variant text-body-md line-clamp-2" data-i18n="p2-desc">Yeni nesil teknoloji girişimleri için yüksek dönüşüm odaklı ve modern bir tanıtım sayfası.</p>
+</a>
+<!-- Project 3 -->
+<a class="reveal delay-200 group block active" href="/restoran/restoran.html"><div class="kinetic-glass rounded-3xl overflow-hidden mb-8 aspect-[4/3] relative group-hover:shadow-[0_0_30px_rgba(79,140,255,0.3)] transition-all">
+<img alt="Restoran Web Tasarım Branding" class="w-full h-full object-cover grayscale-[0.2] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdbis4ZtPee0QI7sD7U5Eywc35UZYRqe9w5e_GhJshEeCoc9xmOMDP5m5qFcqWW5-8c2aPfLG4Lmepe9YycHNaX_kqZfJJLjJffbD1_63F1nXQpbOZwppbj741DJgTxGZlHcB3aP3xNgZVK21P34r5UmtSys6w_VE0btXVfl1mbu8Lmh0HzC4533zpuBAskvO2C6t6WkQIgt-BMk-gp5gK34PHpe4z7XfGaNl0Uo2UgvuAtqvRX6QSNdlcFb1wL7JJ3o0l8EuY2Ag">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
+<span class="bg-white text-black px-8 py-3 rounded-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500 font-bold" data-i18n="work-inspect">Projeyi İncele</span>
+</div>
+</div>
+<span class="text-primary-container text-label-sm font-label-sm tracking-widest uppercase mb-2 block" data-i18n="p3-badge">GASTRONOMİ / BRANDING</span>
+<h4 class="font-headline-md text-headline-md mb-2" data-i18n="p3-title">Restoran Web Tasarımı</h4>
+<p class="text-on-surface-variant text-body-md line-clamp-2" data-i18n="p3-desc">Rafine gastronomi deneyimi için tasarlanmış, teknik kusursuzluk ve estetiği birleştiren dijital kimlik çalışması.</p></a></div>
+</section>
+<!-- Why Me Section -->
+<section class="py-16 relative">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="reveal active">
+<h2 class="font-headline-xl text-headline-xl mb-12 gradient-text" data-i18n="why-title">Neden Benimle Çalışmalısınız?</h2>
+<div class="space-y-10">
+<div class="flex gap-8 items-start group">
+<div class="bg-white/5 border border-white/10 p-4 rounded-2xl text-primary-container transition-all group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[22px] mb-2" data-i18n="w1-title">Modern Tasarım</h4>
+<p class="text-on-surface-variant leading-relaxed" data-i18n="w1-desc">Dünya standartlarında, güncel tasarım trendlerini takip eden modern arayüzler.</p>
+</div>
+</div>
+<div class="flex gap-8 items-start group">
+<div class="bg-white/5 border border-white/10 p-4 rounded-2xl text-primary-container transition-all group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">smartphone</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[22px] mb-2" data-i18n="w2-title">Mobil Uyumlu</h4>
+<p class="text-on-surface-variant leading-relaxed" data-i18n="w2-desc">Tüm cihazlarda kusursuz görünen ve çalışan duyarlı (responsive) yapılar.</p>
+</div>
+</div>
+<div class="flex gap-8 items-start group">
+<div class="bg-white/5 border border-white/10 p-4 rounded-2xl text-primary-container transition-all group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">search_check</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[22px] mb-2" data-i18n="w3-title">SEO Dostu</h4>
+<p class="text-on-surface-variant leading-relaxed" data-i18n="w3-desc">Arama motorlarında üst sıralara çıkmanıza yardımcı olacak teknik altyapı.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8 reveal delay-200 active">
+<div class="kinetic-glass p-12 rounded-3xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-5xl text-primary-container mb-6">shutter_speed</span>
+<span class="font-bold text-3xl mb-2 gradient-text" data-i18n="feat-speed">Hızlı Teslim</span>
+<p class="text-sm text-on-surface-variant" data-i18n="feat-speed-desc">Verimlilik odaklı iş akışı</p>
+</div>
+<div class="kinetic-glass p-12 rounded-3xl flex flex-col items-center justify-center text-center mt-12">
+<span class="material-symbols-outlined text-5xl text-primary-container mb-6">verified</span>
+<span class="font-bold text-3xl mb-2 gradient-text" data-i18n="feat-qual">Premium Kalite</span>
+<p class="text-sm text-on-surface-variant" data-i18n="feat-qual-desc">Piksellerde kusursuzluk</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16" id="contact">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div class="reveal active">
+<h2 class="font-headline-xl text-headline-xl mb-8 leading-tight gradient-text" data-i18n="contact-title">Birlikte Harika Bir <br><span class="text-primary-container">Proje Oluşturalım.</span></h2>
+<p class="text-on-surface-variant mb-12 max-w-md text-body-lg" data-i18n="contact-desc">Fikirlerinizi gerçeğe dönüştürmek için hazırım. Hemen bir mesaj gönderin, projenizi birlikte planlayalım.</p>
+<div class="space-y-8">
+<div class="flex items-center gap-6 group">
+<div class="w-14 h-14 kinetic-glass rounded-full flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-2xl">mail</span>
+</div>
+<span class="font-body-lg text-on-surface-variant">efetunamedya@gmail.com</span>
+</div>
+<div class="flex items-center gap-6 group">
+<div class="w-14 h-14 kinetic-glass rounded-full flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-2xl">call</span>
+</div>
+<span class="font-body-lg text-on-surface-variant">+90 (555) 000 00 00</span>
+</div>
+<div class="flex items-center gap-6 group">
+<div class="w-14 h-14 kinetic-glass rounded-full flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-white">
+<span class="material-symbols-outlined text-2xl">location_on</span>
+</div>
+<span class="font-body-lg text-on-surface-variant" data-i18n="location">İstanbul, Türkiye</span>
+</div>
+</div>
+</div>
+<div class="reveal delay-200 active">
+<form class="kinetic-glass p-12 rounded-[40px] space-y-8 relative overflow-hidden bg-white/5 border-white/10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-3">
+<label class="text-label-sm font-label-sm text-on-surface/60 uppercase tracking-widest" data-i18n="form-name">ADINIZ</label>
+<input class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface placeholder:text-white/20 transition-all outline-none" data-placeholder="John Doe" type="text">
+</div>
+<div class="space-y-3">
+<label class="text-label-sm font-label-sm text-on-surface/60 uppercase tracking-widest" data-i18n="form-email">E-POSTA</label>
+<input class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface placeholder:text-white/20 transition-all outline-none" data-placeholder="john@example.com" type="email">
+</div>
+</div>
+<div class="space-y-3">
+<label class="text-label-sm font-label-sm text-on-surface/60 uppercase tracking-widest" data-i18n="form-subject">KONU</label>
+<select class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface transition-all outline-none appearance-none cursor-pointer" id="subject-select">
+<option class="bg-surface-container" data-i18n="opt1">Web Tasarım</option>
+<option class="bg-surface-container" data-i18n="opt2">Landing Page</option>
+<option class="bg-surface-container" data-i18n="opt3">UI/UX Danışmanlık</option>
+<option class="bg-surface-container" data-i18n="opt4">Diğer</option>
+</select>
+</div>
+<div class="space-y-3">
+<label class="text-label-sm font-label-sm text-on-surface/60 uppercase tracking-widest" data-i18n="form-msg">MESAJINIZ</label>
+<textarea class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface placeholder:text-white/20 transition-all outline-none resize-none" data-placeholder="Projenizden kısaca bahsedin..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-white py-5 rounded-2xl font-bold tracking-[0.1em] hover:shadow-[0_0_30px_rgba(79,140,255,0.4)] transition-all duration-500 hover:scale-[1.02]" data-i18n="form-btn" type="submit">
+                        GÖNDER
+                    </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full py-16 bg-transparent border-t border-white/5">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tighter">Tuna Web Tasarım</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs text-center md:text-left opacity-60" data-i18n="footer-copy">© 2024 Tuna Web Tasarım. Precision in Every Pixel.</p>
+</div>
+<div class="flex gap-10 mt-8 md:mt-0">
+<a class="text-on-surface-variant hover:text-primary-container transition-colors text-label-md" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-colors text-label-md" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-colors text-label-md" href="#">Instagram</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-colors text-label-md" href="#">X</a>
+</div>
+</div>
+</footer>
+<script>
+    const translations = {
+        'tr': {
+            'nav-work': 'İşler',
+            'nav-services': 'Hizmetler',
+            'nav-about': 'Hakkımda',
+            'nav-contact': 'İletişim',
+            'nav-cta': 'Hadi Konuşalım',
+            'hero-title': 'Modern Web Siteleri ile <span class="text-primary-container">Markanızı Güçlendirin.</span>',
+            'hero-desc': 'Hızlı, modern ve dönüşüm odaklı dijital deneyimler tasarlıyorum. Markanızın hikayesini en son teknolojilerle web\'e taşıyın.',
+            'hero-cta-work': 'Portföyümü İncele',
+            'hero-cta-contact': 'İletişime Geç',
+            'about-badge': 'HAKKIMDA',
+            'about-title': 'Piksellerle Hikayeler İnşa Ediyorum.',
+            'about-desc': '8 yılı aşkın süredir dijital dünyada estetik ve fonksiyonu bir araya getiriyorum. Minimalist tasarımı, kusursuz performans ile birleştirerek markanız için çalışan dijital merkezler kuruyorum.',
+            'skill-resp': 'Duyarlı',
+            'skill-speed': 'Hız',
+            'skill-corp': 'Kurumsal',
+            'services-title': 'Size Nasıl Yardımcı Olabilirim?',
+            'services-desc': 'Sadece bir arayüz değil, kullanıcı deneyimi ve iş hedeflerinize odaklanan stratejik çözümler sunuyorum.',
+            's1-title': 'Kurumsal Web Sitesi',
+            's1-desc': 'Şirketinizin profesyonelliğini yansıtan, güven veren ve global standartlarda web çözümleri.',
+            's2-title': 'Landing Page',
+            's2-desc': 'Ürün veya kampanyalarınız için yüksek dönüşüm oranlarına sahip, ikna edici tek sayfa tasarımlar.',
+            's3-title': 'UI/UX Tasarım',
+            's3-desc': 'Modern kullanıcı alışkanlıklarına uygun, estetik olduğu kadar işlevsel arayüz tasarımları.',
+            'work-title': 'Seçkin Projeler',
+            'work-desc': 'Detaylara verilen önemin yansıması olan son çalışmalarım.',
+            'work-all': 'Tümünü Gör',
+            'work-inspect': 'Projeyi İncele',
+            'p1-badge': 'EMLAK / LUXURY',
+            'p1-title': 'Modern Emlak Sitesi',
+            'p1-desc': 'Lüks gayrimenkul sektörü için özel olarak kurgulanmış, estetik ve prestij odaklı web çözümü.',
+            'p2-badge': 'YAZILIM / SaaS',
+            'p2-title': 'Yazılım Tanıtım Sayfası',
+            'p2-desc': 'Yeni nesil teknoloji girişimleri için yüksek dönüşüm odaklı ve modern bir tanıtım sayfası.',
+            'p3-badge': 'GASTRONOMİ / MARKALAŞMA',
+            'p3-title': 'Restoran Web Tasarımı',
+            'p3-desc': 'Markanın gastronomi kimliğini öne çıkaran; zarif tasarım, sezgisel kullanıcı deneyimi ve kolay online rezervasyon sistemiyle hazırlanan premium restoran web sitesi.',
+            'why-title': 'Neden Benimle Çalışmalısınız?',
+            'w1-title': 'Modern Tasarım',
+            'w1-desc': 'Dünya standartlarında, güncel tasarım trendlerini takip eden modern arayüzler.',
+            'w2-title': 'Mobil Uyumlu',
+            'w2-desc': 'Tüm cihazlarda kusursuz görünen ve çalışan duyarlı (responsive) yapılar.',
+            'w3-title': 'SEO Dostu',
+            'w3-desc': 'Arama motorlarında üst sıralara çıkmanıza yardımcı olacak teknik altyapı.',
+            'feat-speed': 'Hızlı Teslim',
+            'feat-speed-desc': 'Verimlilik odaklı iş akışı',
+            'feat-qual': 'Premium Kalite',
+            'feat-qual-desc': 'Piksellerde kusursuzluk',
+            'contact-title': 'Birlikte Harika Bir <br/><span class="text-primary-container">Proje Oluşturalım.</span>',
+            'contact-desc': 'Fikirlerinizi gerçeğe dönüştürmek için hazırım. Hemen bir mesaj gönderin, projenizi birlikte planlayalım.',
+            'location': 'İstanbul, Türkiye',
+            'form-name': 'ADINIZ',
+            'form-email': 'E-POSTA',
+            'form-subject': 'KONU',
+            'form-msg': 'MESAJINIZ',
+            'form-btn': 'GÖNDER',
+            'opt1': 'Web Tasarım',
+            'opt2': 'Landing Page',
+            'opt3': 'UI/UX Danışmanlık',
+            'opt4': 'Diğer',
+            'footer-copy': '© 2024 Tasarım Portföyü. Her Pikselde Hassasiyet.',
+            'placeholders': {
+                'John Doe': 'John Doe',
+                'john@example.com': 'john@example.com',
+                'Projenizden kısaca bahsedin...': 'Projenizden kısaca bahsedin...'
+            },
+            'sent': 'GÖNDERİLDİ'
+        },
+        'en': {
+            'nav-work': 'Work',
+            'nav-services': 'Services',
+            'nav-about': 'About',
+            'nav-contact': 'Contact',
+            'nav-cta': 'Let\'s Talk',
+            'hero-title': 'Empower Your Brand with <span class="text-primary-container">Modern Websites.</span>',
+            'hero-desc': 'I design fast, modern, and conversion-focused digital experiences. Bring your brand story to the web with the latest technologies.',
+            'hero-cta-work': 'View Portfolio',
+            'hero-cta-contact': 'Get in Touch',
+            'about-badge': 'ABOUT ME',
+            'about-title': 'Building Stories with Pixels.',
+            'about-desc': 'Combining aesthetics and function in the digital world for over 8 years. I build digital hubs that work for your brand by combining minimalist design with flawless performance.',
+            'skill-resp': 'Responsive',
+            'skill-speed': 'Speed',
+            'skill-corp': 'Corporate',
+            'services-title': 'How Can I Help You?',
+            'services-desc': 'I offer strategic solutions focused on user experience and business goals, not just an interface.',
+            's1-title': 'Corporate Website',
+            's1-desc': 'Web solutions that reflect your company\'s professionalism, build trust, and meet global standards.',
+            's2-title': 'Landing Page',
+            's2-desc': 'Persuasive single-page designs with high conversion rates for your products or campaigns.',
+            's3-title': 'UI/UX Design',
+            's3-desc': 'Interface designs that are as functional as they are aesthetic, suitable for modern user habits.',
+            'work-title': 'Featured Projects',
+            'work-desc': 'Recent works reflecting attention to detail.',
+            'work-all': 'See All',
+            'work-inspect': 'Inspect Project',
+            'p1-badge': 'REAL ESTATE / LUXURY',
+            'p1-title': 'Modern Real Estate Site',
+            'p1-desc': 'A web solution specially designed for the luxury real estate sector, focused on aesthetics and prestige.',
+            'p2-badge': 'SOFTWARE / SaaS',
+            'p2-title': 'Software Landing Page',
+            'p2-desc': 'A high-conversion and modern introduction page for next-generation technology startups.',
+            'p3-badge': 'GASTRONOMY / BRANDING',
+            'p3-title': 'Restaurant Website Design',
+            'p3-desc': 'A refined digital identity crafted for modern dining experiences, combining elegant design, seamless reservations, and exceptional user experience..',
+            'why-title': 'Why Work With Me?',
+            'w1-title': 'Modern Design',
+            'w1-desc': 'Modern interfaces following world-class current design trends.',
+            'w2-title': 'Mobile Compatible',
+            'w2-desc': 'Responsive structures that look and work perfectly on all devices.',
+            'w3-title': 'SEO Friendly',
+            'w3-desc': 'Technical infrastructure that will help you rank high in search engines.',
+            'feat-speed': 'Fast Delivery',
+            'feat-speed-desc': 'Efficiency-oriented workflow',
+            'feat-qual': 'Premium Quality',
+            'feat-qual-desc': 'Perfection in pixels',
+            'contact-title': 'Let\'s Create a <br/><span class="text-primary-container">Great Project Together.</span>',
+            'contact-desc': 'I\'m ready to turn your ideas into reality. Send a message now, let\'s plan your project together.',
+            'location': 'Istanbul, Turkey',
+            'form-name': 'YOUR NAME',
+            'form-email': 'E-MAIL',
+            'form-subject': 'SUBJECT',
+            'form-msg': 'YOUR MESSAGE',
+            'form-btn': 'SEND',
+            'opt1': 'Web Design',
+            'opt2': 'Landing Page',
+            'opt3': 'UI/UX Consulting',
+            'opt4': 'Other',
+            'footer-copy': '© 2024 Designer Portfolio. Precision in Every Pixel.',
+            'placeholders': {
+                'John Doe': 'John Doe',
+                'john@example.com': 'john@example.com',
+                'Projenizden kısaca bahsedin...': 'Tell briefly about your project...'
+            },
+            'sent': 'SENT'
+        }
+    };
+
+    function switchLang(lang) {
+        localStorage.setItem('preferred-lang', lang);
+        document.documentElement.lang = lang;
+        
+        // Update elements with data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+
+        // Update placeholders
+        document.querySelectorAll('[data-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-placeholder');
+            if (translations[lang].placeholders[key]) {
+                el.placeholder = translations[lang].placeholders[key];
+            }
+        });
+
+        // Update active button styles
+        const btnTr = document.getElementById('lang-tr');
+        const btnEn = document.getElementById('lang-en');
+        if (lang === 'tr') {
+            btnTr.classList.add('bg-primary-container', 'text-white');
+            btnTr.classList.remove('text-on-surface-variant');
+            btnEn.classList.remove('bg-primary-container', 'text-white');
+            btnEn.classList.add('text-on-surface-variant');
+        } else {
+            btnEn.classList.add('bg-primary-container', 'text-white');
+            btnEn.classList.remove('text-on-surface-variant');
+            btnTr.classList.remove('bg-primary-container', 'text-white');
+            btnTr.classList.add('text-on-surface-variant');
+        }
+    }
+
+    // Initialize Language
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('preferred-lang') || 'tr';
+        switchLang(savedLang);
+    });
+
+    // Intersection Observer for Scroll Reveal
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Form submission simulation
+    document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const lang = document.documentElement.lang;
+        const btn = e.target.querySelector('button');
+        const originalText = translations[lang]['form-btn'];
+        const sentText = translations[lang]['sent'];
+        
+        btn.innerText = sentText;
+        btn.classList.add('bg-green-600');
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.classList.remove('bg-green-600');
+            e.target.reset();
+        }, 3000);
+    });
+
+    // Handle Reduced Motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.reveal').forEach(el => {
+            el.classList.add('active');
+            el.style.transition = 'none';
+        });
+    }
+</script>
+
+
+
+
+</body></html>

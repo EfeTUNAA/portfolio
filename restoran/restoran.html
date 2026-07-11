@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tuna Web Tasarım | Kusursuz Gastronomi Deneyimi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#d87802",
+                    "primary-container": "#528dff",
+                    "on-tertiary": "#4d2700",
+                    "surface": "#11131a",
+                    "tertiary-fixed-dim": "#ffb77b",
+                    "inverse-on-surface": "#2e3038",
+                    "surface-container-low": "#191b22",
+                    "surface-tint": "#afc6ff",
+                    "on-secondary-fixed-variant": "#45464e",
+                    "surface-container-high": "#272a31",
+                    "inverse-primary": "#0059c6",
+                    "surface-bright": "#373941",
+                    "glass-border": "rgba(255, 255, 255, 0.1)",
+                    "outline-variant": "#424753",
+                    "surface-container-lowest": "#0b0e15",
+                    "on-background": "#e1e2ec",
+                    "secondary-fixed": "#e2e2eb",
+                    "primary-fixed-dim": "#afc6ff",
+                    "secondary-container": "#45464e",
+                    "glass-bg": "rgba(255, 255, 255, 0.03)",
+                    "on-secondary-container": "#b4b4bd",
+                    "outline": "#8c909f",
+                    "on-secondary": "#2e3037",
+                    "on-error": "#690005",
+                    "tertiary": "#ffb77b",
+                    "inverse-surface": "#e1e2ec",
+                    "on-primary-container": "#00275f",
+                    "surface-dim": "#11131a",
+                    "background": "#0b0b0f",
+                    "secondary-fixed-dim": "#c6c6cf",
+                    "surface-container-highest": "#32353c",
+                    "on-tertiary-fixed": "#2e1500",
+                    "on-surface-variant": "#c2c6d6",
+                    "surface-variant": "#32353c",
+                    "on-tertiary-container": "#432100",
+                    "on-primary": "#002d6c",
+                    "tertiary-fixed": "#ffdcc2",
+                    "surface-container": "#1d1f27",
+                    "error-container": "#93000a",
+                    "on-surface": "#e1e2ec",
+                    "on-primary-fixed": "#001a43",
+                    "secondary": "#c6c6cf",
+                    "primary-fixed": "#d9e2ff",
+                    "primary": "#afc6ff",
+                    "on-tertiary-fixed-variant": "#6d3a00",
+                    "on-secondary-fixed": "#1a1b22",
+                    "accent-glow": "rgba(79, 140, 255, 0.3)",
+                    "on-primary-fixed-variant": "#004398",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "section-gap": "120px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0b0b0f;
+            color: #e1e2ec;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(79, 140, 255, 0.1);
+            border-color: rgba(175, 198, 255, 0.3);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-bg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(79, 140, 255, 0.15) 0%, rgba(79, 140, 255, 0) 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        [data-lang-content] { display: none; }
+        html[lang="tr"] [data-lang-content="tr"] { display: block; }
+        html[lang="tr"] span[data-lang-content="tr"], 
+        html[lang="tr"] a[data-lang-content="tr"] { display: inline-flex; }
+        html[lang="en"] [data-lang-content="en"] { display: block; }
+        html[lang="en"] span[data-lang-content="en"], 
+        html[lang="en"] a[data-lang-content="en"] { display: inline-flex; }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
+  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+
+    <!-- Sol Taraf -->
+    <div class="flex items-center gap-6">
+      <a class="font-display-lg text-headline-md font-bold tracking-tighter text-primary whitespace-nowrap" href="../index.html">
+        Tuna Web Tasarım
+      </a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="index.html">
+        <span data-lang-content="tr">Anasayfa</span>
+        <span data-lang-content="en">Home</span>
+      </a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#about">
+        <span data-lang-content="tr">Hakkımızda</span>
+        <span data-lang-content="en">About</span>
+      </a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#services">
+        <span data-lang-content="tr">Hizmetler</span>
+        <span data-lang-content="en">Services</span>
+      </a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#gallery">
+        <span data-lang-content="tr">Galeri</span>
+        <span data-lang-content="en">Gallery</span>
+      </a>
+
+      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#faq">
+        <span data-lang-content="tr">SSS</span>
+        <span data-lang-content="en">FAQ</span>
+      </a>
+    </div>
+
+    <!-- Sağ Taraf -->
+    <div class="flex items-center gap-2 shrink-0">
+      <button class="font-label-md text-label-md uppercase tracking-wider px-3 py-2 border border-glass-border rounded-full hover:bg-glass-border transition-all" id="lang-toggle">
+        <span data-lang-content="tr">TR / EN</span>
+        <span data-lang-content="en">EN / TR</span>
+      </button>
+
+      <a class="hidden sm:block font-label-md text-label-md uppercase tracking-wider bg-primary-container text-on-primary-container px-4 py-2 rounded-full font-bold hover:scale-105 active:scale-95 transition-all" href="#contact">
+        <span data-lang-content="tr">İletişim</span>
+        <span data-lang-content="en">Contact</span>
+      </a>
+    </div>
+
+  </div>
+</nav>
+<!-- Project Info Banner -->
+<div class="pt-24 pb-4 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto flex flex-wrap justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 text-primary hover:underline font-label-md" href="index.html">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="" data-lang-content="tr">Portfolyoya Dön</span><span class="" data-lang-content="en">Back to Portfolio</span>
+</a>
+<span class="text-outline">|</span>
+<span class="text-on-surface-variant font-label-sm">
+<span class="" data-lang-content="tr">Proje: Restoran Web Tasarımı</span><span class="" data-lang-content="en">Project: Restaurant Web Design</span>
+</span>
+</div>
+<div class="flex gap-4">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[10px] uppercase font-bold tracking-widest border border-glass-border">HTML/CSS</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[10px] uppercase font-bold tracking-widest border border-glass-border">JavaScript</span>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center pt-20 overflow-hidden" id="home">
+<div class="glow-bg top-[-100px] left-[-100px]"></div>
+<div class="container max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-section-gap items-center relative z-10">
+<div class="order-2 md:order-1">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-none">Tuna Web Tasarım <br/><span class="text-primary italic font-light" data-lang-content="tr">Rafine Gastronomi</span><span class="text-primary italic font-light" data-lang-content="en">Fine Dining</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+<span class="" data-lang-content="tr">Her lokmada teknik kusursuzluğun sanatını keşfedin. İmza tabaklarımız, en seçici damaklar için tasarlanmış mimari şaheserlerdir.</span>
+<span class="" data-lang-content="en">Discover the art of technical precision in every bite. Our signature dishes are architectural masterpieces designed for the most discerning palates.</span>
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-on-surface text-surface px-8 py-4 rounded-full font-bold text-label-md uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
+<span class="" data-lang-content="tr">Menüyü Keşfet</span><span class="" data-lang-content="en">Explore Menu</span>
+</button>
+<button class="glass-card px-8 py-4 rounded-full font-bold text-label-md uppercase tracking-widest hover:border-primary transition-all">
+<span class="" data-lang-content="tr">Özel Etkinlikler</span><span class="" data-lang-content="en">Private Events</span>
+</button>
+</div>
+</div>
+<div class="order-1 md:order-2 relative">
+<div class="aspect-square glass-card p-4 rounded-xl rotate-3 relative z-10">
+<div class="w-full h-full bg-cover bg-center rounded-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCdbis4ZtPee0QI7sD7U5Eywc35UZYRqe9w5e_GhJshEeCoc9xmOMDP5m5qFcqWW5-8c2aPfLG4Lmepe9YycHNaX_kqZfJJLjJffbD1_63F1nXQpbOZwppbj741DJgTxGZlHcB3aP3xNgZVK21P34r5UmtSys6w_VE0btXVfl1mbu8Lmh0HzC4533zpuBAskvO2C6t6WkQIgt-BMk-gp5gK34PHpe4z7XfGaNl0Uo2UgvuAtqvRX6QSNdlcFb1wL7JJ3o0l8EuY2Ag')"></div>
+</div>
+<div class="absolute -top-10 -right-10 w-48 h-48 border border-primary/20 rounded-full animate-pulse"></div>
+<div class="absolute -bottom-10 -left-10 w-32 h-32 glass-card rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined scale-150">restaurant</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us Section (Bento Grid) -->
+<section class="py-section-gap bg-surface-container-lowest relative">
+<div class="container max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-20">
+<span class="text-primary font-label-sm uppercase tracking-[0.3em] mb-4 block" data-lang-content="tr">Felsefemiz</span>
+<span class="text-primary font-label-sm uppercase tracking-[0.3em] mb-4 block" data-lang-content="en">Our Philosophy</span>
+<h2 class="font-headline-xl text-headline-xl"><span class="" data-lang-content="tr">Neden Tuna Web Tasarım?</span><span class="" data-lang-content="en">Why Choose Tuna Web Tasarım?</span></h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-2 glass-card p-10 rounded-xl flex flex-col justify-end min-h-[350px] relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md mb-4 text-primary">
+<span class="" data-lang-content="tr">Teknik Mutfak Ustalığı</span><span class="" data-lang-content="en">Technical Culinary Mastery</span>
+</h3>
+<p class="text-on-surface-variant max-w-md">
+<span class="" data-lang-content="tr">Şeflerimiz her malzemeyi daha büyük bir şaheserdeki bir piksel gibi görür, lezzet profillerinin matematiksel bir doğrulukla dengelenmesini sağlar.</span>
+<span class="" data-lang-content="en">Our chefs treat every ingredient as a pixel in a larger masterpiece, ensuring flavor profiles are balanced with mathematical accuracy.</span>
+</p>
+</div>
+</div>
+<div class="glass-card p-10 rounded-xl flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary-container/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">eco</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="" data-lang-content="tr">%100 Organik</span><span class="" data-lang-content="en">100% Organic</span>
+</h3>
+<p class="text-on-surface-variant">
+<span class="" data-lang-content="tr">Sadece sürdürülebilir dikey çiftliklerden ve yerel butik üreticilerden tedarik edilir.</span>
+<span class="" data-lang-content="en">Sourced exclusively from sustainable vertical farms and local boutique producers.</span>
+</p>
+</div>
+<div class="glass-card p-10 rounded-xl flex flex-col">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6">schedule</span>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="" data-lang-content="tr">Günlük Tazelik</span><span class="" data-lang-content="en">Fresh Daily</span>
+</h3>
+<p class="text-on-surface-variant">
+<span class="" data-lang-content="tr">Her sabah taze hasatla başlar. Mutfağımızda asla dondurulmuş malzeme kullanmayız.</span>
+<span class="" data-lang-content="en">Every morning starts with a fresh harvest. We never use frozen ingredients in our kitchen.</span>
+</p>
+</div>
+<div class="md:col-span-2 glass-card p-10 rounded-xl flex flex-col md:flex-row gap-8 items-center">
+<div class="w-full md:w-1/3 aspect-video bg-cover bg-center rounded-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYzn5_JB70MscgP1RQ1cMkFr-J8wk8fNWYqnOHEpqsctOwLgM8BAQUjrqKXbht8nzPEnYuuKe7ryDsO9qcJy2M8-JVkF4yH9TfeBIEAV1BqFgAz6IJWnr4dxrHBEvM47I0BiGbpbvECpHow06TpMWOKy89OB0IIBsxQfDDEHtZHRgOZYvbKiC7ivcyin58Jhh0h6XiGIfrrEl15B7qQ7DxamEe7F9rLsb8KZD1MmNDaitUa3wAzDKaEj0nGxKckMCMd77DSFu_DfU')"></div>
+<div class="w-full md:w-2/3">
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="" data-lang-content="tr">Hassas Zanaatkarlık</span><span class="" data-lang-content="en">Precision Craftsmanship</span>
+</h3>
+<p class="text-on-surface-variant">
+<span class="" data-lang-content="tr">Soslarımızın moleküler yapısından şarap mahzenimizin sıcaklığına kadar her şey mükemmelliği garanti etmek için izlenir.</span>
+<span class="" data-lang-content="en">From the molecular structure of our sauces to the temperature of our wine cellar, everything is monitored to ensure perfection.</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap relative" id="about">
+<div class="glow-bg bottom-[-200px] right-0"></div>
+<div class="container max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-gutter items-center">
+<div class="relative h-[600px] group">
+<div class="absolute inset-4 border border-primary/30 rounded-xl transform -rotate-2 group-hover:rotate-0 transition-transform"></div>
+<div class="w-full h-full bg-cover bg-center rounded-xl glass-card p-2" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA45GOJkmfTxwO9MQ8yfgkGYyKP7OjMoFo2PUgbkAn5bvhi3iwRVd5fV-ZTPGQIgDsFJ4_WvzRKTU9zKMNMJn087clXknXa3LRFgGav0k_DKbE6R7qvpYNBMaNs69TnFWVbI7GRnGXllNdQwqCWuaDmYb_pShHKb2O4RVGgCb6ePayjoN0BhThJmglxlYcT0fGyxgl1SJ4rVwq47KqEfN1EpuVTCObskC0aGqaR67nVAsE3ppTGIXjZRyh6AQ8-JjfxZZGsApgl0Hs')"></div>
+</div>
+<div class="md:pl-10">
+<span class="text-primary font-label-sm uppercase tracking-[0.3em] mb-4 block" data-lang-content="tr">Vizyoner</span>
+<span class="text-primary font-label-sm uppercase tracking-[0.3em] mb-4 block" data-lang-content="en">The Visionary</span>
+<h2 class="font-headline-xl text-headline-xl mb-8 leading-tight">Chef Alexander Vance</h2>
+<p class="text-body-lg text-on-surface-variant mb-6">
+<span class="" data-lang-content="tr">Üç Michelin yıldızı ve mimari tasarım geçmişi ile Şef Vance, gastronomi dünyasına benzersiz bir perspektif getiriyor.</span>
+<span class="" data-lang-content="en">With three Michelin stars and a background in architectural design, Chef Vance brings a unique perspective to the world of fine dining.</span>
+</p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">military_tech</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface" data-lang-content="tr">İnovasyon Ödülü</h4>
+<h4 class="font-bold text-on-surface" data-lang-content="en">Innovation Award</h4>
+<p class="text-label-md text-on-surface-variant">Global Culinary Excellence 2023</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Le Cordon Bleu</h4>
+<p class="text-label-md text-on-surface-variant" data-lang-content="tr">Onur Derecesi ile Grand Diplôme</p>
+<p class="text-label-md text-on-surface-variant" data-lang-content="en">Grand Diplôme with Honors</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services -->
+<section class="py-section-gap bg-surface-container-low" id="services">
+<div class="container max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="max-w-xl">
+<span class="text-primary font-label-sm uppercase tracking-[0.3em] mb-4 block" data-lang-content="tr">Özel Teklifler</span>
+<span class="text-primary font-label-sm uppercase tracking-[0.3em] mb-4 block" data-lang-content="en">Exclusive Offerings</span>
+<h2 class="font-headline-xl text-headline-xl">
+<span class="" data-lang-content="tr">Kişiye Özel Gastronomi</span><span class="" data-lang-content="en">Bespoke Gastronomy</span>
+</h2>
+</div>
+<p class="text-on-surface-variant md:w-1/3">
+<span class="" data-lang-content="tr">Hassasiyetimizi restoran duvarlarının ötesine, en önemli anlarınıza taşıyoruz.</span>
+<span class="" data-lang-content="en">Extending our precision beyond the restaurant walls to your most significant moments.</span>
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="glass-card group relative overflow-hidden p-10 rounded-xl">
+<div class="flex flex-col h-full justify-between">
+<div>
+<div class="mb-8 w-14 h-14 glass-card flex items-center justify-center rounded-lg text-primary transition-colors group-hover:bg-primary group-hover:text-surface">
+<span class="material-symbols-outlined text-3xl">celebration</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="" data-lang-content="tr">Özel Etkinlikler</span><span class="" data-lang-content="en">Private Events</span>
+</h3>
+<p class="text-on-surface-variant mb-10">
+<span class="" data-lang-content="tr">'Gözlemevi Odası', mutfağın panoramik manzarasını sunarak 12 kişiye kadar sürükleyici bir özel yemek deneyimi sağlar.</span>
+<span class="" data-lang-content="en">Our 'Observatory Room' provides a panoramic view of the kitchen, offering an immersive private dining experience for up to 12 guests.</span>
+</p>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all" href="#">
+<span class="" data-lang-content="tr">Daha Fazla Bilgi</span><span class="" data-lang-content="en">Learn More</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="glass-card group relative overflow-hidden p-10 rounded-xl">
+<div class="flex flex-col h-full justify-between">
+<div>
+<div class="mb-8 w-14 h-14 glass-card flex items-center justify-center rounded-lg text-primary transition-colors group-hover:bg-primary group-hover:text-surface">
+<span class="material-symbols-outlined text-3xl">room_service</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">
+<span class="" data-lang-content="tr">Lüks Catering</span><span class="" data-lang-content="en">Luxury Catering</span>
+</h3>
+<p class="text-on-surface-variant mb-10"><span class="" data-lang-content="tr">Tuna Web Tasarım mutfağını mekanınıza taşıyın. Kurumsal etkinlikler, galalar ve lansmanlar için tam kapsamlı catering hizmeti sunuyoruz.</span><span class="" data-lang-content="en">Bring the Tuna Web Tasarım kitchen to your location. We provide full-service catering for corporate events, galas, and high-profile launches.</span></p>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all" href="#">
+<span class="" data-lang-content="tr">Teklif Alın</span><span class="" data-lang-content="en">Inquire Now</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery -->
+<section class="py-section-gap" id="gallery">
+<div class="container max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-20">
+<h2 class="font-headline-xl text-headline-xl mb-4">
+<span class="" data-lang-content="tr">Görsel Senfoni</span><span class="" data-lang-content="en">Visual Symphony</span>
+</h2>
+<p class="text-on-surface-variant">
+<span class="" data-lang-content="tr">Teknik olarak en zorlu kreasyonlarımızın sergisi.</span>
+<span class="" data-lang-content="en">A showcase of our most technically demanding creations.</span>
+</p>
+</div>
+<div class="columns-1 md:columns-2 lg:columns-3 gap-gutter space-y-gutter">
+<!-- Gallery images (alt text updated internally if needed, logic is UI focus) -->
+<div class="glass-card p-2 rounded-xl break-inside-avoid transform hover:scale-[1.02] transition-transform">
+<div class="aspect-[4/5] bg-cover bg-center rounded-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCI6o0yt8UtNGugZkhtd6lNXfdzik6eMiFuyfpUk19__e5acPTqKsEamcE5iBDJfPOZIuBpwnLbcMS1FR3oa9RsClan9VoMNuZmB8aWdDqneFzNG1FEXbW0Tp90uod_F8YAy-V9UrVWAgHkh9ZqztPGf7naHWo1-2Lmm3Y4WXJ2XZk-AOCcihMj8A_QOKtHXaeTSYi_mhizxD7CcOJ4kCsybMnXSzH9T9utRr97ppxs31hcJDs8Uft7sBOw1RYJkbyM6nQvYGssskA')"></div>
+</div>
+<div class="glass-card p-2 rounded-xl break-inside-avoid transform hover:scale-[1.02] transition-transform">
+<div class="aspect-square bg-cover bg-center rounded-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcfkPHY8E5vo7Avd2pPINzj9LFXOlclVV4uqDUlt3_Bxef8HrRoZgJ0O3WK-8IgRAZaORAskMRTGt3Co4T9w_5p5_1To3pFF-CNUKomsSMwKjOVNHu9nKR7bZJy5GslnOPOXfq7gb9LgDBjQrviPZ3-3FJYWeEf9H5miNhKtMJ2H6DLUbdSJNTBH3bWw372vltXHq-eA6g12JHLVqNY2oHsxVUFa1AMQ8ql3zd1Wg2dS4d_loB2GuiraGubhitdq_I-cdR3BrcULU')"></div>
+</div>
+<div class="glass-card p-2 rounded-xl break-inside-avoid transform hover:scale-[1.02] transition-transform">
+<div class="aspect-[3/4] bg-cover bg-center rounded-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfdacQ8DgrNKvfkzqZ_wN2MPT2Hyf30Juwu6GNquORTCXkismc57jnqOpLek5RM93IPo7mglQ0YevDe7cXkUgv0IRIW5Si-0MAABdKvC3dsNs5QvuLfuqbS040ZFQVPZ8XhcES-Uq8Z2GewUsE5YcikkIgxucUZ7Y9U3ooHkVRXG6lHZxdIqtUhT9diFvgNWp3pPf3KB6j6u8gXD1PrjtXwVnuDEfC1MEYXppk4Lj5DzIZRPlwuqzTyChs78huMi8qbzkqEZCZwQk')"></div>
+</div>
+<div class="glass-card p-2 rounded-xl break-inside-avoid transform hover:scale-[1.02] transition-transform">
+<div class="aspect-video bg-cover bg-center rounded-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCTNoxAYWgySDQkuEw_pVVXHZfIlsUPYF_NzvudISb0euh6ZBkbcX-Jqzsnskdq7UO-Av1VccS8dLuJvTobDrC__1YX1EnXHw4v5_KDZYQ4pO7sYzRL-yE4pBbFUoQj6eKsUM_mUHH-ZuBGex_aT6OjQDURcRorK_5336c9IutSgzmsKt0ldOsQSMVf3DKBTzufXYsn0AurvU5JATe0BliYwgCv_J_81uA4J_1i05j8ryAd75W71UP65Ixxz2c6d48ZyGvehdq_mcg')"></div>
+</div>
+<div class="glass-card p-2 rounded-xl break-inside-avoid transform hover:scale-[1.02] transition-transform">
+<div class="aspect-square bg-cover bg-center rounded-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqRd6z_4_EmjhVZLOk1Ws0oK0KayK6WCV6ACxZKyvBHf28onLAoYHw78y4yaoMv9kPOZgejz44WyDUDvGloEoCbzFUC9GoiZAe1kvI0Rw3bdiv8ozqKvhrzCsXtgMKe6zZ0A2W4NQ1luII7a94D9PdUrEHjvExiCmHV11k9bUN43G2Y6GSwTig1E1G8GWFw6vIr0uVtGPXGV5037wrgInUKkfgKE75wHsQoXDytVrarf6isrqMp9T87n7OPtkNRIbBUGqaA_sVxNk')"></div>
+</div>
+<div class="glass-card p-2 rounded-xl break-inside-avoid transform hover:scale-[1.02] transition-transform">
+<div class="aspect-[4/5] bg-cover bg-center rounded-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbjGG1BwIMOs6y1D4AiYyBEPPyHPx4y5ELh20YqELTC1oyXW3PJRqx-wlENpfndPigDiHrHHKnZ1ogMWP3uCko2Uz3NVBSr3UJcirhEkItvI3gJhtvgVLtCtXsSbYFKX5RiqEUsapKt85qWAZXi6xQ-s6b6x3G95hRASGjtgLLMgerfxdrd1n7yTzkeULGAMs5fLZL3HVKI5jsOmbUCwZwwYurGMHnjZ-l11yW-lVG0SWHdNVMBdeg53K_v7FSlTllgR5P67Rgx0E')"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="py-section-gap bg-surface-container-highest relative overflow-hidden">
+<div class="container max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="max-w-3xl mx-auto text-center mb-16">
+<span class="text-primary font-label-sm uppercase tracking-[0.3em] mb-4 block" data-lang-content="tr">Eleştirmen Yorumları</span>
+<span class="text-primary font-label-sm uppercase tracking-[0.3em] mb-4 block" data-lang-content="en">Critic Reviews</span>
+<h2 class="font-headline-xl text-headline-xl">
+<span class="" data-lang-content="tr">Mükemmelliğin Sesleri</span><span class="" data-lang-content="en">Voices of Excellence</span>
+</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-card p-8 rounded-xl">
+<div class="flex gap-1 text-tertiary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-lg italic mb-10 text-on-surface"><span class="" data-lang-content="tr">"Son on yılda yediğim en teknik açıdan kusursuz yemek. Tuna Web Tasarım, isminin hakkını her detayda veriyor."</span><span class="" data-lang-content="en">"The most technically proficient meal I've had in a decade. Tuna Web Tasarım lives up to its name in every micro-detail."</span></p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCsNvEKNyJsYGw9JTG1mIZl_J6-AAL-5cgyeY-saCc5rs8qgqdC_fdOKRQp0OyZ9DopBsOKjVFXJXK0N7PVGgX2ZSSOtUkVqaNJt9t05qwMWEbYAJSxPFmjS9S1n0qGI1KwX60wvP_vEswaE7FADkrmnk4YLuG-WrwWJaILO4REUeisw---5d93JNz1yHaAUkak0GtAbmgCt_y2B-onrzotA-22NWlDNq0vXM8BpLwykvKgbwgKVSD-Lfn51CZO7qJowr76MHriy-w')"></div>
+<div>
+<h4 class="font-bold text-on-surface">Sarah Sterling</h4>
+<p class="text-label-sm text-on-surface-variant"><span class="" data-lang-content="tr">"Son on yılda yediğim en teknik açıdan kusursuz yemek. Tuna Web Tasarım, isminin hakkını her detayda veriyor."</span><span class="" data-lang-content="en">"The most technically proficient meal I've had in a decade. Tuna Web Tasarım lives up to its name in every micro-detail."</span></p>
+</div>
+</div>
+</div>
+<div class="glass-card p-8 rounded-xl border-primary/20">
+<div class="flex gap-1 text-tertiary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-lg italic mb-10 text-on-surface">
+<span class="" data-lang-content="tr">"Mimari mutfak sanatı ile buluşuyor. Cam kapılardan içeri girdiğiniz andan itibaren kusursuz bir deneyim."</span>
+<span class="" data-lang-content="en">"Architecture meets culinary art. A seamless experience from the moment you step through the glass doors."</span>
+</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCD5cNn6Ln09RfyokREo1ubE7krIxlN22dSax7lps5m1buKzQriJDu48h4IyHADZigCf8VPTpkDneEtoRep689_oxsV6ViMEn5pjU-dOa-rqf48z7NgkZO_6MlqsLqhcm9n2ko4n_mFKTlIowsCGVQjOkirIjKFvlsrJlsQ-4-VW38CxiKIILavhc9eZwQ5_B_wLKBIzoM3V3G678MybbqQgASLNQnHKWOD6iZqM_NN8Wz8s_a0J-4lWqBk0KIaak6cxjmZbtiEvTY')"></div>
+<div>
+<h4 class="font-bold text-on-surface">Marcus Chen</h4>
+<p class="text-label-sm text-on-surface-variant">Urban Lifestyle Magazine</p>
+</div>
+</div>
+</div>
+<div class="glass-card p-8 rounded-xl">
+<div class="flex gap-1 text-tertiary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-lg italic mb-10 text-on-surface">
+<span class="" data-lang-content="tr">"Bir restorandan daha fazlası; duyular için dijital çağ ritüeli. Alexander Vance bir mutfak dehası."</span>
+<span class="" data-lang-content="en">"Beyond a restaurant—it's a digital-age ritual for the senses. Alexander Vance is a genius of the kitchen."</span>
+</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5XySDGDHTfrueirWy3EY-tE-dUIgtnRbbNi-UF_JwX537w42JCs8do7tCYLR-FWzLFBhpDCYOVSVxR-l-TlO-6m6mO0-I6iCodvKHAiKVuLEtOYdFGjf20YZsl7zstAZmYA6pZLnkxbIVuK4oZG0DVO-7ImODYOLF6KHbKEsvywUi_-7ZbPAecT62DCoY5E1Lsr_4sq9GPhvvYyQ5t6bqD5qfqcxQAmLKs1q5J6ztq3OJcwrD8YYcFHBMNQlLgm5sDiSiQbLPW8E')"></div>
+<div>
+<h4 class="font-bold text-on-surface">Elena Rodriguez</h4>
+<p class="text-label-sm text-on-surface-variant">The Daily Palette</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-section-gap" id="faq">
+<div class="container max-w-[800px] mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-xl text-headline-xl text-center mb-16">
+<span class="" data-lang-content="tr">Sıkça Sorulan Sorular</span><span class="" data-lang-content="en">Common Questions</span>
+</h2>
+<div class="space-y-4">
+<details class="glass-card rounded-xl group" open="">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-on-surface" data-lang-content="tr">Beslenme kısıtlamalarına uygun seçenekleriniz var mı?</span>
+<span class="font-bold text-on-surface" data-lang-content="en">Do you accommodate dietary restrictions?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+<span class="" data-lang-content="tr">Kesinlikle. 48 saat önceden bildirilmesi durumunda tadım menülerimizi vegan, glütensiz ve çoğu alerji kısıtlamasına göre uyarlıyoruz.</span>
+<span class="" data-lang-content="en">Absolutely. We specialize in tailoring our tasting menus to accommodate vegan, gluten-free, and most allergy restrictions with 48-hour prior notice.</span>
+</div>
+</details>
+<details class="glass-card rounded-xl group">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-on-surface" data-lang-content="tr">Kıyafet kuralınız nedir?</span>
+<span class="font-bold text-on-surface" data-lang-content="en">What is the dress code?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+<span class="" data-lang-content="tr">'Modern Profesyonel' kıyafet kuralımız bulunmaktadır. Misafirlerimizin, deneyimin sofistike ve teknik doğasını yansıtacak şekilde giyinmelerini öneriyoruz.</span>
+<span class="" data-lang-content="en">We maintain a 'Modern Professional' dress code. We encourage guests to dress in a way that reflects the sophisticated and technical nature of the experience.</span>
+</div>
+</details>
+<details class="glass-card rounded-xl group">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-on-surface" data-lang-content="tr">Ne kadar süre önceden rezervasyon yapmalıyım?</span>
+<span class="font-bold text-on-surface" data-lang-content="en">How far in advance should I book?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+<span class="" data-lang-content="tr">Rezervasyonlar genellikle 60 gün önceden açılır. Hafta sonu yemekleri için en az 3 hafta öncesinden rezervasyon yapmanızı tavsiye ederiz.</span>
+<span class="" data-lang-content="en">Reservations typically open 60 days in advance. We highly recommend booking at least 3 weeks prior for weekend dining.</span>
+</div>
+</details>
+</div>
+</div>
+</section>
+<!-- Contact & Booking -->
+<section class="py-section-gap relative" id="contact">
+<div class="glow-bg top-0 left-1/2 -translate-x-1/2 opacity-50"></div>
+<div class="container max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="glass-card rounded-xl overflow-hidden grid md:grid-cols-2">
+<div class="p-10 md:p-20">
+<h2 class="font-headline-xl text-headline-xl mb-8">
+<span class="" data-lang-content="tr">Deneyiminizi Rezerve Edin</span><span class="" data-lang-content="en">Secure Your Experience</span>
+</h2>
+<form class="space-y-6">
+<div>
+<label class="block font-label-sm uppercase tracking-widest text-on-surface-variant mb-2">
+<span class="" data-lang-content="tr">Ad Soyad</span><span class="" data-lang-content="en">Full Name</span>
+</label>
+<input class="w-full bg-white/5 border border-glass-border rounded-lg p-4 focus:border-primary focus:ring-0 transition-colors" data-placeholder-en="e.g. Alexander Graham" data-placeholder-tr="Örn: Alexander Graham" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm uppercase tracking-widest text-on-surface-variant mb-2">
+<span class="" data-lang-content="tr">Kişi Sayısı</span><span class="" data-lang-content="en">Guests</span>
+</label>
+<select class="w-full bg-white/5 border border-glass-border rounded-lg p-4 focus:border-primary focus:ring-0 transition-colors">
+<option data-lang-content="tr">2 Kişi</option><option data-lang-content="en">2 People</option>
+<option data-lang-content="tr">4 Kişi</option><option data-lang-content="en">4 People</option>
+<option data-lang-content="tr">6 Kişi</option><option data-lang-content="en">6 People</option>
+<option data-lang-content="tr">12 (Özel)</option><option data-lang-content="en">12 (Private)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm uppercase tracking-widest text-on-surface-variant mb-2">
+<span class="" data-lang-content="tr">Tarih</span><span class="" data-lang-content="en">Date</span>
+</label>
+<input class="w-full bg-white/5 border border-glass-border rounded-lg p-4 focus:border-primary focus:ring-0 transition-colors" type="date"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm uppercase tracking-widest text-on-surface-variant mb-2">
+<span class="" data-lang-content="tr">Notlar</span><span class="" data-lang-content="en">Notes</span>
+</label>
+<textarea class="w-full bg-white/5 border border-glass-border rounded-lg p-4 focus:border-primary focus:ring-0 transition-colors h-32" data-placeholder-en="Dietary notes or special occasions..." data-placeholder-tr="Diyet notları veya özel durumlar..."></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-lg font-bold text-label-md uppercase tracking-[0.2em] hover:brightness-110 active:scale-95 transition-all">
+<span class="" data-lang-content="tr">Rezervasyon Talebi Gönder</span><span class="" data-lang-content="en">Request Reservation</span>
+</button>
+</form>
+</div>
+<div class="relative bg-surface-container min-h-[400px]">
+<div class="absolute inset-0 opacity-40"></div>
+<div class="absolute inset-0 flex flex-col justify-center p-10 md:p-20 z-10">
+<div class="space-y-10">
+<div>
+<h4 class="text-primary font-bold mb-2">
+<span class="" data-lang-content="tr">Konum</span><span class="" data-lang-content="en">Location</span>
+</h4>
+<p class="text-on-surface text-lg">1200 Pixel Square, <br/>Tech District, DX 0101</p>
+<p class="text-on-surface-variant mt-2 cursor-pointer hover:underline" data-location="Istanbul">
+<span class="" data-lang-content="tr">Haritalarda Aç</span><span class="" data-lang-content="en">Open in Maps</span>
+</p>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-2">
+<span class="" data-lang-content="tr">Saatler</span><span class="" data-lang-content="en">Hours</span>
+</h4>
+<p class="text-on-surface text-lg">
+<span class="" data-lang-content="tr">Salı - Paz: 18:00 - 23:30</span><span class="" data-lang-content="en">Tue - Sun: 18:00 - 23:30</span>
+<br/>
+<span class="" data-lang-content="tr">Pazartesi Kapalı</span><span class="" data-lang-content="en">Closed on Mondays</span>
+</p>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-2">
+<span class="" data-lang-content="tr">Doğrudan İletişim</span><span class="" data-lang-content="en">Direct Contact</span>
+</h4>
+<p class="text-on-surface text-lg">+1 (555) 010-0202</p>
+<p class="text-on-surface text-lg">concierge@precizion.com</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-lowest border-t border-glass-border">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-base">
+<div class="flex flex-col items-center md:items-start">
+<a class="font-display-lg text-headline-md font-bold text-primary mb-4 block" href="index.html">Tuna Web Tasarım</a>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">© 2024 Tuna Web Tasarım. ALL RIGHTS RESERVED. / TÜM HAKLARI SAKLIDIR.</p>
+</div>
+<div class="flex gap-gutter mt-8 md:mt-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">LinkedIn</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 ml-6" href="#">GitHub</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 ml-6" href="#">Behance</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 ml-6" href="#">Dribbble</a>
+</div>
+</div>
+</footer>
+<script>
+        // Language Switcher Logic
+        const langToggle = document.getElementById('lang-toggle');
+        const html = document.documentElement;
+
+        function setLanguage(lang) {
+            html.setAttribute('lang', lang);
+            localStorage.setItem('precizion-lang', lang);
+            updatePlaceholders(lang);
+        }
+
+        function updatePlaceholders(lang) {
+            document.querySelectorAll('[data-placeholder-tr]').forEach(el => {
+                const placeholder = lang === 'tr' ? el.getAttribute('data-placeholder-tr') : el.getAttribute('data-placeholder-en');
+                el.setAttribute('placeholder', placeholder);
+            });
+        }
+
+        langToggle.addEventListener('click', () => {
+            const currentLang = html.getAttribute('lang');
+            setLanguage(currentLang === 'tr' ? 'en' : 'tr');
+        });
+
+        // Initialize Language
+        const savedLang = localStorage.getItem('precizion-lang') || 'tr';
+        setLanguage(savedLang);
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                e.preventDefault();
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for Scroll Effects
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Header transparency shift
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('h-16', 'bg-surface/80');
+                nav.classList.remove('h-20', 'bg-glass-bg');
+            } else {
+                nav.classList.add('h-20', 'bg-glass-bg');
+                nav.classList.remove('h-16', 'bg-surface/80');
+            }
+        });
+    </script>
+</body></html>
