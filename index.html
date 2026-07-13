@@ -202,7 +202,28 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #4F8CFF; }
-    </style>
+
+
+        ::-webkit-scrollbar-thumb:hover { background: #4F8CFF; }
+
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+</style>
     <!-- Favicon -->
 <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
@@ -251,8 +272,8 @@
 <!-- Hero Section -->
 <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[70vh]">
 <div class="reveal active">
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-tight gradient-text" data-i18n="hero-title">
-                Modern Web Siteleri ile <span class="text-primary-container">Markanızı Güçlendirin.</span>
+<h1 class="animate-fade-up font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-tight gradient-text" data-i18n="hero-title">
+    Modern Web Siteleri ile <span class="text-primary-container">Markanızı Güçlendirin.</span>
 </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl" data-i18n="hero-desc">
                 Hızlı, modern ve dönüşüm odaklı dijital deneyimler tasarlıyorum. Markanızın hikayesini en son teknolojilerle web'e taşıyın.
