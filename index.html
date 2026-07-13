@@ -784,14 +784,66 @@
         });
     }
 </script>
+<div
+    id="form-message"
+    class="fixed top-6 right-6 z-[9999] hidden px-6 py-4 rounded-2xl backdrop-blur-xl border text-white shadow-xl transition-all duration-300">
+</div>
 <script>
 const form = document.getElementById("contact-form");
 const submitBtn = document.getElementById("submit-btn");
+const messageBox = document.getElementById("form-message");
 
-form.addEventListener("submit", () => {
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
     submitBtn.disabled = true;
     submitBtn.innerText = "Gönderiliyor...";
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: formData
+        });
+
+        if (response.ok) {
+
+            messageBox.className =
+                "fixed top-6 right-6 z-[9999] px-6 py-4 rounded-2xl backdrop-blur-xl border border-green-500/40 bg-green-500/20 text-white shadow-xl";
+
+            messageBox.innerHTML = "✅ Mesajınız başarıyla gönderildi.";
+            messageBox.classList.remove("hidden");
+
+            form.reset();
+
+        } else {
+
+            messageBox.className =
+                "fixed top-6 right-6 z-[9999] px-6 py-4 rounded-2xl backdrop-blur-xl border border-red-500/40 bg-red-500/20 text-white shadow-xl";
+
+            messageBox.innerHTML = "❌ Mesaj gönderilemedi.";
+            messageBox.classList.remove("hidden");
+
+        }
+
+    } catch {
+
+        messageBox.className =
+            "fixed top-6 right-6 z-[9999] px-6 py-4 rounded-2xl backdrop-blur-xl border border-red-500/40 bg-red-500/20 text-white shadow-xl";
+
+        messageBox.innerHTML = "⚠️ Bağlantı hatası oluştu.";
+        messageBox.classList.remove("hidden");
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.innerText = "GÖNDER";
+
+    setTimeout(() => {
+        messageBox.classList.add("hidden");
+    }, 4000);
 });
+</script>
 </script>
 
 
