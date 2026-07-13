@@ -488,6 +488,7 @@
 </div>
 <div class="reveal delay-200 active">
 <form
+    id="contact-form"
     action="https://api.web3forms.com/submit"
     method="POST"
     class="kinetic-glass p-12 rounded-[40px] space-y-8 relative overflow-hidden bg-white/5 border-white/10"
@@ -539,9 +540,14 @@
     required
 ></textarea>
 </div>
-<button class="w-full bg-primary-container text-white py-5 rounded-2xl font-bold tracking-[0.1em] hover:shadow-[0_0_30px_rgba(79,140,255,0.4)] transition-all duration-500 hover:scale-[1.02]" data-i18n="form-btn" type="submit">
-                        GÖNDER
-                    </button>
+<button
+    id="submit-btn"
+    class="w-full bg-primary-container text-white py-5 rounded-2xl font-bold tracking-[0.1em] hover:shadow-[0_0_30px_rgba(79,140,255,0.4)] transition-all duration-500 hover:scale-[1.02]"
+    data-i18n="form-btn"
+    type="submit"
+>
+    GÖNDER
+</button>
 </form>
 </div>
 </div>
@@ -778,7 +784,15 @@
         });
     }
 </script>
+<script>
+const form = document.getElementById("contact-form");
+const submitBtn = document.getElementById("submit-btn");
 
+form.addEventListener("submit", () => {
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Gönderiliyor...";
+});
+</script>
 
 
 
