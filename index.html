@@ -768,22 +768,7 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Form submission simulation
-    document.querySelector('form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const lang = document.documentElement.lang;
-        const btn = e.target.querySelector('button');
-        const originalText = translations[lang]['form-btn'];
-        const sentText = translations[lang]['sent'];
-        
-        btn.innerText = sentText;
-        btn.classList.add('bg-green-600');
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.classList.remove('bg-green-600');
-            e.target.reset();
-        }, 3000);
-    });
+    
 
     // Handle Reduced Motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
