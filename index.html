@@ -222,7 +222,28 @@
 .animate-fade-up {
     animation: fadeUp 0.8s ease-out forwards;
 }
+.toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    width: 350px;
+    padding: 20px;
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+    opacity: 0;
+    transform: translateX(40px);
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
 
+.toast.active {
+    opacity: 1;
+    transform: translateX(0);
+}
 </style>
     <!-- Favicon -->
 <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
@@ -933,6 +954,7 @@ function showToast(type, title, text) {
             "translate-x-10",
             "opacity-0"
         );
+        messageBox.classList.add("active");
 
     },100);
 
@@ -943,6 +965,7 @@ function showToast(type, title, text) {
             "translate-x-10",
             "opacity-0"
         );
+        messageBox.classList.remove("active");
 
     },4000);
 
