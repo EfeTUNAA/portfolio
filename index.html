@@ -542,11 +542,17 @@
 </div>
 <button
     id="submit-btn"
-    class="w-full bg-primary-container text-white py-5 rounded-2xl font-bold tracking-[0.1em] hover:shadow-[0_0_30px_rgba(79,140,255,0.4)] transition-all duration-500 hover:scale-[1.02]"
+    class="group relative w-full bg-primary-container text-white py-5 rounded-2xl font-bold tracking-[0.1em] overflow-hidden transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(79,140,255,0.5)] active:scale-[0.98]"
     data-i18n="form-btn"
     type="submit"
 >
-    GÖNDER
+    <span class="relative z-10">
+        GÖNDER
+    </span>
+
+    <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent">
+    </span>
+
 </button>
 </form>
 <div id="toast" class="toast">
