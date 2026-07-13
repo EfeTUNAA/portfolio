@@ -882,6 +882,8 @@ form.addEventListener("submit", async (e) => {
     );
 
     form.reset();
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = "GÖNDER";
 
 } else {
 
@@ -891,6 +893,9 @@ form.addEventListener("submit", async (e) => {
         "Lütfen tekrar deneyin."
     );
 
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = "GÖNDER";
+
 }
     } catch {
 
@@ -899,6 +904,9 @@ form.addEventListener("submit", async (e) => {
         "Bağlantı hatası",
         "Lütfen tekrar deneyin."
     );
+
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = "GÖNDER";
 
 }
 });
