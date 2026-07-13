@@ -487,20 +487,42 @@
 </div>
 </div>
 <div class="reveal delay-200 active">
-<form class="kinetic-glass p-12 rounded-[40px] space-y-8 relative overflow-hidden bg-white/5 border-white/10">
+<form
+    action="https://api.web3forms.com/submit"
+    method="POST"
+    class="kinetic-glass p-12 rounded-[40px] space-y-8 relative overflow-hidden bg-white/5 border-white/10"
+>
+    <input type="hidden" name="access_key" value="bd4dca2d-1bc9-4c92-b2a8-343413dca9d4">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <div class="space-y-3">
 <label class="text-label-sm font-label-sm text-on-surface/60 uppercase tracking-widest" data-i18n="form-name">ADINIZ</label>
-<input class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface placeholder:text-white/20 transition-all outline-none" data-placeholder="John Doe" type="text">
+<input
+    class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface placeholder:text-white/20 transition-all outline-none"
+    data-placeholder="John Doe"
+    type="text"
+    name="name"
+    required
+>
 </div>
 <div class="space-y-3">
 <label class="text-label-sm font-label-sm text-on-surface/60 uppercase tracking-widest" data-i18n="form-email">E-POSTA</label>
-<input class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface placeholder:text-white/20 transition-all outline-none" data-placeholder="john@example.com" type="email">
+<input
+    class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface placeholder:text-white/20 transition-all outline-none"
+    data-placeholder="john@example.com"
+    type="email"
+    name="email"
+    required
+>
 </div>
 </div>
 <div class="space-y-3">
 <label class="text-label-sm font-label-sm text-on-surface/60 uppercase tracking-widest" data-i18n="form-subject">KONU</label>
-<select class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface transition-all outline-none appearance-none cursor-pointer" id="subject-select">
+<select
+    class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface transition-all outline-none appearance-none cursor-pointer"
+    id="subject-select"
+    name="subject"
+    required
+>
 <option class="bg-surface-container" data-i18n="opt1">Web Tasarım</option>
 <option class="bg-surface-container" data-i18n="opt2">Landing Page</option>
 <option class="bg-surface-container" data-i18n="opt3">UI/UX Danışmanlık</option>
@@ -509,7 +531,13 @@
 </div>
 <div class="space-y-3">
 <label class="text-label-sm font-label-sm text-on-surface/60 uppercase tracking-widest" data-i18n="form-msg">MESAJINIZ</label>
-<textarea class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface placeholder:text-white/20 transition-all outline-none resize-none" data-placeholder="Projenizden kısaca bahsedin..." rows="4"></textarea>
+<textarea
+    class="w-full bg-white/5 border-white/10 rounded-2xl focus:border-primary-container focus:ring-1 focus:ring-primary-container py-4 px-6 text-on-surface placeholder:text-white/20 transition-all outline-none resize-none"
+    data-placeholder="Projenizden kısaca bahsedin..."
+    rows="4"
+    name="message"
+    required
+></textarea>
 </div>
 <button class="w-full bg-primary-container text-white py-5 rounded-2xl font-bold tracking-[0.1em] hover:shadow-[0_0_30px_rgba(79,140,255,0.4)] transition-all duration-500 hover:scale-[1.02]" data-i18n="form-btn" type="submit">
                         GÖNDER
