@@ -726,6 +726,13 @@ EN
 <script>
     // Language logic
     function setLanguage(lang) {
+        document.querySelectorAll('.lang-tr').forEach(el => {
+            el.style.display = lang === "tr" ? "inline" : "none";
+        });
+
+        document.querySelectorAll('.lang-en').forEach(el => {
+            el.style.display = lang === "en" ? "inline" : "none";
+        });
         document.documentElement.lang = lang;
         localStorage.setItem('preferred-language', lang);
         
