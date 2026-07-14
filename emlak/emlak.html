@@ -172,46 +172,177 @@
 <link rel="manifest" href="../assets/icons/site.webmanifest">
 </head>
 <body class="custom-scrollbar">
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
-<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<!-- Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-background/40 backdrop-blur-xl border-b border-white/5 h-20 flex items-center">
+
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full flex justify-between items-center">
+
+<!-- Logo -->
 <a href="../index.html" class="flex items-center gap-3">
+
     <img
         src="../assets/images/logo.png"
         alt="Tuna Web Tasarım Logo"
         class="h-11 w-auto"
     >
-    <span class="font-display-lg text-xl font-bold tracking-tighter text-primary whitespace-nowrap">
+
+    <span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface whitespace-nowrap">
         Tuna Web Tasarım
     </span>
+
 </a>
-<div class="hidden md:flex gap-5 items-center">
-<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="index.html">
-<span class="lang-tr">Ana Sayfa</span><span class="lang-en">Home</span>
+
+
+<!-- Desktop Menu -->
+<div class="hidden md:flex items-center gap-10">
+
+<a 
+class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md"
+data-i18n="nav-work"
+href="../index.html#work">
+İşler
 </a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#services">
-<span class="lang-tr">Hizmetler</span><span class="lang-en">Services</span>
+
+
+<a 
+class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md"
+data-i18n="nav-services"
+href="../index.html#services">
+Hizmetler
 </a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#gallery">
-<span class="lang-tr">Galeri</span><span class="lang-en">Gallery</span>
+
+
+<a 
+class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md"
+data-i18n="nav-about"
+href="../index.html#about">
+Hakkımda
 </a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#about">
-<span class="lang-tr">Hakkımızda</span><span class="lang-en">About</span>
+
+
+<a 
+class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md"
+data-i18n="nav-contact"
+href="../index.html#contact">
+İletişim
 </a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#faq">
-<span class="lang-tr">SSS</span><span class="lang-en">FAQ</span>
-</a>
-</div>
-<div class="flex items-center gap-2 shrink-0">
-<button class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" onclick="toggleLanguage()">
-<span class="" id="lang-toggle-text">TR / EN</span>
+
+
+<!-- Language -->
+<div class="flex items-center bg-white/5 rounded-full p-1 border border-white/10">
+
+<button 
+class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-primary-container text-white"
+id="lang-tr"
+onclick="switchLang('tr')">
+TR
 </button>
-<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md text-label-md uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
-<span class="lang-tr">İletişim</span><span class="lang-en">Contact</span>
+
+
+<button 
+class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 text-on-surface-variant hover:text-white"
+id="lang-en"
+onclick="switchLang('en')">
+EN
 </button>
+
 </div>
+
 </div>
+
+
+<!-- CTA -->
+<a
+href="../index.html#contact"
+class="hidden md:block bg-primary-container text-white px-8 py-2.5 rounded-full font-label-md text-label-md hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(79,140,255,0.3)]"
+data-i18n="nav-cta">
+Hadi Konuşalım
+</a>
+
+
+
+<!-- Mobile Menu Button -->
+<button
+id="mobile-menu-btn"
+class="md:hidden text-white p-2 transition-all duration-300"
+aria-label="Menüyü Aç">
+
+<span
+id="menu-icon"
+class="material-symbols-outlined text-3xl">
+menu
+</span>
+
+</button>
+
+
+</div>
+
 </nav>
+
+
+<!-- Mobile Menu -->
+<div
+id="mobile-menu"
+class="hidden md:hidden fixed top-20 left-0 w-full bg-background/95 backdrop-blur-xl border-b border-white/10 z-40">
+
+<div class="flex flex-col p-6 gap-5">
+
+
+<a 
+href="../index.html#work"
+class="mobile-link text-lg py-3 px-2 rounded-xl hover:bg-white/5 transition-all duration-300"
+data-i18n="nav-work">
+İşler
+</a>
+
+
+<a 
+href="../index.html#services"
+class="mobile-link text-lg py-3 px-2 rounded-xl hover:bg-white/5 transition-all duration-300"
+data-i18n="nav-services">
+Hizmetler
+</a>
+
+
+<a 
+href="../index.html#about"
+class="mobile-link text-lg py-3 px-2 rounded-xl hover:bg-white/5 transition-all duration-300"
+data-i18n="nav-about">
+Hakkımda
+</a>
+
+
+<a 
+href="../index.html#contact"
+class="mobile-link text-lg py-3 px-2 rounded-xl hover:bg-white/5 transition-all duration-300"
+data-i18n="nav-contact">
+İletişim
+</a>
+
+
+<div class="flex gap-3 pt-4 border-t border-white/10">
+
+<button 
+id="mobile-lang-tr"
+onclick="switchLang('tr')"
+class="px-4 py-2 rounded-full bg-primary-container text-white">
+TR
+</button>
+
+
+<button 
+id="mobile-lang-en"
+onclick="switchLang('en')"
+class="px-4 py-2 rounded-full">
+EN
+</button>
+
+</div>
+
+</div>
+
+</div>
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
 <div class="blur-sphere top-1/4 -left-20"></div>
