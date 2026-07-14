@@ -293,13 +293,16 @@
    
 <button
     id="mobile-menu-btn"
-    class="md:hidden text-white p-2"
+    class="md:hidden text-white p-2 transition-all duration-300"
     aria-label="Menüyü Aç"
 >
-    <span class="material-symbols-outlined text-3xl">
+    <span
+        id="menu-icon"
+        class="material-symbols-outlined text-3xl transition-all duration-300"
+    >
         menu
     </span>
-     </button>
+</button>
 </div>
 <div
     id="mobile-menu"
@@ -921,8 +924,22 @@ const mobileMenu = document.getElementById("mobile-menu");
 
 if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-    });
+
+    mobileMenu.classList.toggle("hidden");
+
+    const icon = document.getElementById("menu-icon");
+
+    if (mobileMenu.classList.contains("hidden")) {
+
+        icon.textContent = "menu";
+
+    } else {
+
+        icon.textContent = "close";
+
+    }
+
+});
 }
 document.querySelectorAll("#mobile-menu a").forEach(link => {
     link.addEventListener("click", () => {
