@@ -755,6 +755,36 @@ EN
         const btnEn = document.getElementById('lang-en');
         const mobileBtnTr = document.getElementById('mobile-lang-tr');
         const mobileBtnEn = document.getElementById('mobile-lang-en');
+        if (mobileBtnTr && mobileBtnEn) {
+
+    if (lang === "tr") {
+
+        mobileBtnTr.classList.add(
+            "bg-primary-container",
+            "text-white"
+        );
+
+        mobileBtnEn.classList.remove(
+            "bg-primary-container",
+            "text-white"
+        );
+
+
+    } else {
+
+        mobileBtnEn.classList.add(
+            "bg-primary-container",
+            "text-white"
+        );
+
+        mobileBtnTr.classList.remove(
+            "bg-primary-container",
+            "text-white"
+        );
+
+    }
+
+}
 
 if(btnTr && btnEn){
 
