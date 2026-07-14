@@ -317,13 +317,21 @@
 
         <div class="flex gap-3 pt-4 border-t border-white/10">
 
-            <button onclick="switchLang('tr')" class="px-4 py-2 rounded-full bg-primary-container">
-                TR
-            </button>
+          <button
+    id="mobile-lang-tr"
+    onclick="switchLang('tr')"
+    class="px-4 py-2 rounded-full transition-all duration-300"
+>
+    TR
+</button>
 
-            <button onclick="switchLang('en')" class="px-4 py-2 rounded-full bg-white/10">
-                EN
-            </button>
+<button
+    id="mobile-lang-en"
+    onclick="switchLang('en')"
+    class="px-4 py-2 rounded-full transition-all duration-300"
+>
+    EN
+</button>  
 
         </div>
 
@@ -833,19 +841,54 @@
         });
 
         // Update active button styles
-        const btnTr = document.getElementById('lang-tr');
-        const btnEn = document.getElementById('lang-en');
-        if (lang === 'tr') {
-            btnTr.classList.add('bg-primary-container', 'text-white');
-            btnTr.classList.remove('text-on-surface-variant');
-            btnEn.classList.remove('bg-primary-container', 'text-white');
-            btnEn.classList.add('text-on-surface-variant');
-        } else {
-            btnEn.classList.add('bg-primary-container', 'text-white');
-            btnEn.classList.remove('text-on-surface-variant');
-            btnTr.classList.remove('bg-primary-container', 'text-white');
-            btnTr.classList.add('text-on-surface-variant');
-        }
+        const buttons = [
+        document.getElementById('lang-tr'),
+        document.getElementById('lang-en'),
+        document.getElementById('mobile-lang-tr'),
+        document.getElementById('mobile-lang-en')
+    ];
+        buttons.forEach(btn => {
+    if (!btn) return;
+
+    btn.classList.remove(
+        'bg-primary-container',
+        'text-white',
+        'text-on-surface-variant'
+    );
+});
+
+const active = document.getElementById(
+    lang === 'tr' ? 'lang-tr' : 'lang-en'
+);
+
+const activeMobile = document.getElementById(
+    lang === 'tr' ? 'mobile-lang-tr' : 'mobile-lang-en'
+);
+
+const inactive = document.getElementById(
+    lang === 'tr' ? 'lang-en' : 'lang-tr'
+);
+
+const inactiveMobile = document.getElementById(
+    lang === 'tr' ? 'mobile-lang-en' : 'mobile-lang-tr'
+);
+
+[active, activeMobile].forEach(btn => {
+    if (!btn) return;
+
+    btn.classList.add(
+        'bg-primary-container',
+        'text-white'
+    );
+});
+
+[inactive, inactiveMobile].forEach(btn => {
+    if (!btn) return;
+
+    btn.classList.add(
+        'text-on-surface-variant'
+    );
+});
     }
 
     // Initialize Language
