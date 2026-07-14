@@ -924,7 +924,9 @@ const mobileMenu = document.getElementById("mobile-menu");
 
 if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener("click", () => {
-     
+
+    const icon = document.getElementById("menu-icon");
+    
     const isOpen = mobileMenu.classList.contains("opacity-100");
 
 if (isOpen) {
@@ -958,18 +960,6 @@ if (isOpen) {
     icon.textContent = "close";
 
 }
-
-    const icon = document.getElementById("menu-icon");
-
-    if (mobileMenu.classList.contains("hidden")) {
-
-        icon.textContent = "menu";
-
-    } else {
-
-        icon.textContent = "close";
-
-    }
 
 });
 }
