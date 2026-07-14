@@ -746,6 +746,9 @@ EN
     }
 
     function toggleLanguage() {
+        function switchLang(lang) {
+    setLanguage(lang);
+}
         const currentLang = document.documentElement.lang;
         const newLang = currentLang === 'tr' ? 'en' : 'tr';
         setLanguage(newLang);
@@ -755,6 +758,44 @@ EN
     document.addEventListener('DOMContentLoaded', () => {
         const savedLang = localStorage.getItem('preferred-language') || 'tr';
         setLanguage(savedLang);
+
+        // Mobile Menu
+const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const menuIcon = document.getElementById("menu-icon");
+
+if (mobileMenuBtn && mobileMenu) {
+
+    mobileMenuBtn.addEventListener("click", () => {
+
+        if (mobileMenu.classList.contains("hidden")) {
+
+            mobileMenu.classList.remove("hidden");
+            menuIcon.textContent = "close";
+
+        } else {
+
+            mobileMenu.classList.add("hidden");
+            menuIcon.textContent = "menu";
+
+        }
+
+    });
+
+}
+
+
+// Close mobile menu when clicking a link
+document.querySelectorAll("#mobile-menu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mobileMenu.classList.add("hidden");
+        menuIcon.textContent = "menu";
+
+    });
+
+});
 
         // Cards animation
         const cards = document.querySelectorAll('.glass-card');
