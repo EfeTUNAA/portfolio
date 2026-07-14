@@ -231,19 +231,20 @@ href="../index.html#contact">
 <!-- Language -->
 <div class="flex items-center bg-white/5 rounded-full p-1 border border-white/10">
 
-<button 
-class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-primary-container text-white"
-id="lang-tr"
-onclick="switchLang('tr')">
-TR
+<button
+    id="lang-tr"
+    onclick="switchLang('tr')"
+    class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-primary-container text-white"
+>
+    TR
 </button>
 
-
-<button 
-class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 text-on-surface-variant hover:text-white"
-id="lang-en"
-onclick="switchLang('en')">
-EN
+<button
+    id="lang-en"
+    onclick="switchLang('en')"
+    class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 text-on-surface-variant hover:text-white"
+>
+    EN
 </button>
 
 </div>
@@ -750,6 +751,58 @@ EN
             if (emailInput) emailInput.placeholder = 'john@example.com';
             if (messageInput) messageInput.placeholder = 'How can we help you?';
         }
+        const btnTr = document.getElementById('lang-tr');
+const btnEn = document.getElementById('lang-en');
+
+if(btnTr && btnEn){
+
+    if(lang === "tr"){
+
+        btnTr.classList.add(
+            "bg-primary-container",
+            "text-white"
+        );
+
+        btnTr.classList.remove(
+            "text-on-surface-variant"
+        );
+
+
+        btnEn.classList.remove(
+            "bg-primary-container",
+            "text-white"
+        );
+
+        btnEn.classList.add(
+            "text-on-surface-variant"
+        );
+
+
+    } else {
+
+
+        btnEn.classList.add(
+            "bg-primary-container",
+            "text-white"
+        );
+
+        btnEn.classList.remove(
+            "text-on-surface-variant"
+        );
+
+
+        btnTr.classList.remove(
+            "bg-primary-container",
+            "text-white"
+        );
+
+        btnTr.classList.add(
+            "text-on-surface-variant"
+        );
+
+    }
+
+    }
     }
 
     function switchLang(lang) {
