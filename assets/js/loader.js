@@ -11,10 +11,13 @@ async function loadNavbar() {
     const isProjectPage = window.location.pathname.includes("/projects/");
 
     // Doğru component ve asset yolu
-    const navbarPath = isProjectPage
-        ? "../assets/components/navbar-project.html"
-        : "assets/components/navbar-home.html";
+    const isHomePage =
+    window.location.pathname.endsWith("/") ||
+    window.location.pathname.endsWith("/index.html");
 
+    const navbarPath = isHomePage
+        ? "assets/components/navbar-home.html"
+        : "assets/components/navbar-project.html";
     try {
         const response = await fetch(navbarPath);
 
