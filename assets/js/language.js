@@ -9,7 +9,8 @@
             "nav-contact": "İletişim",
             "nav-cta": "Hadi Konuşalım",
             "footer-tagline": "Modern, hızlı ve dönüşüm odaklı web deneyimleri.",
-            "footer-rights": "Tüm hakları saklıdır."
+            "footer-rights": "Tüm hakları saklıdır.",
+            "skip-content": "Ana içeriğe geç"
         },
         en: {
             "nav-work": "Work",
@@ -18,7 +19,8 @@
             "nav-contact": "Contact",
             "nav-cta": "Let's Talk",
             "footer-tagline": "Modern, fast, conversion-focused web experiences.",
-            "footer-rights": "All rights reserved."
+            "footer-rights": "All rights reserved.",
+            "skip-content": "Skip to main content"
         }
     };
 

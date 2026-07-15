@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://efetunaa.github.io/portfolio/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
-
-  <url>
-    <loc>https://efetunaa.github.io/portfolio/restoran/restoran.html</loc>
-  </url>
-
   <url>
     <loc>https://efetunaa.github.io/portfolio/emlak/emlak.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://efetunaa.github.io/portfolio/restoran/restoran.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://efetunaa.github.io/portfolio/hukuk-burosu/hukuk.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://efetunaa.github.io/portfolio/spor_salonu/spor.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://efetunaa.github.io/portfolio/dis_klinigi/dis-klinigi.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://efetunaa.github.io/portfolio/yazilim_sirketi/yazilim.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-
 </urlset>

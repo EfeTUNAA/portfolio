@@ -1,45 +1,85 @@
-TUNA WEB TASARIM - HAMBURGER MENÜ DÜZELTMESİ
-Tarih: 15 Temmuz 2026
+TUNA WEB TASARIM — ORTAK FOOTER VE LIGHTHOUSE OPTİMİZASYONU
+Tarih: 15.07.2026
 
-Düzeltilen ana sorunlar:
-- Navbar görünmesine rağmen hamburger olaylarının footer yüklemesi tamamlanmadan başlatılmaması düzeltildi.
-- Navbar artık footer yüklemesinden bağımsız olarak DOM'a eklenir eklenmez initialize ediliyor.
-- Mobil menü görünürlüğünün yalnızca dinamik Tailwind sınıflarına bağlı olması kaldırıldı.
-- Stabil is-open durum sınıfı ve bileşene ait responsive CSS eklendi.
-- Mobil menü, backdrop-filter kullanan nav elementinin dışına taşındı; fixed-position uyumsuzluğu önlendi.
-- Önceki event listener'lar AbortController ile temizleniyor; init tekrar çağrılsa bile çift listener oluşmuyor.
-- Hamburger/X ikonları inline SVG olarak korunup hidden özelliğiyle güvenilir biçimde değiştiriliyor.
-- aria-expanded, aria-hidden, aria-controls ve aria-label durumları senkronize edildi.
-- Menü linkine basınca, dışarı basınca ve Escape tuşuyla kapanma düzeltildi.
-- Menü açıldığında arka plan kaydırması iPhone/Android uyumlu biçimde kilitleniyor ve kapanınca eski konum geri yükleniyor.
-- Ekran masaüstüne geçtiğinde açık mobil menü otomatik kapanıyor.
-- Tabletlerde sıkışmayı önlemek için hamburger/desktop geçiş sınırı 1024 px olarak ayarlandı.
-- localStorage erişimi kapalı olduğunda dil sisteminin tamamen durmaması için güvenli depolama eklendi.
-- Eski tarayıcı önbelleğinin yeni JavaScript'i engellememesi için script sürüm parametresi eklendi.
+ORTAK FOOTER
+- Footer yalnızca assets/components/footer.html dosyasından yönetiliyor.
+- Yedi gerçek sayfanın tamamında yalnızca <div id="footer-container"></div> placeholder'ı bulunuyor.
+- Navbar ve footer Promise.all ile birbirinden bağımsız ve eşzamanlı yükleniyor.
+- Footer yüklenemezse navbar, hamburger ve dil sistemi çalışmaya devam ediyor.
+- Ana sayfa/proje bağlantıları loader.js tarafından doğru göreli yollara dönüştürülüyor.
+- Kayıtlı TR/EN dili footer yüklendikten sonra tekrar uygulanıyor.
+- Yıl bilgisi JavaScript ile otomatik güncelleniyor.
+- Footer içinde html, head, body veya script etiketi bulunmuyor.
 
-Değiştirilen ana dosyalar:
-- assets/js/navbar.js
-- assets/js/loader.js
-- assets/js/language.js
+PERFORMANS
+- 175 KB'lık navbar logosuna ek olarak 7,7 KB'lık optimize WebP sürümü üretildi ve navbar/footer bu sürüme geçirildi.
+- Sayfa görsellerine loading, decoding, fetchpriority, width ve height nitelikleri eklendi.
+- İlk ekrandaki kritik görseller eager; alt bölüm görselleri lazy yükleniyor.
+- Alt bölüm CSS arka plan görselleri IntersectionObserver ile gecikmeli yükleniyor.
+- Uzak görsel kaynağı için preconnect ve dns-prefetch eklendi.
+- Yerel JavaScript dosyaları defer ile yükleniyor.
+- Component istekleri sürümlendirildi; gereksiz no-cache kaldırıldı.
+- Navbar/footer/component CSS'i assets/css/shared.css dosyasında birleştirildi.
+- prefers-reduced-motion desteği eklendi.
+- Eski ve çakışan sayfa içi dil, scroll ve mousemove scriptleri temizlendi.
+- TailwindCSS CDN kullanımı kullanıcı talebi gereği korundu; bu durum Lighthouse performans puanının üst sınırını etkileyebilir.
+- Proje görselleri mevcut Googleusercontent kaynaklarında bırakıldı; bu çalışma ortamında kaynak dosyalar güvenilir biçimde indirilemediği için kaliteyi riske atan toplu yeniden sıkıştırma uygulanmadı.
+
+ACCESSIBILITY
+- Skip link ve görünür klavye focus stilleri eklendi.
+- Hamburger aria-label, aria-expanded, aria-controls ve inert durumları sağlamlaştırıldı.
+- Mobil menü kapalıyken içindeki bağlantılar klavye odağı alamıyor.
+- Form alanlarının label/aria-label bağlantıları tamamlandı.
+- Türü eksik butonlara button veya submit türü eklendi.
+- Tüm img etiketlerinde anlamlı alt metin, width ve height bulunuyor.
+- target="_blank" bağlantıları için güvenli rel değerleri kontrol edildi.
+- Her gerçek sayfada tek bir H1 doğrulandı.
+
+SEO / BEST PRACTICES
+- Tüm gerçek sayfalara benzersiz title ve meta description eklendi/düzeltildi.
+- Canonical URL'ler gerçek GitHub Pages dosya yollarıyla eşleştirildi.
+- Open Graph ve Twitter Card alanları tüm sayfalara eklendi.
+- Ana sayfaya doğrulanabilir ProfessionalService JSON-LD eklendi.
+- robots.txt satır sonu/URL hatası düzeltildi.
+- sitemap.xml yedi gerçek sayfanın tamamını içerecek şekilde güncellendi.
+- site.webmanifest adı, renkleri, scope, start_url ve ikon yolları GitHub Pages yapısına göre düzeltildi.
+- Yerel dosya yolları ve JavaScript sözdizimi kontrol edildi; kırık yerel bağlantı bulunmadı.
+- Duplicate ID bulunmadı.
+
+DEĞİŞTİRİLEN ANA DOSYALAR
+- assets/components/footer.html
 - assets/components/navbar-home.html
 - assets/components/navbar-project.html
+- assets/css/shared.css (yeni)
+- assets/images/logo.webp (yeni)
+- assets/js/loader.js
+- assets/js/navbar.js
+- assets/js/language.js
+- assets/js/main.js
+- assets/icons/site.webmanifest
 - index.html
-- dis_klinigi/dis-klinigi.html
 - emlak/emlak.html
-- hukuk-burosu/hukuk.html
 - restoran/restoran.html
+- hukuk-burosu/hukuk.html
 - spor_salonu/spor.html
+- dis_klinigi/dis-klinigi.html
 - yazilim_sirketi/yazilim.html
+- robots.txt
+- sitemap.xml
 
-Doğrulamalar:
-- Tüm JavaScript dosyaları node --check ile doğrulandı.
-- 7 HTML sayfasında navbar/footer placeholder ve script yolları kontrol edildi.
-- Ana sayfa ve proje navbarı Chromium tabanlı mock tarayıcı testinden geçti.
-- 360 px telefon ve 820 px tablet görünümünde açma/kapatma test edildi.
-- X/hamburger ikon değişimi, dışarı tıklama, Escape, dil değiştirme, scroll kilidi,
-  tekrar initialize ve 1024 px masaüstü geçişi doğrulandı.
+TEST SONUÇLARI
+- Yedi sayfada navbar/footer placeholder, title, description, canonical, OG, Twitter, H1, alt metin, görsel boyutu, form etiketi ve duplicate ID statik olarak kontrol edildi: BAŞARILI.
+- Tüm assets/js dosyaları node --check ile doğrulandı: BAŞARILI.
+- Ana sayfa ve proje component yaşam döngüsü DOM testinde doğrulandı: BAŞARILI.
+- Hamburger aç/kapat, Escape, TR/EN, otomatik yıl, doğru logo ve footer yolları DOM testinde doğrulandı: BAŞARILI.
+- Footer hata senaryosunda navbarın bağımsız çalışması doğrulandı: BAŞARILI.
+- Yerel href/src/script/link yolları kontrol edildi: KIRIK YOL YOK.
+- Manifest JSON, JSON-LD ve sitemap XML sözdizimi doğrulandı: BAŞARILI.
 
-Çalıştırma:
-- VS Code ile bu klasörü açın.
-- index.html üzerinde Open with Live Server kullanın.
-- İlk testte Ctrl+F5 ile zorla yenileme yapın.
+DOĞRULANAMAYANLAR
+- Bu çalışma ortamındaki Chromium yönetim politikası yerel sayfa navigasyonunu engellediği için gerçek Lighthouse puanı üretilemedi.
+- Gerçek iPhone, Android/Galaxy A24 ve Safari donanım testi yapılamadı.
+- Web3Forms'a gerçek mesaj gönderimi yapılmadı; mevcut action ve AJAX hata yönetimi korundu.
+
+ÖNERİLEN COMMIT MESAJI
+Ortak footer ve Lighthouse optimizasyonları tamamlandı

@@ -1,0 +1,77 @@
+/* Shared Tuna Web Tasarım component and accessibility styles */
+:focus-visible {
+  outline: 2px solid #afc6ff;
+  outline-offset: 3px;
+}
+.skip-link {
+  position: fixed;
+  top: .75rem;
+  left: .75rem;
+  z-index: 99999;
+  transform: translateY(-160%);
+  padding: .75rem 1rem;
+  border-radius: .75rem;
+  background: #e1e2ec;
+  color: #0b0b0f;
+  font-weight: 700;
+  transition: transform .2s ease;
+}
+.skip-link:focus { transform: translateY(0); }
+.tuna-menu-button {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.tuna-menu-button:focus-visible {
+  outline: 2px solid #afc6ff;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+.tuna-mobile-menu {
+  position: fixed;
+  top: 5rem;
+  right: 0;
+  left: 0;
+  z-index: 49;
+  display: block;
+  max-height: calc(100vh - 5rem);
+  max-height: calc(100dvh - 5rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, -16px, 0);
+  transition: opacity 240ms ease, transform 240ms ease, visibility 0s linear 240ms;
+}
+.tuna-mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0s;
+}
+html.tuna-menu-open,
+body.tuna-menu-open { overscroll-behavior: none; }
+.js-lazy-bg { background-color: rgba(255,255,255,.025); }
+@media (min-width: 1024px) {
+  .tuna-menu-button,
+  .tuna-mobile-menu { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

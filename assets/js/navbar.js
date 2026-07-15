@@ -66,6 +66,7 @@
             menu.classList.toggle("is-open", shouldOpen);
             menu.dataset.state = shouldOpen ? "open" : "closed";
             menu.setAttribute("aria-hidden", String(!shouldOpen));
+            menu.inert = !shouldOpen;
 
             button.setAttribute("aria-expanded", String(shouldOpen));
             button.setAttribute("aria-label", shouldOpen ? "Menüyü kapat" : "Menüyü aç");
@@ -139,6 +140,7 @@
         if (menu) {
             menu.dataset.state = "closed";
             menu.setAttribute("aria-hidden", "true");
+            menu.inert = true;
         }
         button?.setAttribute("aria-expanded", "false");
         button?.setAttribute("aria-label", "Menüyü aç");

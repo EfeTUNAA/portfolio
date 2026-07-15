@@ -1,5 +1,4 @@
 User-agent: *
-
-Allow: /
+Allow: /portfolio/
 
 Sitemap: https://efetunaa.github.io/portfolio/sitemap.xml
