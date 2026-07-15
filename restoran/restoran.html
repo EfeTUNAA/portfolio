@@ -172,63 +172,7 @@
 </head>
 <body class="font-body-md text-on-background">
 <!-- Top Navigation -->
-<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
-  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
-
-    <!-- Sol Taraf -->
-    <div class="flex items-center gap-6">
-      <a href="../index.html" class="flex items-center gap-3">
-    <img
-        src="../assets/images/logo.png"
-        alt="Tuna Web Tasarım Logo"
-        class="h-11 w-auto"
-    >
-    <span class="font-display-lg text-headline-md font-bold tracking-tighter text-primary whitespace-nowrap">
-        Tuna Web Tasarım
-    </span>
-</a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="index.html">
-        <span data-lang-content="tr">Anasayfa</span>
-        <span data-lang-content="en">Home</span>
-      </a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#about">
-        <span data-lang-content="tr">Hakkımızda</span>
-        <span data-lang-content="en">About</span>
-      </a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#services">
-        <span data-lang-content="tr">Hizmetler</span>
-        <span data-lang-content="en">Services</span>
-      </a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#gallery">
-        <span data-lang-content="tr">Galeri</span>
-        <span data-lang-content="en">Gallery</span>
-      </a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#faq">
-        <span data-lang-content="tr">SSS</span>
-        <span data-lang-content="en">FAQ</span>
-      </a>
-    </div>
-
-    <!-- Sağ Taraf -->
-    <div class="flex items-center gap-2 shrink-0">
-      <button class="font-label-md text-label-md uppercase tracking-wider px-3 py-2 border border-glass-border rounded-full hover:bg-glass-border transition-all" id="lang-toggle">
-        <span data-lang-content="tr">TR / EN</span>
-        <span data-lang-content="en">EN / TR</span>
-      </button>
-
-      <a class="hidden sm:block font-label-md text-label-md uppercase tracking-wider bg-primary-container text-on-primary-container px-4 py-2 rounded-full font-bold hover:scale-105 active:scale-95 transition-all" href="#contact">
-        <span data-lang-content="tr">İletişim</span>
-        <span data-lang-content="en">Contact</span>
-      </a>
-    </div>
-
-  </div>
-</nav>
+<div id="navbar-container"></div>
 <!-- Project Info Banner -->
 <div class="pt-24 pb-4 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
 <div class="max-w-container-max mx-auto flex flex-wrap justify-between items-center gap-4">
@@ -746,4 +690,7 @@
             }
         });
     </script>
+
+<script src="../assets/js/loader.js"></script>
+
 </body></html>

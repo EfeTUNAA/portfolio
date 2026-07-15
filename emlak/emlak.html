@@ -173,113 +173,7 @@
 </head>
 <body class="custom-scrollbar">
 <!-- Navigation Bar -->
-<nav class="fixed top-0 w-full z-50 bg-background/40 backdrop-blur-xl border-b border-white/5 h-20 flex items-center">
-
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full flex justify-between items-center">
-
-<!-- Logo -->
-<a href="../index.html" class="flex items-center gap-3">
-
-    <img
-        src="../assets/images/logo.png"
-        alt="Tuna Web Tasarım Logo"
-        class="h-11 w-auto"
-    >
-
-    <span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface whitespace-nowrap">
-        Tuna Web Tasarım
-    </span>
-
-</a>
-
-
-<!-- Desktop Menu -->
-<div class="hidden md:flex items-center gap-10">
-
-<a 
-class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md"
-data-i18n="nav-work"
-href="../index.html#work">
-İşler
-</a>
-
-
-<a 
-class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md"
-data-i18n="nav-services"
-href="../index.html#services">
-Hizmetler
-</a>
-
-
-<a 
-class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md"
-data-i18n="nav-about"
-href="../index.html#about">
-Hakkımda
-</a>
-
-
-<a 
-class="text-on-surface-variant hover:text-white transition-colors font-label-md text-label-md"
-data-i18n="nav-contact"
-href="../index.html#contact">
-İletişim
-</a>
-
-
-<!-- Language -->
-<div class="flex items-center bg-white/5 rounded-full p-1 border border-white/10">
-
-<button
-    id="lang-tr"
-    onclick="switchLang('tr')"
-    class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 bg-primary-container text-white"
->
-    TR
-</button>
-
-<button
-    id="lang-en"
-    onclick="switchLang('en')"
-    class="px-3 py-1 rounded-full text-[10px] font-bold transition-all duration-300 text-on-surface-variant hover:text-white"
->
-    EN
-</button>
-
-</div>
-
-</div>
-
-
-<!-- CTA -->
-<a
-href="../index.html#contact"
-class="hidden md:block bg-primary-container text-white px-8 py-2.5 rounded-full font-label-md text-label-md hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(79,140,255,0.3)]"
-data-i18n="nav-cta">
-Hadi Konuşalım
-</a>
-
-
-
-<!-- Mobile Menu Button -->
-<button
-id="mobile-menu-btn"
-class="md:hidden text-white p-2 transition-all duration-300"
-aria-label="Menüyü Aç">
-
-<span
-id="menu-icon"
-class="material-symbols-outlined text-3xl">
-menu
-</span>
-
-</button>
-
-
-</div>
-
-</nav>
+<div id="navbar-container"></div>
 
 
 <!-- Mobile Menu -->
@@ -924,4 +818,7 @@ document.querySelectorAll("#mobile-menu a").forEach(link => {
         }
     });
 </script>
+
+<script src="../assets/js/loader.js"></script>
+
 </body></html>

@@ -168,48 +168,7 @@
 </head>
 <body class="selection:bg-primary-container selection:text-on-primary-container">
 <!-- Top Navigation Bar -->
-<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
-  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
-
-    <!-- Sol taraf -->
-    <div class="flex items-center gap-6">
-
-
-      <a href="../index.html" class="flex items-center gap-3">
-    <img
-        src="../assets/images/logo.png"
-        alt="Tuna Web Tasarım Logo"
-        class="h-11 w-auto"
-    >
-    <span class="font-display-lg text-headline-md font-bold tracking-tighter text-primary">
-        Tuna Web Tasarım
-    </span>
-</a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1 lang-content" data-en="Home" data-tr="Ana Sayfa" href="index.html">Ana Sayfa</a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors lang-content" data-en="About" data-tr="Hakkımızda" href="#About">Hakkımızda</a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors lang-content" data-en="Services" data-tr="Hizmetler" href="#Services">Hizmetler</a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors lang-content" data-en="Gallery" data-tr="Galeri" href="#Gallery">Galeri</a>
-
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors lang-content" data-en="FAQ" data-tr="SSS" href="#FAQ">SSS</a>
-    </div>
-
-    <!-- Sağ taraf -->
-    <div class="flex items-center gap-2 shrink-0">
-      <button class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-all" id="lang-switcher">
-        TR / EN
-      </button>
-
-      <button class="bg-primary-container text-on-primary-container px-3 py-2 rounded-full font-label-md font-bold hover:scale-105 active:scale-95 transition-all lang-content" data-en="Contact" data-tr="İletişim">
-        İletişim
-      </button>
-    </div>
-
-  </div>
-</nav>
+<div id="navbar-container"></div>
 <main>
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="Home">
@@ -636,4 +595,7 @@
             }
         });
     </script>
+
+<script src="../assets/js/loader.js"></script>
+
 </body></html>
