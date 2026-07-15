@@ -1,7 +1,7 @@
 (() => {
     "use strict";
 
-    const VERSION = "20260715-2";
+    const VERSION = "20260715-3";
     const COMPONENTS = {
         home: { navbar: "assets/components/navbar-home.html", footer: "assets/components/footer.html", home: "./index.html", logo: "assets/images/logo.webp" },
         project: { navbar: "../assets/components/navbar-project.html", footer: "../assets/components/footer.html", home: "../index.html", logo: "../assets/images/logo.webp" }

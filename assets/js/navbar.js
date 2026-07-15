@@ -48,10 +48,7 @@
         const { signal } = activeController;
         const button = document.getElementById("mobile-menu-btn");
         const menu = document.getElementById("mobile-menu");
-        const openIcon = document.getElementById("menu-open-icon");
-        const closeIcon = document.getElementById("menu-close-icon");
-
-        if (!button || !menu || !openIcon || !closeIcon) {
+        if (!button || !menu) {
             unlockPageScroll();
             return;
         }
@@ -70,9 +67,6 @@
 
             button.setAttribute("aria-expanded", String(shouldOpen));
             button.setAttribute("aria-label", shouldOpen ? "Menüyü kapat" : "Menüyü aç");
-
-            openIcon.hidden = shouldOpen;
-            closeIcon.hidden = !shouldOpen;
 
             if (shouldOpen) {
                 lockPageScroll();
@@ -133,9 +127,6 @@
     function close() {
         const button = document.getElementById("mobile-menu-btn");
         const menu = document.getElementById("mobile-menu");
-        const openIcon = document.getElementById("menu-open-icon");
-        const closeIcon = document.getElementById("menu-close-icon");
-
         menu?.classList.remove("is-open");
         if (menu) {
             menu.dataset.state = "closed";
@@ -144,8 +135,6 @@
         }
         button?.setAttribute("aria-expanded", "false");
         button?.setAttribute("aria-label", "Menüyü aç");
-        if (openIcon) openIcon.hidden = false;
-        if (closeIcon) closeIcon.hidden = true;
         unlockPageScroll();
     }
 

@@ -83,3 +83,9 @@ DOĞRULANAMAYANLAR
 
 ÖNERİLEN COMMIT MESAJI
 Ortak footer ve Lighthouse optimizasyonları tamamlandı
+
+
+2026-07-15 Mobil navbar düzeltmesi:
+- Hamburger/X ikon geçişi hidden niteliğinden çıkarılarak aria-expanded tabanlı CSS durumuna taşındı.
+- Ana sayfa hero bölümüne sabit navbarı karşılayan mobil/tablet üst boşluk eklendi.
+- Cache sürümü 20260715-3 olarak güncellendi.

@@ -35,6 +35,13 @@
   outline-offset: 2px;
   border-radius: 12px;
 }
+.tuna-menu-icon {
+  display: block;
+  flex: 0 0 auto;
+}
+.tuna-menu-icon-close { display: none; }
+.tuna-menu-button[aria-expanded="true"] .tuna-menu-icon-open { display: none; }
+.tuna-menu-button[aria-expanded="true"] .tuna-menu-icon-close { display: block; }
 .tuna-mobile-menu {
   position: fixed;
   top: 5rem;
