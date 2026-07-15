@@ -15,9 +15,13 @@ async function loadNavbar() {
     window.location.pathname.endsWith("/") ||
     window.location.pathname.endsWith("/index.html");
 
-    const navbarPath = isHomePage
-        ? "assets/components/navbar-home.html"
-        : "assets/components/navbar-project.html";
+    const isHomePage =
+    window.location.pathname === "/portfolio/" ||
+    window.location.pathname.endsWith("/index.html");
+
+const navbarPath = isHomePage
+    ? "assets/components/navbar-home.html"
+    : "../assets/components/navbar-project.html";
     try {
         const response = await fetch(navbarPath);
 
