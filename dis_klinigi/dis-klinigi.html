@@ -154,40 +154,7 @@
 </head>
 <body class="antialiased">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
-<div class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-container-max mx-auto">
-<a class="font-display-lg text-headline-md font-bold tracking-tighter text-primary" href="index.html">Tuna Web Tasarım</a>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md uppercase tracking-wider" href="index.html">
-<span class="lang-tr">Ana Sayfa</span>
-<span class="lang-en">Home</span>
-</a>
-<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md uppercase tracking-wider" href="#about">
-<span class="lang-tr">Hakkımızda</span>
-<span class="lang-en">About</span>
-</a>
-<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md uppercase tracking-wider" href="#services">
-<span class="lang-tr">Hizmetler</span>
-<span class="lang-en">Services</span>
-</a>
-<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md uppercase tracking-wider" href="#gallery">
-<span class="lang-tr">Galeri</span>
-<span class="lang-en">Gallery</span>
-</a>
-<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md uppercase tracking-wider" href="#faq">SSS</a>
-</div>
-<div class="flex items-center gap-4">
-<button class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider" onclick="toggleLanguage()">
-<span class="lang-tr">EN</span>
-<span class="lang-en">TR</span>
-</button>
-<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md text-label-md uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">
-<span class="lang-tr">İletişim</span>
-<span class="lang-en">Contact</span>
-</button>
-</div>
-</div>
-</nav>
+<div id="navbar-container" data-navbar="project"></div>
 <main class="pt-20 overflow-hidden">
 <!-- Hero Section -->
 <section class="relative min-h-[921px] flex items-center px-margin-desktop max-w-container-max mx-auto py-section-gap">
@@ -549,28 +516,10 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="w-full py-section-gap bg-surface-container-lowest border-t border-glass-border">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-base">
-<div class="text-center md:text-left">
-<a class="font-display-lg text-headline-md font-bold text-primary mb-2 block" href="index.html">Tuna Web Tasarım</a>
-<p class="font-label-sm text-label-sm text-on-surface-variant max-w-xs">© 2024 Tuna Web Tasarım. <span class="lang-tr">TÜM HAKLARI SAKLIDIR.</span><span class="lang-en">ALL RIGHTS RESERVED.</span></p>
-</div>
-<div class="flex flex-col items-center md:items-end gap-6 mt-8 md:mt-0">
-<div class="flex gap-8">
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">LinkedIn</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">Instagram</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">
-<span class="lang-tr">İletişim</span>
-<span class="lang-en">Contact</span>
-</a>
-</div>
-<p class="font-label-sm text-label-sm text-on-surface-variant opacity-50 uppercase tracking-widest">© 2024 Tuna Web Tasarım. <span class="lang-tr">TÜM HAKLARI SAKLIDIR.</span><span class="lang-en">ALL RIGHTS RESERVED.</span></p>
-</div>
-</div>
-</footer>
+<div id="footer-container"></div>
 <!-- Back to Portfolio Action -->
 <div class="fixed bottom-8 left-8 z-50">
-<a class="bg-surface-container-high text-on-surface px-6 py-3 rounded-full flex items-center gap-3 border border-glass-border hover:bg-primary-container hover:text-on-primary-container transition-all shadow-xl group" href="index.html">
+<a class="bg-surface-container-high text-on-surface px-6 py-3 rounded-full flex items-center gap-3 border border-glass-border hover:bg-primary-container hover:text-on-primary-container transition-all shadow-xl group" href="../index.html">
 <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
 <span class="font-label-md text-label-md uppercase tracking-wider">
 <span class="lang-tr">Portfolyoya Dön</span>
@@ -615,4 +564,9 @@
             });
         });
     </script>
+
+<script src="../assets/js/navbar.js?v=20260715-1"></script>
+<script src="../assets/js/language.js?v=20260715-1"></script>
+<script src="../assets/js/main.js?v=20260715-1"></script>
+<script src="../assets/js/loader.js?v=20260715-1"></script>
 </body></html>

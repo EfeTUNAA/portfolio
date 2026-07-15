@@ -1,0 +1,45 @@
+TUNA WEB TASARIM - HAMBURGER MENÜ DÜZELTMESİ
+Tarih: 15 Temmuz 2026
+
+Düzeltilen ana sorunlar:
+- Navbar görünmesine rağmen hamburger olaylarının footer yüklemesi tamamlanmadan başlatılmaması düzeltildi.
+- Navbar artık footer yüklemesinden bağımsız olarak DOM'a eklenir eklenmez initialize ediliyor.
+- Mobil menü görünürlüğünün yalnızca dinamik Tailwind sınıflarına bağlı olması kaldırıldı.
+- Stabil is-open durum sınıfı ve bileşene ait responsive CSS eklendi.
+- Mobil menü, backdrop-filter kullanan nav elementinin dışına taşındı; fixed-position uyumsuzluğu önlendi.
+- Önceki event listener'lar AbortController ile temizleniyor; init tekrar çağrılsa bile çift listener oluşmuyor.
+- Hamburger/X ikonları inline SVG olarak korunup hidden özelliğiyle güvenilir biçimde değiştiriliyor.
+- aria-expanded, aria-hidden, aria-controls ve aria-label durumları senkronize edildi.
+- Menü linkine basınca, dışarı basınca ve Escape tuşuyla kapanma düzeltildi.
+- Menü açıldığında arka plan kaydırması iPhone/Android uyumlu biçimde kilitleniyor ve kapanınca eski konum geri yükleniyor.
+- Ekran masaüstüne geçtiğinde açık mobil menü otomatik kapanıyor.
+- Tabletlerde sıkışmayı önlemek için hamburger/desktop geçiş sınırı 1024 px olarak ayarlandı.
+- localStorage erişimi kapalı olduğunda dil sisteminin tamamen durmaması için güvenli depolama eklendi.
+- Eski tarayıcı önbelleğinin yeni JavaScript'i engellememesi için script sürüm parametresi eklendi.
+
+Değiştirilen ana dosyalar:
+- assets/js/navbar.js
+- assets/js/loader.js
+- assets/js/language.js
+- assets/components/navbar-home.html
+- assets/components/navbar-project.html
+- index.html
+- dis_klinigi/dis-klinigi.html
+- emlak/emlak.html
+- hukuk-burosu/hukuk.html
+- restoran/restoran.html
+- spor_salonu/spor.html
+- yazilim_sirketi/yazilim.html
+
+Doğrulamalar:
+- Tüm JavaScript dosyaları node --check ile doğrulandı.
+- 7 HTML sayfasında navbar/footer placeholder ve script yolları kontrol edildi.
+- Ana sayfa ve proje navbarı Chromium tabanlı mock tarayıcı testinden geçti.
+- 360 px telefon ve 820 px tablet görünümünde açma/kapatma test edildi.
+- X/hamburger ikon değişimi, dışarı tıklama, Escape, dil değiştirme, scroll kilidi,
+  tekrar initialize ve 1024 px masaüstü geçişi doğrulandı.
+
+Çalıştırma:
+- VS Code ile bu klasörü açın.
+- index.html üzerinde Open with Live Server kullanın.
+- İlk testte Ctrl+F5 ile zorla yenileme yapın.

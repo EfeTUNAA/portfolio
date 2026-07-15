@@ -127,7 +127,7 @@
 <div class="w-full bg-surface-container-lowest border-b border-glass-border py-3 px-margin-desktop">
 <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant">
 <div class="flex items-center gap-6">
-<a class="flex items-center gap-2 font-label-md text-label-md hover:text-primary transition-colors" href="index.html">
+<a class="flex items-center gap-2 font-label-md text-label-md hover:text-primary transition-colors" href="../index.html">
 <span class="material-symbols-outlined text-[18px]">arrow_back</span>
 <span data-lang="tr">Portfolyoya Dön</span>
 <span data-lang="en">Back to Portfolio</span>
@@ -143,47 +143,15 @@
 <div class="flex items-center gap-4">
 <span class="px-3 py-1 rounded-full bg-primary-container/10 text-primary border border-primary/20 text-xs font-bold">V1.2.0</span>
 <div class="flex gap-2 font-label-sm text-label-sm">
-<button class="lang-link" id="lang-tr" onclick="setLanguage('tr')">TR</button>
+<button type="button" class="lang-link" data-language="tr">TR</button>
 <span>/</span>
-<button class="lang-link" id="lang-en" onclick="setLanguage('en')">EN</button>
+<button type="button" class="lang-link" data-language="en">EN</button>
 </div>
 </div>
 </div>
 </div>
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
-<div class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-container-max mx-auto">
-<a class="font-display-lg text-headline-md font-bold tracking-tighter text-primary" href="index.html">Tuna Web Tasarım</a>
-<div class="hidden md:flex items-center gap-8">
-<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="index.html">
-<span data-lang="tr">Anasayfa</span>
-<span data-lang="en">Home</span>
-</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#about">
-<span data-lang="tr">Hakkımızda</span>
-<span data-lang="en">About</span>
-</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#services">
-<span data-lang="tr">Hizmetler</span>
-<span data-lang="en">Services</span>
-</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#gallery">
-<span data-lang="tr">Galeri</span>
-<span data-lang="en">Gallery</span>
-</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">
-<span data-lang="tr">İletişim</span>
-<span data-lang="en">Contact</span>
-</a>
-</div>
-<div class="flex items-center gap-4">
-<button class="px-6 py-2.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-widest font-bold hover:scale-105 transition-transform active:scale-95">
-<span data-lang="tr">Seçkinlere Katıl</span>
-<span data-lang="en">Join The Elite</span>
-</button>
-</div>
-</div>
-</nav>
+<div id="navbar-container" data-navbar="project"></div>
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
 <div class="absolute inset-0 z-0">
@@ -531,29 +499,7 @@
 </div>
 </section>
 <!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-glass-border">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-base py-section-gap">
-<div class="space-y-4">
-<a class="font-display-lg text-headline-md font-bold text-primary" href="index.html">Tuna Web Tasarım</a>
-<p class="font-label-sm text-label-sm text-on-surface-variant">
-<span data-lang="tr">HER PİKSELDE TUNA WEB TASARIM HASSASİYETİ.</span>
-<span data-lang="en">TUNA WEB DESIGN PRECISION IN EVERY PIXEL.</span>
-</p>
-</div>
-<div class="flex flex-col items-center md:items-end gap-6">
-<div class="flex gap-8">
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">LinkedIn</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">GitHub</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Behance</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dribbble</a>
-</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant">
-<span data-lang="tr">© 2024 TUNA WEB TASARIM. TÜM HAKLARI SAKLIDIR.</span>
-<span data-lang="en">© 2024 TUNA WEB DESIGN. ALL RIGHTS RESERVED.</span>
-</div>
-</div>
-</div>
-</footer>
+<div id="footer-container"></div>
 <script>
     // Language Switcher Logic
     function setLanguage(lang) {
@@ -570,7 +516,7 @@
 
         // Update active class on buttons
         document.querySelectorAll('.lang-link').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(`lang-${lang}`).classList.add('active');
+        document.getElementById(`lang-${lang}`)?.classList.add('active');
     }
 
     // Initialize Language
@@ -593,6 +539,7 @@
     // Sticky Header Effect
     window.addEventListener('scroll', function() {
         const nav = document.querySelector('nav');
+        if (!nav) return;
         if (window.scrollY > 50) {
             nav.classList.add('py-2');
             nav.classList.remove('h-20');
@@ -620,4 +567,9 @@
         observer.observe(card);
     });
 </script>
+
+<script src="../assets/js/navbar.js?v=20260715-1"></script>
+<script src="../assets/js/language.js?v=20260715-1"></script>
+<script src="../assets/js/main.js?v=20260715-1"></script>
+<script src="../assets/js/loader.js?v=20260715-1"></script>
 </body></html>

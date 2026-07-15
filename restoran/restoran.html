@@ -172,12 +172,12 @@
 </head>
 <body class="font-body-md text-on-background">
 <!-- Top Navigation -->
-<div id="navbar-container"></div>
+<div id="navbar-container" data-navbar="project"></div>
 <!-- Project Info Banner -->
 <div class="pt-24 pb-4 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
 <div class="max-w-container-max mx-auto flex flex-wrap justify-between items-center gap-4">
 <div class="flex items-center gap-4">
-<a class="flex items-center gap-2 text-primary hover:underline font-label-md" href="index.html">
+<a class="flex items-center gap-2 text-primary hover:underline font-label-md" href="../index.html">
 <span class="material-symbols-outlined text-[18px]">arrow_back</span>
 <span class="" data-lang-content="tr">Portfolyoya Dön</span><span class="" data-lang-content="en">Back to Portfolio</span>
 </a>
@@ -608,89 +608,13 @@
 </div>
 </div>
 </section>
-<!-- Footer -->
-<footer class="w-full py-section-gap bg-surface-container-lowest border-t border-glass-border">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-base">
-<div class="flex flex-col items-center md:items-start">
-<a class="font-display-lg text-headline-md font-bold text-primary mb-4 block" href="index.html">Tuna Web Tasarım</a>
-<p class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">© 2024 Tuna Web Tasarım. ALL RIGHTS RESERVED. / TÜM HAKLARI SAKLIDIR.</p>
-</div>
-<div class="flex gap-gutter mt-8 md:mt-0">
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">LinkedIn</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 ml-6" href="#">GitHub</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 ml-6" href="#">Behance</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 ml-6" href="#">Dribbble</a>
-</div>
-</div>
-</footer>
-<script>
-        // Language Switcher Logic
-        const langToggle = document.getElementById('lang-toggle');
-        const html = document.documentElement;
+<div id="footer-container"></div>
 
-        function setLanguage(lang) {
-            html.setAttribute('lang', lang);
-            localStorage.setItem('precizion-lang', lang);
-            updatePlaceholders(lang);
-        }
 
-        function updatePlaceholders(lang) {
-            document.querySelectorAll('[data-placeholder-tr]').forEach(el => {
-                const placeholder = lang === 'tr' ? el.getAttribute('data-placeholder-tr') : el.getAttribute('data-placeholder-en');
-                el.setAttribute('placeholder', placeholder);
-            });
-        }
 
-        langToggle.addEventListener('click', () => {
-            const currentLang = html.getAttribute('lang');
-            setLanguage(currentLang === 'tr' ? 'en' : 'tr');
-        });
 
-        // Initialize Language
-        const savedLang = localStorage.getItem('precizion-lang') || 'tr';
-        setLanguage(savedLang);
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                e.preventDefault();
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Intersection Observer for Scroll Effects
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-            observer.observe(section);
-        });
-
-        // Header transparency shift
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('h-16', 'bg-surface/80');
-                nav.classList.remove('h-20', 'bg-glass-bg');
-            } else {
-                nav.classList.add('h-20', 'bg-glass-bg');
-                nav.classList.remove('h-16', 'bg-surface/80');
-            }
-        });
-    </script>
-
-<script src="assets/js/loader.js"></script>
-
+<script src="../assets/js/navbar.js?v=20260715-1"></script>
+<script src="../assets/js/language.js?v=20260715-1"></script>
+<script src="../assets/js/main.js?v=20260715-1"></script>
+<script src="../assets/js/loader.js?v=20260715-1"></script>
 </body></html>

@@ -161,37 +161,7 @@
 </head>
 <body class="selection:bg-primary/30 selection:text-white">
 <!-- Top Navigation -->
-<nav class="fixed top-0 w-full z-50 bg-glass-bg backdrop-blur-[40px] border-b border-glass-border">
-<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
-<a class="font-display-lg text-headline-md font-bold tracking-tighter text-primary" href="index.html">Tuna Web Tasarım</a>
-<div class="hidden md:flex gap-8 items-center">
-<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold border-b-2 border-primary pb-1" href="index.html">
-<span class="" data-lang="tr">Anasayfa</span><span class="" data-lang="en">Home</span>
-</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#about">
-<span class="" data-lang="tr">Hakkımızda</span><span class="" data-lang="en">About</span>
-</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#services">
-<span class="" data-lang="tr">Hizmetler</span><span class="" data-lang="en">Services</span>
-</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#gallery">
-<span class="" data-lang="tr">Galeri</span><span class="" data-lang="en">Gallery</span>
-</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" href="#faq">
-<span class="" data-lang="tr">SSS</span><span class="" data-lang="en">FAQ</span>
-</a>
-</div>
-<div class="flex items-center gap-6">
-<button class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" onclick="toggleLanguage()">
-<span class="" data-lang="tr">TR / EN</span><span class="" data-lang="en">EN / TR</span>
-</button>
-<a class="hidden md:block bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-lg" href="#contact">
-<span class="" data-lang="tr">İletişim</span><span class="" data-lang="en">Contact</span>
-</a>
-<button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
-</div>
-</div>
-</nav>
+<div id="navbar-container" data-navbar="project"></div>
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
 <div class="absolute inset-0 z-0">
@@ -235,7 +205,7 @@
 <span class="" data-lang="tr">Duyarlı Önizleme</span><span class="" data-lang="en">Responsive Preview</span>
 </span>
 </div>
-<a class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors uppercase tracking-widest" href="index.html">
+<a class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors uppercase tracking-widest" href="../index.html">
 <span class="material-symbols-outlined text-[18px]">arrow_back</span>
 <span class="" data-lang="tr">Portfolyoya Dön</span><span class="" data-lang="en">Back to Portfolio</span>
 </a>
@@ -581,46 +551,7 @@
 </div>
 </section>
 <!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-glass-border py-section-gap">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-20">
-<a class="font-display-lg text-headline-xl font-bold text-primary tracking-tighter" href="index.html">Tuna Web Tasarım</a>
-<div class="flex flex-wrap gap-12">
-<div class="space-y-4">
-<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">
-<span class="" data-lang="tr">Bağlantı</span><span class="" data-lang="en">Connect</span>
-</p>
-<div class="flex flex-col gap-2">
-<a class="text-on-surface hover:text-primary transition-colors" href="#">LinkedIn</a>
-<a class="text-on-surface hover:text-primary transition-colors" href="#">GitHub</a>
-<a class="text-on-surface hover:text-primary transition-colors" href="#">Behance</a>
-</div>
-</div>
-<div class="space-y-4">
-<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">
-<span class="" data-lang="tr">Ofisler</span><span class="" data-lang="en">Offices</span>
-</p>
-<div class="flex flex-col gap-2">
-<span class="text-on-surface-variant">İstanbul, TR</span>
-<span class="text-on-surface-variant">London, UK</span>
-<span class="text-on-surface-variant">Dubai, UAE</span>
-</div>
-</div>
-</div>
-</div>
-<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-glass-border gap-6">
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">© 2024 Tuna Web Tasarım. <span class="" data-lang="tr">TÜM HAKLARI SAKLIDIR.</span><span class="" data-lang="en">ALL RIGHTS RESERVED.</span></p>
-<div class="flex gap-8">
-<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
-<span class="" data-lang="tr">Gizlilik Politikası</span><span class="" data-lang="en">Privacy Policy</span>
-</a>
-<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">
-<span class="" data-lang="tr">Kullanım Şartları</span><span class="" data-lang="en">Terms of Service</span>
-</a>
-</div>
-</div>
-</div>
-</footer>
+<div id="footer-container"></div>
 <script>
         // Language Logic
         const toggleLanguage = () => {
@@ -671,4 +602,9 @@
             });
         });
     </script>
+
+<script src="../assets/js/navbar.js?v=20260715-1"></script>
+<script src="../assets/js/language.js?v=20260715-1"></script>
+<script src="../assets/js/main.js?v=20260715-1"></script>
+<script src="../assets/js/loader.js?v=20260715-1"></script>
 </body></html>
